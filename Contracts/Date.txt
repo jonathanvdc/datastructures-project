@@ -1,0 +1,36 @@
+class Date
+// Represents a simple date.
+{
+
+    +CreateDate(in Day : integer, in Month : integer, in Year : integer) : Date { query }
+    // Creates a new date from a day, month and year.
+    // Pre:
+    // Day must be a positive integer that represents a valid day for the provided month.
+    // Month must be an integer from 1 to 12.
+    // Year must be an integer.
+
+    property Day
+    {
+
+        +get() : integer { query }
+        // Gets the day of this date.
+
+    }
+
+    property Month
+    {
+
+        +get() : integer { query }
+        // Gets the month of this date.
+
+    }
+
+    property Year
+    {
+
+        +get() : integer { query }
+        // Gets the year of this date.
+
+    }
+
+}

@@ -1,0 +1,22 @@
+class ReservationManager
+// Manages reservations for a movie theater.
+{
+
+    +CreateReservationManager() : ReservationManager { query }
+    // Creates a new instance of the reservation manager.
+
+    property Reservations
+    {
+
+        +get() : IReadOnlyList<Reservation> { query }
+        // Gets the movie theater's processed and accepted reservations.
+
+    }
+
+    +QueueReservation(in Request : ReservationRequest)
+    // Queues a reservation for a showtime for processing.
+
+    +ProcessReservations()
+    // Processes all queued reservations.
+
+}

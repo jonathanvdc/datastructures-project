@@ -1,0 +1,24 @@
+class DateTime
+// Describes a date and time: a date and the time of day.
+{
+
+    +CreateDateTime(in Date : Date, in TimeOfDay : Time) : DateTime { query }
+    // Creates a new date-time instance based on the date and time provided.
+
+    property Date
+    {
+
+        +get() : Date { query }
+        // Gets this timestamp's date.
+
+    }
+
+    property TimeOfDay
+    {
+
+        +get() : Time { query }
+        // Gets this timestamp's time of day.
+
+    }
+
+}

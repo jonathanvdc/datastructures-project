@@ -1,0 +1,31 @@
+from Queue import *
+from ArrayList import *
+
+class ReservationManager:
+    """ Manages reservations for a movie theater. """
+
+    def __init__(self):
+        """ Creates a new instance of the reservation manager. """
+        self.requests = None
+        self.all_reservations = None
+        self.current_id = 0
+        self.requests = Queue()
+        self.all_reservations = ArrayList()
+
+    def queue_reservation(self, Request):
+        """ Queues a reservation for a showtime for processing. """
+        self.requests.enqueue(Request)
+
+    def process_reservations(self):
+        """ Processes all queued reservations. """
+        while not self.requests.is_empty:
+            request = self.requests.dequeue()
+            reserv = request.showtime.make_reservation(self.current_id, request)
+            if reserv is not None:
+                self.current_id += 1
+                self.all_reservations.add(reserv)
+
+    @property
+    def reservations(self):
+        """ Gets the movie theater's processed and accepted reservations. """
+        return self.all_reservations

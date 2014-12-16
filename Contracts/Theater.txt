@@ -1,0 +1,87 @@
+class Theater
+// Represents a movie theater.
+{
+
+    +CreateTheater(in Name : string) : Theater { query }
+    // Creates a new movie theater instance.
+
+    property Auditoria
+    {
+
+        +get() : IReadOnlySwapList<Auditorium> { query }
+        // Gets a read-only list of all auditoria in this movie theater.
+
+    }
+
+    property Timeslots
+    {
+
+        +get() : IReadOnlySwapList<Time> { query }
+        // Gets the list of all available timeslots for this movie theater.
+
+    }
+
+    property Movies
+    {
+
+        +get() : SortedSwapList<Movie> { query }
+        // Gets the list of all movies known to the movie theater.
+
+    }
+
+    property Showtimes
+    {
+
+        +get() : ISortableTable<integer, Showtime> { query }
+        // Gets a table containing scheduled showtimes.
+        // The showtimes are contained in a table that uses the showtimes' IDs as search keys.
+
+    }
+
+    property RegisteredCustomers
+    {
+
+        +get() : IReadOnlySwapList<User> { query }
+        // Gets a read-only view of all customers registered with this theater.
+
+    }
+
+    property Name
+    {
+
+        +get() : string { query }
+        // Gets the movie theater's name.
+
+    }
+
+    property Reservations
+    {
+
+        +get() : ReservationManager { query }
+        // Gets the reservation manager instance.
+
+    }
+
+    +BuildAuditorium(in NumberOfSeats : integer) : Auditorium
+    // Builds and returns a new auditorium with the specified number of seats.
+    // Pre:
+    // 'NumberOfSeats' must be a nonzero positive integer.
+    // Post:
+    // This method creates a new Auditorium object, adds it to the current movie theater, and returns it.
+
+    +ScheduleShowtime(in Location : Auditorium, in MoviePlaying : Movie, in StartTime : DateTime) : Showtime
+    // Schedules a new showtime at this theater, based on the provided arguments.
+    // Pre:
+    // The auditorium must not be booked for a showtime yet at that specific time, the movie must be a known movie to this theater, and the start time must correspond to a future, valid timeslot.
+    // Post:
+    // A new showtime is created and assigned its own unique identifier, it is subsequently added to the theater's list of showtimes and then returned.
+    // If any of the provided arguments are invalid, an exception is thrown.
+
+    +RegisterCustomer(in FirstName : string, in LastName : string, in EmailAddress : string) : User
+    // Registers a new customer and returns a User instance that describes them.
+    // Pre:
+    // FirstName and LastName should be the user's first and last name, respectively, and EmailAddress should be the user's e-mail address.
+    // Post:
+    // Creates a new User instance, assigns it a unique id and the given arguments, adds it to the list of registered users, and returns it.
+
+}

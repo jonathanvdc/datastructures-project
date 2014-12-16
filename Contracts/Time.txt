@@ -1,0 +1,43 @@
+class Time
+// Represents the time of day.
+{
+
+    +CreateTime(in Hour : integer, in Minute : integer) : Time { query }
+    // Creates a new time based on an hour and minute.
+    // Pre:
+    // Hour and minute must be non-negative integers.
+    // Post:
+    // Returns a Time instance that exactly represents the provided hour and minute.
+
+    +CreateTime(in Hour : integer, in Minute : integer, in Second : integer) : Time { query }
+    // Creates a new time based on an hour, minute and second.
+    // Pre:
+    // Hour, minute and second must be non-negative integers.
+    // Post:
+    // Returns a Time instance that exactly represents the provided hour, minute and second.
+
+    property Second
+    {
+
+        +get() : integer { query }
+        // Gets the second of this time instance.
+
+    }
+
+    property Minute
+    {
+
+        +get() : integer { query }
+        // Gets the minute of this time instance.
+
+    }
+
+    property Hour
+    {
+
+        +get() : integer { query }
+        // Gets the hour of this time instance.
+
+    }
+
+}

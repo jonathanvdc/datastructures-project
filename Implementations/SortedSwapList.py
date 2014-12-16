@@ -1,0 +1,59 @@
+from ISortedList import *
+
+class SortedSwapList(ISortedList):
+    """ A sorted list whose backing list can be swapped. It is the sorted equivalent of 'SwapList<T>' """
+
+    def __init__(self, backingList):
+        """ Creates a new sorted swap list with the specified backing list. """
+        self.backing_list = None
+        self.backing_list = backingList
+
+    def swap(self, Container):
+        """ Swaps the sorted swap list's backing container with another backing list. """
+        preItems = Container.to_list()
+        i = 0
+        while i < preItems.count:
+            Container.remove(preItems[i])
+            i += 1
+        items = self.backing_list.to_list()
+        self.binary_copy(items, Container, 0, items.count)
+        self.backing_list = Container
+
+    def binary_copy(self, Source, Target, StartIndex, Count):
+        """ A recursive algorithm that copies all items from a read-only list to the given target list. This is intended to maximize performance when switching to a backing sorted list implemented by a binary tree. """
+        if Count > 0:
+            mid = StartIndex + Count // 2
+            Target.add(Source[mid])
+            leftCount = mid
+            self.binary_copy(Source, Target, StartIndex, leftCount)
+            rightCount = StartIndex + Count - mid - 1
+            self.binary_copy(Source, Target, mid + 1, rightCount)
+
+    def add(self, Item):
+        """ Adds an item to the collection. """
+        self.backing_list.add(Item)
+
+    def remove(self, Item):
+        self.backing_list.remove(Item)
+
+    def contains(self, Item):
+        """ Finds out if the sorted list contains the given item. """
+        return self.backing_list.contains(Item)
+
+    def to_list(self):
+        """ Returns a read-only list that represents this list's contents, for easy enumeration. """
+        return self.backing_list.to_list()
+
+    def __iter__(self):
+        """ Creates an iterator that iterates over every element in the collection. """
+        return self.backing_list.__iter__()
+
+    @property
+    def is_empty(self):
+        """ Gets a boolean value that indicates if the sorted list is empty. """
+        return self.backing_list.is_empty
+
+    @property
+    def count(self):
+        """ Gets the number of elements in the collection. """
+        return self.backing_list.count

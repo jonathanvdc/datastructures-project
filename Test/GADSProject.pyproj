@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>f4b8f817-b814-4872-9690-ea3a8d6e748d</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>TableTest.py</StartupFile>
+    <SearchPath>..\Implementations\</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>GADSProject</Name>
+    <RootNamespace>GADSProject</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\Implementations\ArrayList.py">
+      <Link>ArrayList.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Auditorium.py">
+      <Link>Auditorium.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\BinarySearchTree.py">
+      <Link>BinarySearchTree.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\BinaryTree.py">
+      <Link>BinaryTree.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\BinaryTreeTableFactory.py">
+      <Link>BinaryTreeTableFactory.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Date.py">
+      <Link>Date.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\DateTime.py">
+      <Link>DateTime.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\DefaultRecordMap.py">
+      <Link>DefaultRecordMap.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\DoubleNode.py">
+      <Link>DoubleNode.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\DoublyLinkedList.py">
+      <Link>DoublyLinkedList.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Hashtable.py">
+      <Link>Hashtable.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\ICollection.py">
+      <Link>ICollection.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\IComparer.py">
+      <Link>IComparer.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\IFactory.py">
+      <Link>IFactory.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\IList.py">
+      <Link>IList.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\IMap.py">
+      <Link>IMap.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\IReadOnlyCollection.py">
+      <Link>IReadOnlyCollection.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\IReadOnlyList.py">
+      <Link>IReadOnlyList.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\IReadOnlySwapList.py">
+      <Link>IReadOnlySwapList.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\IRecord.py">
+      <Link>IRecord.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\ISortableTable.py">
+      <Link>ISortableTable.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\ISortedList.py">
+      <Link>ISortedList.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\ITable.py">
+      <Link>ITable.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\ITree.py">
+      <Link>ITree.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\LinkedList.py">
+      <Link>LinkedList.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\ListNode.py">
+      <Link>ListNode.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Movie.py">
+      <Link>Movie.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\MovieRatingMap.py">
+      <Link>MovieRatingMap.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\OpenHashtable.py">
+      <Link>OpenHashtable.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\OpenHashtableItem.py">
+      <Link>OpenHashtableItem.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\PowerSequenceMap.py">
+      <Link>PowerSequenceMap.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Project.py">
+      <Link>Project.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Queue.py">
+      <Link>Queue.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\RecordKeyComparer.py">
+      <Link>RecordKeyComparer.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Reservation.py">
+      <Link>Reservation.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\ReservationManager.py">
+      <Link>ReservationManager.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\ReservationRequest.py">
+      <Link>ReservationRequest.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Showtime.py">
+      <Link>Showtime.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\SortedSwapList.py">
+      <Link>SortedSwapList.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Stack.py">
+      <Link>Stack.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\SwapList.py">
+      <Link>SwapList.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\SwapTable.py">
+      <Link>SwapTable.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Theater.py">
+      <Link>Theater.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Ticket.py">
+      <Link>Ticket.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\Time.py">
+      <Link>Time.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\TreeSortedList.py">
+      <Link>TreeSortedList.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\TreeTable.py">
+      <Link>TreeTable.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\User.py">
+      <Link>User.py</Link>
+    </Compile>
+    <Compile Include="TableTest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TheaterUI.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TwoThreeFourTree.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TwoThreeTreeTest.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
+  <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
