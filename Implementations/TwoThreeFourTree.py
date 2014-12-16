@@ -1,6 +1,7 @@
 # Implementatie van de 2-3-4 Boom
 # Door:			Sibert Aerts
 # Tests door:	Othman Nahhas
+# Revisie en verdere debugging door: Jonathan Van der Cruysse
 
 
 class TwoThreeFourNode:
@@ -31,6 +32,24 @@ class TwoThreeFourNode:
 		if self.k3 == None:
 			return 2
 		return 3
+
+	def count(self):
+		""" Geeft het totale aantal elementen in de boom. """
+		
+		result = self.size()
+		for item in [self.c1, self.c2, self.c3, self.c4]:
+			if item != None:
+				result += item.count()
+		return result
+
+	def rightmost_child(self):
+		""" Zoekt het meest rechtse kind van de knop en geeft dat terug. """
+		if self.size() < 2:
+			return self.c2
+		elif self.size() < 3:
+			return self.c3
+		else:
+			return self.c4
 		
 	def is_leaf(self):
 		""" Geeft een boolean terug die aangeeft of de node een blad is. """
@@ -75,6 +94,25 @@ class TwoThreeFourNode:
 		else:
 			return self.c1.height() + 1
 			
+	def IterateInorder(self):
+		""" Itereert in volgorde over alle items in de boom. """
+
+		if self.is_leaf():
+			yield self.d1
+			if self.size() > 1:
+				yield self.d2
+				if self.size() > 2:
+					yield self.d3
+		else:
+			yield from self.c1.IterateInorder()
+			yield self.d1
+			yield from self.c2.IterateInorder()
+			if self.size() > 1:
+				yield self.d2
+				yield from self.c3.IterateInorder()
+				if self.size() > 2:
+					yield self.d3
+					yield from self.c4.IterateInorder()
 			
 	def __str__(self):
 		""" Print de sleutels van de node af, voor debug doeleinden. """
@@ -218,8 +256,6 @@ class TwoThreeFourTree:
 			
 			del(splitNode)
 			
-
-			
 	def Inorder(self, node=None):
 		""" Print alle sleutels en items in de boom in volgorde af. """
 	
@@ -249,6 +285,9 @@ class TwoThreeFourTree:
 		""" Verwijdert het item met zoeksleutel 'key' uit de boom, geeft een boolean terug naargelang het item gevonden is of niet. """
 	
 		searchNode = self.root
+
+		if searchNode == None:
+			return False
 		
 		if searchNode.is_leaf() and searchNode.size() == 1:
 			if searchNode.k1 == key:
@@ -491,14 +530,15 @@ class TwoThreeFourTree:
 		searchNode = self.root
 		
 		while True:
+			if searchNode == None:
+				return None
+
 			if searchNode.k1 == key:
 				return searchNode.d1
 			elif searchNode.k2 == key:
 				return searchNode.d2
 			elif searchNode.k3 == key:
 				return searchNode.d3
-			elif searchNode.k3 == key:
-				return searchNode.d4
 					
 			else: # Het item is niet gevonden
 				if searchNode.is_leaf():	# searchNode was het laatste item
@@ -514,4 +554,4 @@ class TwoThreeFourTree:
 						searchNode = searchNode.c3
 						continue
 					else: # size is 3 en key > de derde key van de node
-						searchNode = searchNode.c4
+						searchNode = searchNode.rightmost_child()

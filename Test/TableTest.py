@@ -8,6 +8,7 @@
 # These tests are randomized to reduce the odds of missing errors due to a highly specific set of test data.
 
 from Project import *
+from TwoThreeFourSearchTree import *
 import functools
 import random
     
@@ -54,7 +55,7 @@ class IntRecord(IRecord):
         return self.value
 
     def __repr__(self):
-        return "IntRecord(" + self.value + ")"
+        return "IntRecord(" + str(self.value) + ")"
         
 def to_py_list(aList):
     """ Converts the given IReadOnlyList to a python list. """
@@ -74,6 +75,7 @@ def test_table(aTable):
     for i in range(0, 100):
         diff = aTable.count - len(pyDict);
         assert(diff == 0)
+        assert(len(list(iter(aTable))) == aTable.count)
         record = IntRecord(rng.randrange(-100, 100))
         if not aTable.contains_key(record.key):
             assert(record.key not in pyDict)
@@ -145,5 +147,11 @@ test_table(OpenHashtable(DefaultRecordMap(), PowerSequenceMap(2)))
 
 print("Testing swap table...")
 test_swap_table()
+
+print("Testing binary tree...")
+test_table(TreeTable(BinarySearchTree(DefaultRecordMap())))
+
+print("Testing 2-3-4 tree...")
+test_table(TreeTable(TwoThreeFourSearchTree(DefaultRecordMap())))
 
 print("All tests successful")

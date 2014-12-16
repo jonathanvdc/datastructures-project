@@ -166,6 +166,12 @@
     <Compile Include="..\Implementations\TreeTable.py">
       <Link>TreeTable.py</Link>
     </Compile>
+    <Compile Include="..\Implementations\TwoThreeFourSearchTree.py">
+      <Link>TwoThreeFourSearchTree.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\TwoThreeFourTree.py">
+      <Link>TwoThreeFourTree.py</Link>
+    </Compile>
     <Compile Include="..\Implementations\User.py">
       <Link>User.py</Link>
     </Compile>
@@ -173,9 +179,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TheaterUI.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TwoThreeFourTree.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TwoThreeTreeTest.py">
