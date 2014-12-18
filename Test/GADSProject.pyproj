@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f4b8f817-b814-4872-9690-ea3a8d6e748d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TableTest.py</StartupFile>
+    <StartupFile>TheaterUI.py</StartupFile>
     <SearchPath>..\Implementations\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -102,6 +102,9 @@
     </Compile>
     <Compile Include="..\Implementations\ListNode.py">
       <Link>ListNode.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\ListTable.py">
+      <Link>ListTable.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Movie.py">
       <Link>Movie.py</Link>

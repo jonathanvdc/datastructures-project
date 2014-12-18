@@ -14,6 +14,7 @@ from IFactory import *
 from ArrayList import *
 from ListNode import *
 from LinkedList import *
+from ListTable import *
 from SwapList import *
 from SortedSwapList import *
 from Stack import *

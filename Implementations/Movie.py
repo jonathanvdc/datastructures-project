@@ -5,8 +5,8 @@ class Movie(IRecord):
 
     def __init__(self, Id, Title, Rating):
         """ Creates a new movie instance for the given parameters. """
-        self.id_value = 0
         self.title_value = None
+        self.id_value = 0
         self.rating_value = 0.0
         self.id = Id
         self.title = Title
@@ -19,16 +19,6 @@ class Movie(IRecord):
         return self.id + ": " + self
 
     @property
-    def id(self):
-        """ Gets the movie's identifier. """
-        return self.id_value
-
-    @id.setter
-    def id(self, value):
-        """ Sets the movie's identifier. """
-        self.id_value = value
-
-    @property
     def title(self):
         """ Gets the movie's title. """
         return self.title_value
@@ -37,6 +27,16 @@ class Movie(IRecord):
     def title(self, value):
         """ Sets the movie's title. """
         self.title_value = value
+
+    @property
+    def id(self):
+        """ Gets the movie's identifier. """
+        return self.id_value
+
+    @id.setter
+    def id(self, value):
+        """ Sets the movie's identifier. """
+        self.id_value = value
 
     @property
     def rating(self):

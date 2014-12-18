@@ -58,10 +58,15 @@ def getNow():
     return Project.DateTime(Project.Date(currentTime.day, currentTime.month, currentTime.year), Project.Time(currentTime.hour, currentTime.minute, currentTime.second))
 
 app = MainFrame()
-mdb = app.theater.register_customer("Marc", "De Bel", "")
+mdb = app.theater.register_customer("Marc", "De Bel", "marc.debel@bookoutlet.be")
 nowTime = getNow()
-#table =
-#app.theater.reservations.queue_reservation(Project.ReservationRequest(mdb,
-#app.theater.showtimes[0], 2, nowTime))
+app.theater.build_auditorium(10)
+movie = app.theater.register_movie("Guardians of the Galaxy", 4)
+movie = app.theater.find_movie(movie.title)
+showtime = app.theater.schedule_showtime(app.theater.auditoria[0], movie, Project.DateTime(getNow().date, app.theater.timeslots[0]))
+app.theater.reservations.queue_reservation(Project.ReservationRequest(mdb, app.theater.showtimes[0], 2, nowTime))
+app.theater.reservations.process_reservations()
+showtime.redeem_ticket(app.theater, mdb)
+showtime.redeem_ticket(app.theater, mdb)
 app.mainloop()
 print(table)

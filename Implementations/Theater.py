@@ -1,12 +1,15 @@
 from Auditorium import *
 from Showtime import *
 from User import *
+from Movie import *
 from SwapList import *
 from ArrayList import *
 from SortedSwapList import *
 from TreeSortedList import *
 from BinarySearchTree import *
 from MovieRatingMap import *
+from ListTable import *
+from DefaultRecordMap import *
 from ReservationManager import *
 from Time import *
 
@@ -15,11 +18,12 @@ class Theater:
 
     def __init__(self, Name):
         """ Creates a new movie theater instance. """
+        self.showtime_index = 0
+        self.movie_index = 0
         self.auditors = SwapList(ArrayList())
         self.slots = SwapList(ArrayList())
         self.allmovies = SortedSwapList(TreeSortedList(BinarySearchTree(MovieRatingMap())))
-        self.showtime_index = 0
-        self.scheduled_showtimes = None
+        self.scheduled_showtimes = ListTable(DefaultRecordMap(), ArrayList())
         self.registered_users = SwapList(ArrayList())
         self.name_value = None
         self.reservations_value = None
@@ -30,6 +34,20 @@ class Theater:
         self.slots.add(Time(20, 0))
         self.slots.add(Time(22, 30))
 
+    def find_movie(self, Title):
+        """ Tries to find a movie based on its complete title. """
+        for item in self.movies:
+            if item.title == Title:
+                return item
+        return None
+
+    def is_timeslot(self, Value):
+        """ Gets a boolean value that indicates if the provided time corresponds to a timeslot. """
+        for item in self.timeslots:
+            if Value == item:
+                return True
+        return False
+
     def build_auditorium(self, NumberOfSeats):
         """ Builds and returns a new auditorium with the specified number of seats. """
         auditor = Auditorium(self.auditors.count, NumberOfSeats)
@@ -38,6 +56,8 @@ class Theater:
 
     def schedule_showtime(self, Location, MoviePlaying, StartTime):
         """ Schedules a new showtime at this theater, based on the provided arguments. """
+        if (not self.is_timeslot(StartTime.time_of_day)) or (not self.movies.contains(MoviePlaying)):
+            return None
         show = Showtime(self.showtime_index, Location, MoviePlaying, StartTime)
         self.showtime_index += 1
         self.scheduled_showtimes.insert(show)
@@ -48,6 +68,23 @@ class Theater:
         customer = User(self.registered_users.count, FirstName, LastName, EmailAddress)
         self.registered_users.add(customer)
         return customer
+
+    def register_movie(self, Title, Rating):
+        """ Creates a new movie from the given arguments and adds it to the list of playing movies. """
+        result = Movie(self.movie_index, Title, Rating)
+        self.movies.add(result)
+        self.movie_index += 1
+        return result
+
+    @property
+    def movies(self):
+        """ Gets the list of all movies known to the movie theater. """
+        return self.allmovies
+
+    @property
+    def timeslots(self):
+        """ Gets the list of all available timeslots for this movie theater. """
+        return self.slots
 
     @property
     def name(self):
@@ -73,16 +110,6 @@ class Theater:
     def auditoria(self):
         """ Gets a read-only list of all auditoria in this movie theater. """
         return self.auditors
-
-    @property
-    def timeslots(self):
-        """ Gets the list of all available timeslots for this movie theater. """
-        return self.slots
-
-    @property
-    def movies(self):
-        """ Gets the list of all movies known to the movie theater. """
-        return self.allmovies
 
     @property
     def showtimes(self):
