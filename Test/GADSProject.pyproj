@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f4b8f817-b814-4872-9690-ea3a8d6e748d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>CLI\CommandLineInterface.py</StartupFile>
+    <StartupFile>TheaterTests.py</StartupFile>
     <SearchPath>..\Implementations\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -214,6 +214,9 @@
     <Compile Include="CLI\MenuDialog.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CLI\NewAuditoriumDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CLI\NewMovieDialog.py">
       <SubType>Code</SubType>
     </Compile>
@@ -242,6 +245,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\SwapBackingListDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\SwapBackingSortedListDialog.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\SwapBackingTableDialog.py">
@@ -278,6 +284,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GUI\tkhelpers.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TheaterTests.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TwoThreeTreeTest.py">

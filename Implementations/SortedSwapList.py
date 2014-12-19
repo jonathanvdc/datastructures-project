@@ -5,7 +5,6 @@ class SortedSwapList(ISortedList):
 
     def __init__(self, backingList):
         """ Creates a new sorted swap list with the specified backing list. """
-        self.backing_list = None
         self.backing_list = backingList
 
     def swap(self, Container):
@@ -47,6 +46,11 @@ class SortedSwapList(ISortedList):
     def __iter__(self):
         """ Creates an iterator that iterates over every element in the collection. """
         return self.backing_list.__iter__()
+
+    @property
+    def key_map(self):
+        """ Gets a record-to-key map that maps records to sortable keys. """
+        return self.backing_list.key_map
 
     @property
     def is_empty(self):

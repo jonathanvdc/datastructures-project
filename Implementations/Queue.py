@@ -7,10 +7,8 @@ class Queue(IReadOnlyCollection):
     def __init__(self, dataContainer = None):
         """ Creates a new queue instance that uses the specified list to store its data. """
         if dataContainer is None:
-            self.data_container = None
             self.data_container = ArrayList()
             return
-        self.data_container = None
         self.data_container = dataContainer
 
     def enqueue(self, Item):

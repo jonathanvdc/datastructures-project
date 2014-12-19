@@ -8,9 +8,6 @@ class Hashtable(ITable):
         """ Creates a new hash table, from the provided key map and the bucket table factory. """
         self.bucket_count = 0
         self.prime_list = [31, 97, 389, 1543, 6151, 24593, 98317, 393241, 1572869, 6291469, 25165843, 100663319, 402653189, 1610612741, 4294967291]
-        self.buckets = None
-        self.key_map_value = None
-        self.bucket_factory_value = None
         self.key_map = KeyMap
         self.bucket_factory = BucketFactory
         self.buckets = [None] * self.prime_list[0]

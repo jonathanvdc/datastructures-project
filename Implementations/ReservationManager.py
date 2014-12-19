@@ -1,16 +1,15 @@
 from ArrayList import *
 from Queue import *
+from SwapList import *
 
 class ReservationManager:
     """ Manages reservations for a movie theater. """
 
     def __init__(self):
         """ Creates a new instance of the reservation manager. """
-        self.requests = None
-        self.all_reservations = None
         self.current_id = 0
         self.requests = Queue()
-        self.all_reservations = ArrayList()
+        self.all_reservations = SwapList(ArrayList())
 
     def queue_reservation(self, Request):
         """ Queues a reservation for a showtime for processing. """

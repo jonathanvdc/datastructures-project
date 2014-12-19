@@ -5,8 +5,6 @@ class Auditorium(IRecord):
 
     def __init__(self, Index, NumberOfSeats):
         """ Creates a new auditorium instance for the provided index and number of seats. """
-        self.index_value = 0
-        self.number_of_seats_value = 0
         self.index = Index
         self.number_of_seats = NumberOfSeats
 

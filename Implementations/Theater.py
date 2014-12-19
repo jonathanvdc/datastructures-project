@@ -25,8 +25,6 @@ class Theater:
         self.allmovies = SortedSwapList(TreeSortedList(BinarySearchTree(MovieRatingMap())))
         self.scheduled_showtimes = ListTable(DefaultRecordMap(), ArrayList())
         self.registered_users = SwapList(ArrayList())
-        self.name_value = None
-        self.reservations_value = None
         self.name = Name
         self.reservations = ReservationManager()
         self.slots.add(Time(14, 30))
@@ -48,6 +46,13 @@ class Theater:
                 return True
         return False
 
+    def showtime_planned(self, Location, StartTime):
+        """ Gets a boolean value that indicates whether a showtime has been planned or not at the specified time in the specified auditorium. """
+        for item in self.showtimes:
+            if item.location == Location and item.start_time == StartTime:
+                return True
+        return False
+
     def build_auditorium(self, NumberOfSeats):
         """ Builds and returns a new auditorium with the specified number of seats. """
         auditor = Auditorium(self.auditors.count, NumberOfSeats)
@@ -56,7 +61,7 @@ class Theater:
 
     def schedule_showtime(self, Location, MoviePlaying, StartTime):
         """ Schedules a new showtime at this theater, based on the provided arguments. """
-        if (not self.is_timeslot(StartTime.time_of_day)) or (not self.movies.contains(MoviePlaying)):
+        if (not self.is_timeslot(StartTime.time_of_day)) or (not self.movies.contains(MoviePlaying)) or self.showtime_planned(Location, StartTime):
             return None
         show = Showtime(self.showtime_index, Location, MoviePlaying, StartTime)
         self.showtime_index += 1
@@ -87,6 +92,11 @@ class Theater:
         return self.slots
 
     @property
+    def showtimes(self):
+        """ Gets a table containing scheduled showtimes. The showtimes are contained in a table that uses the showtimes' IDs as search keys. """
+        return self.scheduled_showtimes
+
+    @property
     def name(self):
         """ Gets the movie theater's name. """
         return self.name_value
@@ -110,11 +120,6 @@ class Theater:
     def auditoria(self):
         """ Gets a read-only list of all auditoria in this movie theater. """
         return self.auditors
-
-    @property
-    def showtimes(self):
-        """ Gets a table containing scheduled showtimes. The showtimes are contained in a table that uses the showtimes' IDs as search keys. """
-        return self.scheduled_showtimes
 
     @property
     def registered_customers(self):

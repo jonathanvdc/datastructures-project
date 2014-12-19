@@ -8,11 +8,6 @@ class Showtime(IRecord):
 
     def __init__(self, Id, Location, MoviePlaying, StartTime):
         """ Creates a new instance of a showtime. """
-        self.id_value = 0
-        self.location_value = None
-        self.movie_playing_value = None
-        self.start_time_value = None
-        self.number_of_free_seats_value = 0
         self.tickets = Stack()
         self.id = Id
         self.location = Location

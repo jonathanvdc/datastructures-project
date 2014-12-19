@@ -6,9 +6,11 @@ from NewUserDialog import *
 from NewMovieDialog import *
 from NewShowtimeDialog import *
 from NewTimeslotDialog import *
+from NewAuditoriumDialog import *
 from ReserveTicketDialog import *
 from RedeemTicketDialog import *
 from DeleteTimeslotDialog import *
 from SwapBackingListDialog import *
 from SwapBackingTableDialog import *
+from SwapBackingSortedListDialog import *
 from QuitDialog import *

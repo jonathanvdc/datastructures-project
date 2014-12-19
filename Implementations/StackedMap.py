@@ -5,8 +5,6 @@ class StackedMap(IMap):
 
     def __init__(self, FirstMap, SecondMap):
         """ Creates a new stacked map instance from the first and second mapping functions. """
-        self.first_map_value = None
-        self.second_map_value = None
         self.first_map = FirstMap
         self.second_map = SecondMap
 

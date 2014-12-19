@@ -5,8 +5,6 @@ class ListTable(ISortableTable):
 
     def __init__(self, KeyMap, List):
         """ Creates a new list table instance. """
-        self.list = None
-        self.key_map_value = None
         self.key_map = KeyMap
         self.list = List
 
@@ -90,8 +88,7 @@ class ListTable(ISortableTable):
         for item in self.list:
             if self.key_map.map(item) == Key:
                 return item
-            else:
-                return None
+        return None
 
     @property
     def count(self):

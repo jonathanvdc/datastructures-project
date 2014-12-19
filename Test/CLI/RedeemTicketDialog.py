@@ -41,7 +41,5 @@ class RedeemTicketDialog(CommandLineDialog):
 
         showtime = DialogHelpers.SelectShowtime(reserved)
 
-        if (showtime.redeem_ticket(self.theater, user)):
-            print("Ticket has been redeemed.")
-        else:
-            print("Ticket could not be redeemed.")
+        showtime.redeem_ticket(self.theater, user)
+        print("One ticket has been redeemed")
