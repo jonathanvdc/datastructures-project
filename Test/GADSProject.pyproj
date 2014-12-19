@@ -157,6 +157,9 @@
     <Compile Include="..\Implementations\Stack.py">
       <Link>Implementation\Stack.py</Link>
     </Compile>
+    <Compile Include="..\Implementations\StackedMap.py">
+      <Link>Implementation\StackedMap.py</Link>
+    </Compile>
     <Compile Include="..\Implementations\SwapList.py">
       <Link>Implementation\SwapList.py</Link>
     </Compile>
@@ -171,6 +174,9 @@
     </Compile>
     <Compile Include="..\Implementations\Time.py">
       <Link>Implementation\Time.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\ToStringMap.py">
+      <Link>Implementation\ToStringMap.py</Link>
     </Compile>
     <Compile Include="..\Implementations\TreeSortedList.py">
       <Link>Implementation\TreeSortedList.py</Link>
@@ -193,6 +199,9 @@
     <Compile Include="CLI\CommandLineInterface.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CLI\DialogHelpers.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CLI\Dialogs.py">
       <SubType>Code</SubType>
     </Compile>
@@ -208,6 +217,9 @@
     <Compile Include="CLI\NewShowtimeDialog.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CLI\NewTimeslotDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CLI\NewUserDialog.py">
       <SubType>Code</SubType>
     </Compile>
@@ -215,6 +227,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\QuitDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\RedeemTicketDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\ReserveTicketDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\ShowtimeStartDialog.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GUI\MovieComboBox.py">

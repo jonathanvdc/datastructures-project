@@ -30,6 +30,8 @@ from OpenHashtableItem import *
 from OpenHashtable import *
 from SwapTable import *
 from PowerSequenceMap import *
+from ToStringMap import *
+from StackedMap import *
 from BinaryTreeTableFactory import *
 from DefaultRecordMap import *
 from IdentityMap import *
@@ -49,3 +51,4 @@ from ReservationRequest import *
 from Reservation import *
 from MovieTitleMap import *
 from Ticket import *
+from UserNameMap import *

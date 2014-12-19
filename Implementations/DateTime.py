@@ -12,6 +12,39 @@ class DateTime:
         """ Gets the time's string representation. """
         return str(self.date) + " " + str(self.time_of_day)
 
+    def __hash__(self):
+        """ Gets a hash code for the current DateTime instance. """
+        return hash(self.date) ^ hash(self.time_of_day)
+
+    def __eq__(self, Other):
+        """ Finds out if two 'DateTime' instances are equal. """
+        return self.date == Other.date and self.time_of_day == Other.time_of_day
+
+    def __ne__(self, Other):
+        """ Finds out if two 'DateTime' instances are not equal. """
+        return self.date != Other.date or self.time_of_day != Other.time_of_day
+
+    def __lt__(self, Other):
+        """ Finds out if this 'DateTime' instance is less than the given 'DateTime' instance. """
+        if self.date < Other.date:
+            return True
+        elif self.date == Other.date:
+            return self.time_of_day < Other.time_of_day
+        else:
+            return False
+
+    def __gt__(self, Other):
+        """ Finds out if this 'DateTime' instance is greater than the given 'DateTime' instance. """
+        return not self <= Other
+
+    def __le__(self, Other):
+        """ Finds out if this 'DateTime' instance is less than or equal to the given 'DateTime' instance. """
+        return self < Other or self == Other
+
+    def __ge__(self, Other):
+        """ Finds out if this 'DateTime' instance is greater than or equal to the given 'DateTime' instance. """
+        return not self < Other
+
     @property
     def date(self):
         """ Gets this timestamp's date. """

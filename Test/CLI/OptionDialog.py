@@ -2,12 +2,17 @@ from CommandLineDialog import *
 import Project
 
 class OptionDialog(CommandLineDialog):
-    """ A command-line dialog that offers a series of options. """
+    """ A command-line dialog that offers a finite series of options. """
 
-    def __init__(self, Name, Intro, OptionTable = None):
+    def __init__(self, Name, Intro, OptionTable = None, ShowValues = False):
+        """ Creates a new instance of an option dialog from a name, an intro,
+        a table of options and a boolean value that specifies whether the values or keys of the option table are printed. """
+
         CommandLineDialog.__init__(self, Name)
 
         self.intro = Intro
+        self.ReadOptionKey = self.ReadString
+        self.showValues = ShowValues
         if OptionTable is None:
             self.optionTable = Project.Hashtable(Project.DefaultRecordMap(), Project.BinaryTreeTableFactory())
         else:
@@ -19,9 +24,11 @@ class OptionDialog(CommandLineDialog):
 
     @property
     def options(self):
-        """ Gets a list of all available options. """
-
-        return [self.optionTable.key_map.map(item) for item in self.optionTable]
+        """ Gets a collection of all available options. """
+        if self.showValues:
+            return self.optionTable
+        else:
+            return [self.optionTable.key_map.map(item) for item in self.optionTable]
 
     def get_value(self, Key):
         """ Gets the value associated with the provided key, if any. """
@@ -32,11 +39,14 @@ class OptionDialog(CommandLineDialog):
         """ Starts the dialog with the user. """
 
         print(self.intro)
-        print("options:")
+        if self.showValues:
+            print("options (please enter an item's key, not its whole value):")
+        else:
+            print("options:")
         for item in self.options:
-            print(" - " + item)
-        val = self.get_value(self.ReadString())
+            print(" - " + str(item))
+        val = self.get_value(self.ReadOptionKey())
         while val is None:
-            print("The provided input did not match exactly to a valid option. Try again.")
-            val = self.get_value(self.ReadString())
+            print("The provided input could not be matched exactly to a valid option. Please try again.")
+            val = self.get_value(self.ReadOptionKey())
         return val

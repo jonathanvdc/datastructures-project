@@ -14,6 +14,17 @@ class Auditorium(IRecord):
         """ Gets the auditorium's string representation. """
         return "Auditorium " + str(self.index) + " (" + str(self.number_of_seats) + " seats)"
 
+    def __eq__(self, Other):
+        """ Finds out if this auditorium equals the given auditorium. """
+        if Other is None:
+            return False
+        else:
+            return self.index == Other.index
+
+    def __ne__(self, Other):
+        """ Finds out if this auditorium is not equal to the given auditorium. """
+        return not self == Other
+
     @property
     def index(self):
         """ Gets the auditorium's index, or room number. """

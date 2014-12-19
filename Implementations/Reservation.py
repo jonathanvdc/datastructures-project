@@ -16,6 +16,10 @@ class Reservation(IRecord):
         self.timestamp = Timestamp
         self.number_of_seats = NumberOfSeats
 
+    def __str__(self):
+        """ Gets the reservation's string representation. """
+        return "Reservation #" + str(self.id) + ", made at " + str(self.timestamp) + ": " + str(self.number_of_seats) + " seats for " + str(self.showtime)
+
     @property
     def id(self):
         """ Gets the reservation's unique identifier. """

@@ -5,4 +5,6 @@ from CollectionDialog import *
 from NewUserDialog import *
 from NewMovieDialog import *
 from NewShowtimeDialog import *
+from NewTimeslotDialog import *
+from ReserveTicketDialog import *
 from QuitDialog import *

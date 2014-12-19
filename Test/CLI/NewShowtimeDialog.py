@@ -1,6 +1,7 @@
 from CommandLineDialog import *
 from OptionDialog import *
 from MenuDialog import *
+import DialogHelpers
 import Project
 
 class NewShowtimeDialog(CommandLineDialog):
@@ -14,9 +15,9 @@ class NewShowtimeDialog(CommandLineDialog):
     def RunDialog(self):
         """ Runs the dialog to create a new user. """
 
-        table = Project.Hashtable(Project.MovieTitleMap(), Project.BinaryTreeTableFactory())
-        for item in self.theater.movies:
-            table.insert(item)
-        selectMovieDialog = OptionDialog("select movie", "Which movie will play at the showtime?", table)
-        selectedMovie = selectMovieDialog.RunDialog()
+        selectedMovie = DialogHelpers.SelectMovie(self.theater, "Which movie will play at the showtime?")
+        selectedAuditorium = DialogHelpers.SelectAuditorium(self.theater, "In which auditorium will the showtime take place?")
+        selectedStartTime = DialogHelpers.SelectStartTime(self.theater, selectedAuditorium)
+        
+        return self.theater.schedule_showtime(selectedAuditorium, selectedMovie, selectedStartTime)
 
