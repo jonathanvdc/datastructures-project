@@ -6,8 +6,6 @@
 
 class TwoThreeFourNode:
 	""" Een Node van een 2-3-4 Boom. """
-	
-	# TETTEN
 
 	def __init__(self, key=None, data=None):
 	
