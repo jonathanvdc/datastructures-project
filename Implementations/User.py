@@ -20,7 +20,10 @@ class User(IRecord):
 
     def __eq__(self, Other):
         """ Tests user equality. """
-        return self.id == Other.id
+        if Other is None:
+            return False
+        else:
+            return self.id == Other.id
 
     def __hash__(self):
         """ Calculates a user's hash code. """

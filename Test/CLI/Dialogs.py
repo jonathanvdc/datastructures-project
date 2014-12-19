@@ -7,4 +7,8 @@ from NewMovieDialog import *
 from NewShowtimeDialog import *
 from NewTimeslotDialog import *
 from ReserveTicketDialog import *
+from RedeemTicketDialog import *
+from DeleteTimeslotDialog import *
+from SwapBackingListDialog import *
+from SwapBackingTableDialog import *
 from QuitDialog import *

@@ -199,6 +199,9 @@
     <Compile Include="CLI\CommandLineInterface.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CLI\DeleteTimeslotDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CLI\DialogHelpers.py">
       <SubType>Code</SubType>
     </Compile>
@@ -236,6 +239,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\ShowtimeStartDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\SwapBackingListDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\SwapBackingTableDialog.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GUI\MovieComboBox.py">

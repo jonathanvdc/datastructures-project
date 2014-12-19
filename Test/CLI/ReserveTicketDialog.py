@@ -26,11 +26,10 @@ class ReserveTicketDialog(CommandLineDialog):
     def RunDialog(self):
         """ Runs the ticket reservation dialog. """
 
-        if self.theater.registered_customers.count == 0:
-            print("Sorry, no customers have been registered yet.")
-            return None
-
         user = DialogHelpers.SelectCustomer(self.theater, "Who are you?")
+        if user is None:
+            print("Could not reserve tickets.")
+            return None
 
         showtimes = self.GetAvailableShowtimes()
         if showtimes.count == 0:

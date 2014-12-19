@@ -12,15 +12,19 @@ class Showtime(IRecord):
         self.location_value = None
         self.movie_playing_value = None
         self.start_time_value = None
+        self.number_of_free_seats_value = 0
         self.tickets = Stack()
         self.id = Id
         self.location = Location
         self.movie_playing = MoviePlaying
         self.start_time = StartTime
+        self.number_of_free_seats = Location.number_of_seats
 
     def __str__(self):
         """ Gets the showtime's string representation. """
-        return "Showtime #" + str(self.id) + " of " + str(self.movie_playing) + ", " + str(self.location) + ", at " + str(self.timeslot) + ", " + str(self.number_of_free_seats) + " free seats"
+        reservedSeats = self.location.number_of_seats - self.number_of_free_seats
+        present = reservedSeats - self.tickets.count
+        return "Showtime #" + str(self.id) + " of " + str(self.movie_playing) + ", " + str(self.location) + ", at " + str(self.timeslot) + ", " + str(self.number_of_free_seats) + " free seats, " + str(present) + " people present"
 
     def make_reservation(self, Id, Request):
         """ Reserves a ticket for this showtime. """
@@ -29,6 +33,7 @@ class Showtime(IRecord):
         else:
             i = 0
             while i < Request.number_of_seats:
+                self.number_of_free_seats -= 1
                 self.tickets.push(Ticket(Request.customer))
                 i += 1
             return Reservation(Id, Request.customer, self, Request.timestamp, Request.number_of_seats)
@@ -96,14 +101,19 @@ class Showtime(IRecord):
         self.start_time_value = value
 
     @property
+    def number_of_free_seats(self):
+        """ Gets the number of remaining free seats for this showtime. """
+        return self.number_of_free_seats_value
+
+    @number_of_free_seats.setter
+    def number_of_free_seats(self, value):
+        """ Sets the number of remaining free seats for this showtime. """
+        self.number_of_free_seats_value = value
+
+    @property
     def timeslot(self):
         """ Gets the movie's starting time. """
         return self.start_time.time_of_day
-
-    @property
-    def number_of_free_seats(self):
-        """ Gets the number of remaining free seats for this showtime. """
-        return self.location.number_of_seats - self.tickets.count
 
     @property
     def date(self):
