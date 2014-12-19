@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f4b8f817-b814-4872-9690-ea3a8d6e748d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TheaterUI.py</StartupFile>
+    <StartupFile>CLI\CommandLineInterface.py</StartupFile>
     <SearchPath>..\Implementations\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -26,167 +26,238 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Implementations\ArrayList.py">
-      <Link>ArrayList.py</Link>
+      <Link>Implementation\ArrayList.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Auditorium.py">
-      <Link>Auditorium.py</Link>
+      <Link>Implementation\Auditorium.py</Link>
     </Compile>
     <Compile Include="..\Implementations\BinarySearchTree.py">
-      <Link>BinarySearchTree.py</Link>
+      <Link>Implementation\BinarySearchTree.py</Link>
     </Compile>
     <Compile Include="..\Implementations\BinaryTree.py">
-      <Link>BinaryTree.py</Link>
+      <Link>Implementation\BinaryTree.py</Link>
     </Compile>
     <Compile Include="..\Implementations\BinaryTreeTableFactory.py">
-      <Link>BinaryTreeTableFactory.py</Link>
+      <Link>Implementation\BinaryTreeTableFactory.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Date.py">
-      <Link>Date.py</Link>
+      <Link>Implementation\Date.py</Link>
     </Compile>
     <Compile Include="..\Implementations\DateTime.py">
-      <Link>DateTime.py</Link>
+      <Link>Implementation\DateTime.py</Link>
     </Compile>
     <Compile Include="..\Implementations\DefaultRecordMap.py">
-      <Link>DefaultRecordMap.py</Link>
+      <Link>Implementation\DefaultRecordMap.py</Link>
     </Compile>
     <Compile Include="..\Implementations\DoubleNode.py">
-      <Link>DoubleNode.py</Link>
+      <Link>Implementation\DoubleNode.py</Link>
     </Compile>
     <Compile Include="..\Implementations\DoublyLinkedList.py">
-      <Link>DoublyLinkedList.py</Link>
+      <Link>Implementation\DoublyLinkedList.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Hashtable.py">
-      <Link>Hashtable.py</Link>
+      <Link>Implementation\Hashtable.py</Link>
     </Compile>
     <Compile Include="..\Implementations\ICollection.py">
-      <Link>ICollection.py</Link>
+      <Link>Implementation\ICollection.py</Link>
     </Compile>
     <Compile Include="..\Implementations\IComparer.py">
-      <Link>IComparer.py</Link>
+      <Link>Implementation\IComparer.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\IdentityMap.py">
+      <Link>Implementation\IdentityMap.py</Link>
     </Compile>
     <Compile Include="..\Implementations\IFactory.py">
-      <Link>IFactory.py</Link>
+      <Link>Implementation\IFactory.py</Link>
     </Compile>
     <Compile Include="..\Implementations\IList.py">
-      <Link>IList.py</Link>
+      <Link>Implementation\IList.py</Link>
     </Compile>
     <Compile Include="..\Implementations\IMap.py">
-      <Link>IMap.py</Link>
+      <Link>Implementation\IMap.py</Link>
     </Compile>
     <Compile Include="..\Implementations\IReadOnlyCollection.py">
-      <Link>IReadOnlyCollection.py</Link>
+      <Link>Implementation\IReadOnlyCollection.py</Link>
     </Compile>
     <Compile Include="..\Implementations\IReadOnlyList.py">
-      <Link>IReadOnlyList.py</Link>
+      <Link>Implementation\IReadOnlyList.py</Link>
     </Compile>
     <Compile Include="..\Implementations\IReadOnlySwapList.py">
-      <Link>IReadOnlySwapList.py</Link>
+      <Link>Implementation\IReadOnlySwapList.py</Link>
     </Compile>
     <Compile Include="..\Implementations\IRecord.py">
-      <Link>IRecord.py</Link>
+      <Link>Implementation\IRecord.py</Link>
     </Compile>
     <Compile Include="..\Implementations\ISortableTable.py">
-      <Link>ISortableTable.py</Link>
+      <Link>Implementation\ISortableTable.py</Link>
     </Compile>
     <Compile Include="..\Implementations\ISortedList.py">
-      <Link>ISortedList.py</Link>
+      <Link>Implementation\ISortedList.py</Link>
     </Compile>
     <Compile Include="..\Implementations\ITable.py">
-      <Link>ITable.py</Link>
+      <Link>Implementation\ITable.py</Link>
     </Compile>
     <Compile Include="..\Implementations\ITree.py">
-      <Link>ITree.py</Link>
+      <Link>Implementation\ITree.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\KeyValuePair.py">
+      <Link>Implementation\KeyValuePair.py</Link>
     </Compile>
     <Compile Include="..\Implementations\LinkedList.py">
-      <Link>LinkedList.py</Link>
+      <Link>Implementation\LinkedList.py</Link>
     </Compile>
     <Compile Include="..\Implementations\ListNode.py">
-      <Link>ListNode.py</Link>
+      <Link>Implementation\ListNode.py</Link>
     </Compile>
     <Compile Include="..\Implementations\ListTable.py">
-      <Link>ListTable.py</Link>
+      <Link>Implementation\ListTable.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Movie.py">
-      <Link>Movie.py</Link>
+      <Link>Implementation\Movie.py</Link>
     </Compile>
     <Compile Include="..\Implementations\MovieRatingMap.py">
-      <Link>MovieRatingMap.py</Link>
+      <Link>Implementation\MovieRatingMap.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\MovieTitleMap.py">
+      <Link>Implementation\MovieTitleMap.py</Link>
     </Compile>
     <Compile Include="..\Implementations\OpenHashtable.py">
-      <Link>OpenHashtable.py</Link>
+      <Link>Implementation\OpenHashtable.py</Link>
     </Compile>
     <Compile Include="..\Implementations\OpenHashtableItem.py">
-      <Link>OpenHashtableItem.py</Link>
+      <Link>Implementation\OpenHashtableItem.py</Link>
     </Compile>
     <Compile Include="..\Implementations\PowerSequenceMap.py">
-      <Link>PowerSequenceMap.py</Link>
+      <Link>Implementation\PowerSequenceMap.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Project.py">
-      <Link>Project.py</Link>
+      <Link>Implementation\Project.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Queue.py">
-      <Link>Queue.py</Link>
+      <Link>Implementation\Queue.py</Link>
     </Compile>
     <Compile Include="..\Implementations\RecordKeyComparer.py">
-      <Link>RecordKeyComparer.py</Link>
+      <Link>Implementation\RecordKeyComparer.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Reservation.py">
-      <Link>Reservation.py</Link>
+      <Link>Implementation\Reservation.py</Link>
     </Compile>
     <Compile Include="..\Implementations\ReservationManager.py">
-      <Link>ReservationManager.py</Link>
+      <Link>Implementation\ReservationManager.py</Link>
     </Compile>
     <Compile Include="..\Implementations\ReservationRequest.py">
-      <Link>ReservationRequest.py</Link>
+      <Link>Implementation\ReservationRequest.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Showtime.py">
-      <Link>Showtime.py</Link>
+      <Link>Implementation\Showtime.py</Link>
     </Compile>
     <Compile Include="..\Implementations\SortedSwapList.py">
-      <Link>SortedSwapList.py</Link>
+      <Link>Implementation\SortedSwapList.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Stack.py">
-      <Link>Stack.py</Link>
+      <Link>Implementation\Stack.py</Link>
     </Compile>
     <Compile Include="..\Implementations\SwapList.py">
-      <Link>SwapList.py</Link>
+      <Link>Implementation\SwapList.py</Link>
     </Compile>
     <Compile Include="..\Implementations\SwapTable.py">
-      <Link>SwapTable.py</Link>
+      <Link>Implementation\SwapTable.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Theater.py">
-      <Link>Theater.py</Link>
+      <Link>Implementation\Theater.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Ticket.py">
-      <Link>Ticket.py</Link>
+      <Link>Implementation\Ticket.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Time.py">
-      <Link>Time.py</Link>
+      <Link>Implementation\Time.py</Link>
     </Compile>
     <Compile Include="..\Implementations\TreeSortedList.py">
-      <Link>TreeSortedList.py</Link>
+      <Link>Implementation\TreeSortedList.py</Link>
     </Compile>
     <Compile Include="..\Implementations\TreeTable.py">
-      <Link>TreeTable.py</Link>
+      <Link>Implementation\TreeTable.py</Link>
     </Compile>
     <Compile Include="..\Implementations\TwoThreeFourSearchTree.py">
-      <Link>TwoThreeFourSearchTree.py</Link>
+      <Link>Implementation\TwoThreeFourSearchTree.py</Link>
     </Compile>
     <Compile Include="..\Implementations\TwoThreeFourTree.py">
-      <Link>TwoThreeFourTree.py</Link>
+      <Link>Implementation\TwoThreeFourTree.py</Link>
     </Compile>
     <Compile Include="..\Implementations\User.py">
-      <Link>User.py</Link>
+      <Link>Implementation\User.py</Link>
+    </Compile>
+    <Compile Include="CLI\CommandLineDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\CommandLineInterface.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\Dialogs.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\CollectionDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\MenuDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\NewMovieDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\NewShowtimeDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\NewUserDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\OptionDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\QuitDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\MovieComboBox.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\MovieManagerFrame.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\NewMovieFrame.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\NewUserFrame.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\NumberEntry.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\ReservationFrame.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\SelectTableFrame.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\ShowtimeComboBox.py">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="TableTest.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TheaterUI.py">
+    <Compile Include="GUI\TheaterUI.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\tkhelpers.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TwoThreeTreeTest.py">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Implementation\" />
+    <Folder Include="GUI\" />
+    <Folder Include="CLI\" />
   </ItemGroup>
   <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
   <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />

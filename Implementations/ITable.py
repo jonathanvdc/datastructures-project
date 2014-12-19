@@ -19,6 +19,11 @@ class ITable(IReadOnlyCollection):
         """ Gets the table's items as a read-only list. """
         raise NotImplementedError("Method 'ITable.to_list' was not implemented.")
 
+    @property
+    def key_map(self):
+        """ Gets the table's record-to-key map. """
+        raise NotImplementedError("Getter of property 'ITable.key_map' was not implemented.")
+
     def __getitem__(self, Key):
         """ Retrieves the item in the table with the specified key. """
         raise NotImplementedError("Method 'ITable.__getitem__' was not implemented.")

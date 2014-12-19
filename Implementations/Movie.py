@@ -13,10 +13,10 @@ class Movie(IRecord):
         self.rating = Rating
 
     def __str__(self):
-        return self.id + ": " + self.title + " (Rated " + self.rating + ")"
+        return str(self.id) + ": " + self.title + " (Rated " + str(self.rating) + ")"
 
     def __repr__(self):
-        return self.id + ": " + self
+        return str(self.id) + ": " + str(self)
 
     @property
     def title(self):

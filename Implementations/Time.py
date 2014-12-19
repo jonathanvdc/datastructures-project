@@ -13,9 +13,9 @@ class Time:
     def __str__(self):
         """ Gets the time's string representation. """
         if self.second == 0:
-            return self.hour + ":" + self.minute
+            return str(self.hour) + ":" + str(self.minute)
         else:
-            return self.hour + ":" + self.minute + ":" + self.second
+            return str(self.hour) + ":" + str(self.minute) + ":" + str(self.second)
 
     @property
     def second(self):

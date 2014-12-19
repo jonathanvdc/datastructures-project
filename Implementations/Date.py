@@ -12,7 +12,7 @@ class Date:
 
     def __str__(self):
         """ Gets this date's string representation. """
-        return self.day + "/" + self.month + "/" + self.year
+        return str(self.day) + "/" + str(self.month) + "/" + str(self.year)
 
     @property
     def day(self):

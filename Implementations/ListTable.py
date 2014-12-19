@@ -62,7 +62,7 @@ class ListTable(ISortableTable):
         self.swap(pivotIndex, End)
         i = Start
         while i < End:
-            if ItemComparer.compare(self.list[i], pivot) > 0:
+            if ItemComparer.compare(self.list[i], pivot) < 0:
                 self.swap(lowIndex, i)
                 lowIndex += 1
             i += 1

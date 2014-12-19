@@ -44,7 +44,7 @@ class Hashtable(ITable):
         if self.bucket_contains_key(bucket, key):
             return False
         bucket.insert(Item)
-        if self.bucket_load_factor > 0.66:
+        if self.bucket_load_factor > 0.75:
             self.resize_table()
         return True
 

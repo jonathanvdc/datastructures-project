@@ -34,6 +34,11 @@ class SwapTable(ITable):
         """ Gets the table's items as a read-only list. """
         return self.table.to_list()
 
+    @property
+    def key_map(self):
+        """ Gets the table's record-to-key map. """
+        return self.table.key_map
+
     def __getitem__(self, Key):
         """ Retrieves the item in the table with the specified key. """
         return self.table[Key]

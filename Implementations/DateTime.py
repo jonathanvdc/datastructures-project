@@ -10,7 +10,7 @@ class DateTime:
 
     def __str__(self):
         """ Gets the time's string representation. """
-        return self.date + " " + self.time_of_day
+        return str(self.date) + " " + str(self.time_of_day)
 
     @property
     def date(self):

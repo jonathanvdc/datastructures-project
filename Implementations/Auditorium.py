@@ -12,7 +12,7 @@ class Auditorium(IRecord):
 
     def __str__(self):
         """ Gets the auditorium's string representation. """
-        return "Auditorium " + self.index + " (" + self.number_of_seats + " seats)"
+        return "Auditorium " + str(self.index) + " (" + str(self.number_of_seats) + " seats)"
 
     @property
     def index(self):

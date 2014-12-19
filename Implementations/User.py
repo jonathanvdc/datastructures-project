@@ -16,7 +16,7 @@ class User(IRecord):
 
     def __str__(self):
         """ Gets the user's data as a string. """
-        return self.id + ": " + self.name + "(" + self.email_address + ")"
+        return str(self.id) + ": " + self.name + "(" + self.email_address + ")"
 
     def __eq__(self, Other):
         """ Tests user equality. """

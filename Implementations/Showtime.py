@@ -20,7 +20,7 @@ class Showtime(IRecord):
 
     def __str__(self):
         """ Gets the showtime's string representation. """
-        return "Showtime " + self.id + " of " + self.movie_playing + ", " + self.location + ", at " + self.timeslot + ", " + self.number_of_free_seats + " free seats"
+        return "Showtime " + str(self.id) + " of " + str(self.movie_playing) + ", " + str(self.location) + ", at " + str(self.timeslot) + ", " + str(self.number_of_free_seats) + " free seats"
 
     def make_reservation(self, Id, Request):
         """ Reserves a ticket for this showtime. """

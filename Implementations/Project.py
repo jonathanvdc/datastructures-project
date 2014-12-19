@@ -32,6 +32,8 @@ from SwapTable import *
 from PowerSequenceMap import *
 from BinaryTreeTableFactory import *
 from DefaultRecordMap import *
+from IdentityMap import *
+from KeyValuePair import *
 from RecordKeyComparer import *
 from Date import *
 from Time import *
@@ -45,4 +47,5 @@ from User import *
 from ReservationManager import *
 from ReservationRequest import *
 from Reservation import *
+from MovieTitleMap import *
 from Ticket import *

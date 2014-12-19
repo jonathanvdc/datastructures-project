@@ -136,6 +136,11 @@ def test_swap_table():
     
     assert_kv_contents(sorted(to_py_list(aTable.to_list())), sorted(pyDict.items()))
 
+print("Testing list table...")
+lTable = ListTable(DefaultRecordMap(), ArrayList())
+test_table(lTable)
+lTable.sort(RecordKeyComparer())
+
 print("Testing separate chaining hash table...")
 test_table(Hashtable(DefaultRecordMap(), BinaryTreeTableFactory()))
 
