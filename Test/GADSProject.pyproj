@@ -214,6 +214,9 @@
     <Compile Include="CLI\MenuDialog.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CLI\NewAuditoriumDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CLI\NewMovieDialog.py">
       <SubType>Code</SubType>
     </Compile>
@@ -242,6 +245,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\SwapBackingListDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\SwapBackingSortedListDialog.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\SwapBackingTableDialog.py">

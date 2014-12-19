@@ -16,6 +16,10 @@ def quitDialogs():
 def createSettings():
     settingsDialog = MenuDialog("settings", "Select an option to change the settings associated with it.")
     settingsDialog.add_option(SwapBackingListDialog("swap auditoria backing list", theater.auditoria))
+    settingsDialog.add_option(SwapBackingListDialog("swap registered customer list", theater.registered_customers))
+    settingsDialog.add_option(SwapBackingListDialog("swap timeslots list", theater.timeslots))
+    settingsDialog.add_option(SwapBackingListDialog("swap reservation list", theater.reservations.reservations))
+    settingsDialog.add_option(SwapBackingSortedListDialog("swap movies sorted list", theater.movies))
     return settingsDialog
 
 mainDialog = MenuDialog("main dialog", "Welcome to the theater management menu for " + theater.name, Project.TreeTable(Project.BinarySearchTree(Project.DefaultRecordMap())))
@@ -23,6 +27,7 @@ mainDialog.add_option(NewUserDialog(theater.register_customer))
 mainDialog.add_option(NewMovieDialog(theater.register_movie))
 mainDialog.add_option(NewShowtimeDialog(theater))
 mainDialog.add_option(NewTimeslotDialog(theater))
+mainDialog.add_option(NewAuditoriumDialog(theater))
 mainDialog.add_option(ReserveTicketDialog(theater))
 mainDialog.add_option(RedeemTicketDialog(theater))
 

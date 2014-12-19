@@ -90,8 +90,7 @@ class ListTable(ISortableTable):
         for item in self.list:
             if self.key_map.map(item) == Key:
                 return item
-            else:
-                return None
+        return None
 
     @property
     def count(self):

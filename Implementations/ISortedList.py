@@ -16,6 +16,11 @@ class ISortedList(ICollection):
         raise NotImplementedError("Method 'ISortedList.to_list' was not implemented.")
 
     @property
+    def key_map(self):
+        """ Gets a record-to-key map that maps records to sortable keys. """
+        raise NotImplementedError("Getter of property 'ISortedList.key_map' was not implemented.")
+
+    @property
     def is_empty(self):
         """ Gets a boolean value that indicates if the sorted list is empty. """
         raise NotImplementedError("Getter of property 'ISortedList.is_empty' was not implemented.")

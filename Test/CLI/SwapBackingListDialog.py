@@ -12,9 +12,9 @@ class SwapBackingListDialog(CommandLineDialog):
 
     @property
     def options(self):
-        """ Gets a table of key-value pairs that represents the various """
+        """ Gets a table of key-value pairs that represents the various options. """
 
-        table = Project.OpenHashtable(Project.DefaultRecordMap(), Project.PowerSequenceMap(1))
+        table = Project.ListTable(Project.DefaultRecordMap(), Project.LinkedList())
         table.insert(Project.KeyValuePair("array list", Project.ArrayList()))
         table.insert(Project.KeyValuePair("linked list", Project.LinkedList()))
 

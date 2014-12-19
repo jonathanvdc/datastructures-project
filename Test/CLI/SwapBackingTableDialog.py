@@ -1,10 +1,9 @@
 from CommandLineDialog import *
 from OptionDialog import *
 import Project
-import TwoThreeFourSearchTree as Project
 
 class SwapBackingTableDialog(CommandLineDialog):
-    """ A dialog that swaps the backing list of a swap list. """
+    """ A dialog that swaps the backing storage of a swap table. """
 
     def __init__(self, Name, Target):
         CommandLineDialog.__init__(self, Name)
@@ -17,9 +16,9 @@ class SwapBackingTableDialog(CommandLineDialog):
 
     @property
     def options(self):
-        """ Gets a table of key-value pairs that represents the various """
+        """ Gets a table of key-value pairs that represents the various options. """
 
-        table = Project.OpenHashtable(Project.DefaultRecordMap(), Project.PowerSequenceMap(1))
+        table = Project.ListTable(Project.DefaultRecordMap(), Project.LinkedList())
         table.insert(Project.KeyValuePair("list table - array", Project.ListTable(self.key_map, Project.ArrayList())))
         table.insert(Project.KeyValuePair("list table - linked list", Project.ListTable(self.key_map, Project.LinkedList())))
         table.insert(Project.KeyValuePair("binary tree table", Project.TreeTable(Project.BinarySearchTree(self.key_map))))
