@@ -1,3 +1,6 @@
+import sys
+sys.path.append('..\..\Implementations')
+
 from Dialogs import *
 import Project
 
