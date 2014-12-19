@@ -67,11 +67,11 @@ class TwoThreeFourNode:
 		elif newKey < self.k1:
 			(self.k1, self.k2, self.k3) = (newKey, self.k1, self.k2)
 			(self.d1, self.d2, self.d3) = (newData, self.d1, self.d2)
-			(self.c3, self.c4) = (self.c2, self.c3)
+			(self.c2, self.c3, self.c4) = (self.c1, self.c2, self.c3)
 		elif self.size() == 1 or newKey < self.k2:
 			(self.k2, self.k3) = (newKey, self.k2)
 			(self.d2, self.d3) = (newData, self.d2)
-			self.c4 = self.c3
+			(self.c3, self.c4) = (self.c2, self.c3)
 		else:
 			self.k3 = newKey
 			self.d3 = newData
@@ -130,6 +130,9 @@ class TwoThreeFourTree:
 	def __init__(self):
 		
 		self.root = None
+		
+	def __repr__(self):
+		return str(self)
 	
 	def __str__(self):
 		""" Geeft een visuele representatie van de keys in de hoogste twee niveaus van de boom, voor debug doeleinden."""
@@ -375,7 +378,7 @@ class TwoThreeFourTree:
 				self.Merge(node, 4)
 				return (node, False)
 			searchNode = node.c4
-		
+			
 		while not searchNode.is_leaf():
 			if searchNode.c1.size() == 1:
 				self.Merge(searchNode, 1)
@@ -429,6 +432,7 @@ class TwoThreeFourTree:
 				if nodeNum == 4:
 					node.add_item(parent.k3, parent.d3)
 					(parent.k3, parent.d3) = (sibL.k2, sibL.d2)
+				sibL.remove_item(2)
 				(node.c1, sibL.c3, sibL.k2, sibL.d2) = (sibL.c3, None, None, None)
 				
 			if sibL.size() == 3:
@@ -441,6 +445,7 @@ class TwoThreeFourTree:
 				if nodeNum == 4:
 					node.add_item(parent.k3, parent.d3)
 					(parent.k3, parent.d3) = (sibL.k3, sibL.d3)
+				sibL.remove_item(3)
 				(node.c1, sibL.c4, sibL.k3, sibL.d3) = (sibL.c4, None, None, None)
 		
 		elif sibR != None and sibR.size() > 1:
@@ -453,6 +458,7 @@ class TwoThreeFourTree:
 			if nodeNum == 3:
 				node.add_item(parent.k3, parent.d3)
 				(parent.k3, parent.d3) = (sibR.k1, sibR.d1)
+			sibR.remove_item(1)
 			(node.c3, sibR.c1, sibR.c2, sibR.c3, sibR.c4) = (sibR.c1, sibR.c2, sibR.c3, sibR.c4, None)
 			
 		# De node's siblings hebben geen overtollige items, er zal gemerged moeten worden met de parent.
