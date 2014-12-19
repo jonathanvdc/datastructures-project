@@ -5,7 +5,6 @@ class PowerSequenceMap(IMap):
 
     def __init__(self, Power):
         """ Creates a new instance of a power sequence map based on the power to which the offsets will be exponentiated. """
-        self.power_value = 0
         self.power = Power
 
     def map(self, Value):

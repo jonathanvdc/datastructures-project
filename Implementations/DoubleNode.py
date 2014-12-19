@@ -5,7 +5,6 @@ class DoubleNode:
 
     def __init__(self, Value):
         """ Creates a new doubly linked node containing the given value. """
-        self.value_value = None
         self.successor_value = None
         self.predecessor_value = None
         self.value = Value

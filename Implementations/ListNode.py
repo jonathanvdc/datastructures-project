@@ -5,7 +5,6 @@ class ListNode:
 
     def __init__(self, Value):
         """ Creates a new linked list node instance from the specified value. """
-        self.value_value = None
         self.successor_value = None
         self.value = Value
 

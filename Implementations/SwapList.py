@@ -6,7 +6,6 @@ class SwapList(IReadOnlySwapList, IList):
 
     def __init__(self, backingList):
         """ Creates a new swap list. """
-        self.backing_list = None
         self.backing_list = backingList
 
     def swap(self, Container):

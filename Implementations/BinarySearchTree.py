@@ -9,11 +9,8 @@ class BinarySearchTree(ITree):
     def __init__(self, KeyMap, tree = None):
         if tree is None:
             self.tree = None
-            self.key_map_value = None
             self.key_map = KeyMap
             return
-        self.tree = None
-        self.key_map_value = None
         self.key_map = KeyMap
         self.tree = tree
 

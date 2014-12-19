@@ -38,6 +38,7 @@ mainDialog.add_option(CollectionDialog("view timeslots", "Current timeslots:", t
 mainDialog.add_option(CollectionDialog("view showtimes", "Current showtimes:", theater.showtimes))
 mainDialog.add_option(CollectionDialog("view auditoria", "Current auditoria:", theater.auditoria))
 mainDialog.add_option(CollectionDialog("view users", "Current users:", theater.registered_customers))
+mainDialog.add_option(CollectionDialog("view reservations", "Current reservations:", theater.reservations.reservations))
 
 mainDialog.add_option(createSettings())
 
