@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f4b8f817-b814-4872-9690-ea3a8d6e748d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TheaterTests.py</StartupFile>
+    <StartupFile>TableTest.py</StartupFile>
     <SearchPath>..\Implementations\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -277,19 +277,14 @@
     <Compile Include="GUI\ShowtimeComboBox.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TableTest.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="GUI\TheaterUI.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GUI\tkhelpers.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TableTest.py" />
     <Compile Include="TheaterTests.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TwoThreeTreeTest.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
