@@ -41,6 +41,7 @@ def createSettings():
     settingsDialog.add_option(SwapBackingListDialog("swap reservation list", theater.reservations.reservations))
     settingsDialog.add_option(SwapBackingSortedListDialog("swap movies sorted list", theater.movies, getMovieMaps()))
     settingsDialog.add_option(SortTableDialog("sort showtimes", theater.showtimes, getShowtimeMaps()))
+    settingsDialog.add_option(SetTimeDialog("set current time"))
     return settingsDialog
 
 mainDialog = MenuDialog("main dialog", "Welcome to the theater management menu for " + theater.name, Project.TreeTable(Project.BinarySearchTree(Project.DefaultRecordMap())))
@@ -64,6 +65,8 @@ mainDialog.add_option(CollectionDialog("view reservations", "Current reservation
 mainDialog.add_option(createSettings())
 
 mainDialog.add_option(DeleteTimeslotDialog(theater))
+
+fart = 22
 
 while not done:
     mainDialog.RunDialog() # Run this dialog. Forever.

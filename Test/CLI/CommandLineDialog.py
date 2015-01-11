@@ -1,9 +1,18 @@
 import Project
 import datetime
 
+date_time_override = None
+
+def override_now(date):
+	global date_time_override
+	date_time_override = date
+
 def get_now():
-    currentTime = datetime.datetime.now()
-    return Project.DateTime(Project.Date(currentTime.day, currentTime.month, currentTime.year), Project.Time(currentTime.hour, currentTime.minute, currentTime.second))
+	if date_time_override is None:
+		currentTime = datetime.datetime.now()
+		return Project.DateTime(Project.Date(currentTime.day, currentTime.month, currentTime.year), Project.Time(currentTime.hour, currentTime.minute, currentTime.second))
+	else:
+		return date_time_override
 
 class CommandLineDialog(Project.IRecord):
     """ A base class for command-line dialogs. """
