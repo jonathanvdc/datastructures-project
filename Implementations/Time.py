@@ -6,8 +6,10 @@ class Time:
     def __init__(self, Hour, Minute, Second = None):
         """ Creates a new time based on an hour, minute and second. """
         if Second is None:
+            self.total_seconds = 0
             self.total_seconds = Hour * 3600 + Minute * 60
             return
+        self.total_seconds = 0
         self.total_seconds = Hour * 3600 + Minute * 60 + Second
 
     def __str__(self):

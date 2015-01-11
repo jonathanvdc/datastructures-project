@@ -16,11 +16,12 @@ def SelectAuditorium(Theater, Text):
     """ Selects an auditorium from the theater's catalog. """
 
     # Tree table with Auditorium -> str map
-    auditoriumTable = Project.TreeTable(Project.BinarySearchTree(Project.ToStringMap()))
+    auditoriumTable = Project.TreeTable(Project.BinarySearchTree(Project.DefaultRecordMap()))
     for item in Theater.auditoria:
         auditoriumTable.insert(item)
 
-    selectAuditoriumDialog = OptionDialog("select auditorium", Text, auditoriumTable)
+    selectAuditoriumDialog = OptionDialog("select auditorium", Text, auditoriumTable, True)
+    selectAuditoriumDialog.ReadOptionKey = selectAuditoriumDialog.ReadIndex
     return selectAuditoriumDialog.RunDialog()
 
 def SelectCustomer(Theater, Text):

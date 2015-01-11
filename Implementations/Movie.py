@@ -5,6 +5,9 @@ class Movie(IRecord):
 
     def __init__(self, Id, Title, Rating):
         """ Creates a new movie instance for the given parameters. """
+        self.title_value = None
+        self.id_value = 0
+        self.rating_value = 0.0
         self.id = Id
         self.title = Title
         self.rating = Rating

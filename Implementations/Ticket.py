@@ -5,6 +5,7 @@ class Ticket(IRecord):
 
     def __init__(self, Customer):
         """ Creates a new ticket instance based on the customer it belongs to. """
+        self.customer_value = None
         self.customer = Customer
 
     @property

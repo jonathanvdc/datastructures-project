@@ -5,6 +5,8 @@ class KeyValuePair(IRecord):
 
     def __init__(self, Key, Value):
         """ Creates a new instance of a key-value pair based on the given key and value. """
+        self.key_value = None
+        self.value_value = None
         self.key = Key
         self.value = Value
 

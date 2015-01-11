@@ -13,4 +13,15 @@ from DeleteTimeslotDialog import *
 from SwapBackingListDialog import *
 from SwapBackingTableDialog import *
 from SwapBackingSortedListDialog import *
+from SortTableDialog import *
 from QuitDialog import *
+
+# These types can only exist in dynamic programming languages such as Python
+# They have been added to the CLI folder, rather than the core 'Implementations' folder,
+# to keep the core implementations as portable as possible: they can just as easily be implemented in C++,
+# Java, C#, Visual Basic... 
+# These types do not belong in said category, as they make borderline use of dynamic typing and runtime reflection.
+# Since the command-line interface is Python-specific, it seemed acceptable to include them here.
+from FieldComparer import *
+from FieldMap import *
+from TypeBucketFactory import *

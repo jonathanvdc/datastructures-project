@@ -278,22 +278,15 @@ class TwoThreeFourNode:
     def IterateInorder(self):
         """ Itereert in volgorde over alle items in de boom. """
 
-        if self.is_leaf():
-            yield self.d1
-            if self.size() > 1:
-                yield self.d2
-                if self.size() > 2:
-                    yield self.d3
-        else:
-            yield from self.c1.IterateInorder()
-            yield self.d1
-            yield from self.c2.IterateInorder()
-            if self.size() > 1:
-                yield self.d2
-                yield from self.c3.IterateInorder()
-                if self.size() > 2:
-                    yield self.d3
-                    yield from self.c4.IterateInorder()
+        i = 0
+        isParent = not self.is_leaf()
+        if isParent:
+            yield from self.children[0].IterateInorder()
+        while i < len(self.data) and self.data[i] is not None:
+            yield self.data[i]
+            if isParent:
+                yield from self.children[i + 1].IterateInorder()
+            i += 1
             
     def __str__(self):
         """ Print de sleutels van de node af, voor debug doeleinden. """
@@ -377,32 +370,7 @@ class TwoThreeFourTree:
         parent.add_item(splitNode.k2, splitNode.d2)
         #parent.shift_children_right(childIndex + 1)
         # Helften toevoegen aan het kind
-        parent.set_children(childIndex, splitHalves)
-            
-    def Inorder(self, noqde=None):
-        """ Print alle sleutels en items in de boom in volgorde af. """
-    
-        if node == None:
-            node = self.root
-        
-        if node.is_leaf():
-            print(str(node.k1) + " " + str(node.d1))
-            if node.size() > 1 :
-                print(str(node.k2) + " " + str(node.d2))
-                if node.size() > 2:
-                    print(str(node.k3) + " " + str(node.d3))
-        else:
-            self.Inorder(node.c1)
-            print(str(node.k1) + " " + str(node.d1))
-            self.Inorder(node.c2)
-            if node.size() > 1:
-                print(str(node.k2) + " " + str(node.d2))
-                self.Inorder(node.c3)
-                if node.size() > 2:
-                    print(str(node.k3) + " " + str(node.d3))
-                    self.Inorder(node.c4)
-    
-    
+        parent.set_children(childIndex, splitHalves)    
     
     def RemoveItem(self, key):
         """ Verwijdert het item met zoeksleutel 'key' uit de boom, geeft een boolean terug naargelang het item gevonden is of niet. """

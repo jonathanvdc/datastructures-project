@@ -3,6 +3,8 @@ class DateTime:
 
     def __init__(self, Date, TimeOfDay):
         """ Creates a new date-time instance based on the date and time provided. """
+        self.date_value = None
+        self.time_of_day_value = None
         self.date = Date
         self.time_of_day = TimeOfDay
 

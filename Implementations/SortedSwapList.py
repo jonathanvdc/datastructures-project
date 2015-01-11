@@ -5,6 +5,7 @@ class SortedSwapList(ISortedList):
 
     def __init__(self, backingList):
         """ Creates a new sorted swap list with the specified backing list. """
+        self.backing_list = None
         self.backing_list = backingList
 
     def swap(self, Container):
@@ -33,7 +34,8 @@ class SortedSwapList(ISortedList):
         self.backing_list.add(Item)
 
     def remove(self, Item):
-        self.backing_list.remove(Item)
+        """ Removes an item from the list. """
+        return self.backing_list.remove(Item)
 
     def contains(self, Item):
         """ Finds out if the sorted list contains the given item. """

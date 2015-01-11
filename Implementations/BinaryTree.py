@@ -3,6 +3,7 @@ class BinaryTree:
 
     def __init__(self, Data):
         """ Creates a new binary tree from a data item. """
+        self.data_value = None
         self.left_value = None
         self.right_value = None
         self.data = Data

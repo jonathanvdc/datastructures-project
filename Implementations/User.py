@@ -5,6 +5,10 @@ class User(IRecord):
 
     def __init__(self, Id, FirstName, LastName, EmailAddress):
         """ Creates a new instance of a user with the provided information. """
+        self.id_value = 0
+        self.first_name_value = None
+        self.last_name_value = None
+        self.email_address_value = None
         self.id = Id
         self.first_name = FirstName
         self.last_name = LastName

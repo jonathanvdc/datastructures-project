@@ -14,7 +14,7 @@ class OptionDialog(CommandLineDialog):
         self.ReadOptionKey = self.ReadString
         self.showValues = ShowValues
         if OptionTable is None:
-            self.optionTable = Project.Hashtable(Project.DefaultRecordMap(), Project.BinaryTreeTableFactory())
+            self.optionTable = Project.TreeTable(Project.BinarySearchTree(Project.DefaultRecordMap()))
         else:
             self.optionTable = OptionTable
 

@@ -8,6 +8,11 @@ class Showtime(IRecord):
 
     def __init__(self, Id, Location, MoviePlaying, StartTime):
         """ Creates a new instance of a showtime. """
+        self.location_value = None
+        self.start_time_value = None
+        self.id_value = 0
+        self.movie_playing_value = None
+        self.number_of_free_seats_value = 0
         self.tickets = Stack()
         self.id = Id
         self.location = Location
@@ -56,16 +61,6 @@ class Showtime(IRecord):
                 Theater.showtimes.remove(self.id)
 
     @property
-    def id(self):
-        """ Gets the showtime's unique identifier. """
-        return self.id_value
-
-    @id.setter
-    def id(self, value):
-        """ Sets the showtime's unique identifier. """
-        self.id_value = value
-
-    @property
     def location(self):
         """ Gets the auditorium where the showtime will take place. """
         return self.location_value
@@ -76,16 +71,6 @@ class Showtime(IRecord):
         self.location_value = value
 
     @property
-    def movie_playing(self):
-        """ Gets the movie that will play at the showtime. """
-        return self.movie_playing_value
-
-    @movie_playing.setter
-    def movie_playing(self, value):
-        """ Sets the movie that will play at the showtime. """
-        self.movie_playing_value = value
-
-    @property
     def start_time(self):
         """ Gets the date and time for which this showtime is scheduled. """
         return self.start_time_value
@@ -94,6 +79,26 @@ class Showtime(IRecord):
     def start_time(self, value):
         """ Sets the date and time for which this showtime is scheduled. """
         self.start_time_value = value
+
+    @property
+    def id(self):
+        """ Gets the showtime's unique identifier. """
+        return self.id_value
+
+    @id.setter
+    def id(self, value):
+        """ Sets the showtime's unique identifier. """
+        self.id_value = value
+
+    @property
+    def movie_playing(self):
+        """ Gets the movie that will play at the showtime. """
+        return self.movie_playing_value
+
+    @movie_playing.setter
+    def movie_playing(self, value):
+        """ Sets the movie that will play at the showtime. """
+        self.movie_playing_value = value
 
     @property
     def number_of_free_seats(self):

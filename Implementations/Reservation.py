@@ -5,6 +5,11 @@ class Reservation(IRecord):
 
     def __init__(self, Id, Customer, Showtime, Timestamp, NumberOfSeats):
         """ Creates a new reservation object from the provided arguments. """
+        self.id_value = 0
+        self.customer_value = None
+        self.showtime_value = None
+        self.timestamp_value = None
+        self.number_of_seats_value = 0
         self.id = Id
         self.customer = Customer
         self.showtime = Showtime

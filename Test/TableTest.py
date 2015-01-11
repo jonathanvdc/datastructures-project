@@ -134,17 +134,17 @@ def test_swap_table():
     
     assert_kv_contents(sorted(to_py_list(aTable.to_list())), sorted(pyDict.items()))
 
-#print("Testing separate chaining hash table...")
-#test_table(Hashtable(DefaultRecordMap(), BinaryTreeTableFactory()))
+print("Testing separate chaining hash table...")
+test_table(Hashtable(DefaultRecordMap(), BinaryTreeTableFactory()))
 
-#print("Testing linear open addressing hash table...")
-#test_table(OpenHashtable(DefaultRecordMap(), PowerSequenceMap(1)))
+print("Testing linear open addressing hash table...")
+test_table(OpenHashtable(DefaultRecordMap(), PowerSequenceMap(1)))
 
-#print("Testing quadratic open addressing hash table...")
-#test_table(OpenHashtable(DefaultRecordMap(), PowerSequenceMap(2)))
+print("Testing quadratic open addressing hash table...")
+test_table(OpenHashtable(DefaultRecordMap(), PowerSequenceMap(2)))
 
-#print("Testing swap table...")
-#test_swap_table()
+print("Testing swap table...")
+test_swap_table()
 
 print("Testing 2-3-4 tree...")
 test_table(TreeTable(TwoThreeFourSearchTree(DefaultRecordMap())))

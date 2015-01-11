@@ -3,6 +3,9 @@ class Date:
 
     def __init__(self, Day, Month, Year):
         """ Creates a new date from a day, month and year. """
+        self.day_value = 0
+        self.month_value = 0
+        self.year_value = 0
         self.day = Day
         self.month = Month
         self.year = Year

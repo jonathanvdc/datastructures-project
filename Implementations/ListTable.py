@@ -5,6 +5,8 @@ class ListTable(ISortableTable):
 
     def __init__(self, KeyMap, List):
         """ Creates a new list table instance. """
+        self.list = None
+        self.key_map_value = None
         self.key_map = KeyMap
         self.list = List
 
@@ -41,37 +43,9 @@ class ListTable(ISortableTable):
         """ Gets the table's items as a read-only list. """
         return self.list
 
-    def sort(self, ItemComparer):
+    def sort(self, Sorter):
         """ Sorts the list based on the given item comparer. """
-        self.quicksort(ItemComparer, 0, self.list.count - 1)
-
-    def quicksort(self, ItemComparer, Start, End):
-        """ Sorts (a portion of) the list table's list in-place using the quicksort algorithm. """
-        if Start < End:
-            p = self.partition(ItemComparer, Start, End)
-            self.quicksort(ItemComparer, Start, p - 1)
-            self.quicksort(ItemComparer, p + 1, End)
-
-    def partition(self, ItemComparer, Start, End):
-        """ 'Partitions' the list. Basically, a pivot item is selected, and all items that have a search key less than the pivot will be moved to the start of the list. The pivot item will be the next item in the list, followed immediately by all items that have a search key greater than or equal to the pivot. The returns value consists of the index of the pivot in the modified list. This method is used by the quicksort sorting method. """
-        pivotIndex = (Start + End) // 2
-        pivot = self.list[pivotIndex]
-        lowIndex = Start
-        self.swap(pivotIndex, End)
-        i = Start
-        while i < End:
-            if ItemComparer.compare(self.list[i], pivot) < 0:
-                self.swap(lowIndex, i)
-                lowIndex += 1
-            i += 1
-        self.swap(lowIndex, End)
-        return lowIndex
-
-    def swap(self, First, Second):
-        """ Swaps two item's positions in the list. """
-        temp = self.list[First]
-        self.list[First] = self.list[Second]
-        self.list[Second] = temp
+        self.list = Sorter.sort(self.list)
 
     @property
     def key_map(self):

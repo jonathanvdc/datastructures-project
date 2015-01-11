@@ -5,6 +5,7 @@ class SwapTable(ITable):
 
     def __init__(self, table):
         """ Creates a new instance of a swap table. """
+        self.table = None
         self.table = table
 
     def swap(self, Table):

@@ -7,8 +7,10 @@ class Stack(IReadOnlyCollection):
     def __init__(self, dataContainer = None):
         """ Creates a new stack instance that uses the specified list to store its data. """
         if dataContainer is None:
+            self.data_container = None
             self.data_container = LinkedList()
             return
+        self.data_container = None
         self.data_container = dataContainer
 
     def push(self, Item):

@@ -11,12 +11,14 @@ from IReadOnlySwapList import *
 from ITree import *
 from IComparer import *
 from IFactory import *
+from IListSorter import *
 from ArrayList import *
 from ListNode import *
 from LinkedList import *
 from ListTable import *
 from SwapList import *
 from SortedSwapList import *
+from SortedList import *
 from Stack import *
 from Queue import *
 from BinaryTree import *
@@ -36,7 +38,11 @@ from BinaryTreeTableFactory import *
 from DefaultRecordMap import *
 from IdentityMap import *
 from KeyValuePair import *
+from DefaultComparer import *
 from RecordKeyComparer import *
+from MapComparer import *
+from Quicksort import *
+from SortedListSort import *
 from Date import *
 from Time import *
 from DateTime import *
