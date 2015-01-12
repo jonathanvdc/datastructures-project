@@ -296,10 +296,10 @@
     <Compile Include="CLI\SortTableDialog.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CLI\StringInputStream.py">
+    <Compile Include="CLI\IStringInputStream.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CLI\StringOutputStream.py">
+    <Compile Include="CLI\IStringOutputStream.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\SwapBackingListDialog.py">

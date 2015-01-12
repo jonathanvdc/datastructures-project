@@ -1,6 +1,6 @@
-from StringOutputStream import *
+from IStringOutputStream import *
 
-class ConsoleOutputStream(StringOutputStream):
+class ConsoleOutputStream(IStringOutputStream):
     """ A console string output stream. """
 
     def __init__(self):

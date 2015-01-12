@@ -1,6 +1,6 @@
-from StringInputStream import *
+from IStringInputStream import *
 
-class ConsoleInputStream(StringInputStream):
+class ConsoleInputStream(IStringInputStream):
     """ A StringInputStream implementation for console input. """
 
     def Read(self):
