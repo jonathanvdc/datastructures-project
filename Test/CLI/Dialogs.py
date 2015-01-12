@@ -18,6 +18,8 @@ from SortTableDialog import *
 from QuitDialog import *
 from TopLevelDialog import *
 
+from SetTimeDialog import *
+
 # These types can only exist in dynamic programming languages such as Python
 # They have been added to the CLI folder, rather than the core 'Implementations' folder,
 # to keep the core implementations as portable as possible: they can just as easily be implemented in C++,

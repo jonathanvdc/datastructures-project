@@ -43,6 +43,7 @@ def createSettings():
     settingsDialog.add_option(SwapBackingSortedListDialog("swap movies sorted list", theater.movies, getMovieMaps()))
     settingsDialog.add_option(SwapSortableBackingTableDialog("swap showtimes sortable table", theater.showtimes, getShowtimeMaps()))
     settingsDialog.add_option(SortTableDialog("sort showtimes", theater.showtimes, getShowtimeMaps()))
+    settingsDialog.add_option(SetTimeDialog("set current time"))
     return settingsDialog
 
 mainDialog = MenuDialog("main dialog", "Welcome to the theater management menu for " + theater.name, Project.TreeTable(Project.BinarySearchTree(Project.DefaultRecordMap())))
@@ -67,7 +68,11 @@ mainDialog.add_option(createSettings())
 
 mainDialog.add_option(DeleteTimeslotDialog(theater))
 
+<<<<<<< HEAD
 parentDialog = TopLevelDialog(IOStreams.ConsoleInputStream(), IOStreams.ConsoleOutputStream())
+=======
+fart = 22
+>>>>>>> origin/master
 
 while not done:
     mainDialog.RunDialog(parentDialog) # Run this dialog. Forever.
