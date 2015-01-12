@@ -41,7 +41,7 @@ class ShowtimeStartDialog(CommandLineDialog):
         return timeslotTable
 
     def RunDialog(self, Parent):
-        """ Runs the dialog to create a new user. """
+        """ Runs the dialog to select the start time for a showtime. """
         CommandLineDialog.RunDialog(self, Parent)
 
         date = self.ReadStartDate()

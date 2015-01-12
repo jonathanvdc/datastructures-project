@@ -10,4 +10,6 @@ class BinaryTreeTableFactory(IFactory):
 
     def create(self, Argument):
         """ Creates a new instance from the provided argument. """
+        # Post:
+        # Creates a new instance of type 'T', and returns it.
         return TreeTable(BinarySearchTree(Argument))

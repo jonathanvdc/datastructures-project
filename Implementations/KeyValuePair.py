@@ -2,6 +2,8 @@ from IRecord import *
 
 class KeyValuePair(IRecord):
     """ A pair record that contains a key and a value. """
+    # Remarks:
+    # This type is particularly useful to associate keys with unrelated values.
 
     def __init__(self, Key, Value):
         """ Creates a new instance of a key-value pair based on the given key and value. """

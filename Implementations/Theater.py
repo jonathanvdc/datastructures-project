@@ -38,6 +38,10 @@ class Theater:
 
     def find_movie(self, Title):
         """ Tries to find a movie based on its complete title. """
+        # Post:
+        # Searches through all movies until it finds one that corresponds to the given title.
+        # The first movie that matches this title will be returned.
+        # If no movie matches the given title, 'None' is returned.
         for item in self.movies:
             if item.title == Title:
                 return item
@@ -59,12 +63,21 @@ class Theater:
 
     def build_auditorium(self, NumberOfSeats):
         """ Builds and returns a new auditorium with the specified number of seats. """
+        # Pre:
+        # 'NumberOfSeats' must be a nonzero positive integer.
+        # Post:
+        # This method creates a new Auditorium object, adds it to the current movie theater, and returns it.
         auditor = Auditorium(self.auditors.count, NumberOfSeats)
         self.auditors.add(auditor)
         return auditor
 
     def schedule_showtime(self, Location, MoviePlaying, StartTime):
         """ Schedules a new showtime at this theater, based on the provided arguments. """
+        # Pre:
+        # The auditorium must not be booked for a showtime yet at that specific time, the movie must be a known movie to this theater, and the start time must correspond to a future, valid timeslot.
+        # Post:
+        # A new showtime is created and assigned its own unique identifier, it is subsequently added to the theater's list of showtimes and then returned.
+        # If any of the provided arguments are invalid, 'None' is returned, and no showtime will be scheduled.
         if (not self.is_timeslot(StartTime.time_of_day)) or (not self.movies.contains(MoviePlaying)) or self.showtime_planned(Location, StartTime):
             return None
         show = Showtime(self.showtime_index, Location, MoviePlaying, StartTime)
@@ -74,12 +87,19 @@ class Theater:
 
     def register_customer(self, FirstName, LastName, EmailAddress):
         """ Registers a new customer and returns a User instance that describes them. """
+        # Pre:
+        # FirstName and LastName should be the user's first and last name, respectively, and EmailAddress should be the user's e-mail address.
+        # Post:
+        # Creates a new User instance, assigns it a unique id and the given arguments, adds it to the list of registered users, and returns it.
         customer = User(self.registered_users.count, FirstName, LastName, EmailAddress)
         self.registered_users.add(customer)
         return customer
 
     def register_movie(self, Title, Rating):
         """ Creates a new movie from the given arguments and adds it to the list of playing movies. """
+        # Post:
+        # A new movie is created based on a unique ID, 'Title' and 'Rating', and is then added to the 'Movies' list.
+        # The created movie is subsequently returned.
         result = Movie(self.movie_index, Title, Rating)
         self.movies.add(result)
         self.movie_index += 1
@@ -97,7 +117,8 @@ class Theater:
 
     @property
     def showtimes(self):
-        """ Gets a table containing scheduled showtimes. The showtimes are contained in a table that uses the showtimes' IDs as search keys. """
+        """ Gets a table containing scheduled showtimes.
+            The showtimes are contained in a table that uses the showtimes' IDs as search keys. """
         return self.scheduled_showtimes
 
     @property

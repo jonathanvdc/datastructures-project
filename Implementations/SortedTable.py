@@ -20,17 +20,28 @@ class SortedTable(ISortableTable):
             self.sorted_list = self.sorter.sort(targetList)
 
     def sort(self, Sorter):
-        """ 'Sorts' the sorted table with the specified list sorter. The actual sorting process is deferred until __iter__ or ToList are called, however. """
+        """ 'Sorts' the sorted table with the specified list sorter.
+            The actual sorting process is deferred until __iter__ or ToList are called, however. """
+        # Pre:
+        # The table must not be empty for this method to change the table's state.
+        # Post:
+        # The table's items will be sorted.
+        # After sorting, the table's 'ToList()' method must return a list whose items are sorted.
+        # If the table's state is modified after 'Sort()' is called, the list produced by 'ToList()' need no longer be sorted.
         self.sorter = Sorter
         self.sorted_list = None
 
     def insert(self, Item):
         """ Inserts an item into the table. """
+        # Post:
+        # Returns true if item is successfully inserted, false if the table already contains an item with the same search key.
         self.sorted_list = None
         return self.table.insert(Item)
 
     def remove(self, Key):
         """ Removes a key from the table. """
+        # Post:
+        # This method returns true if the key is in the table, false if not.
         self.sorted_list = None
         return self.table.remove(Key)
 
@@ -40,6 +51,11 @@ class SortedTable(ISortableTable):
 
     def to_list(self):
         """ Gets the table's items as a read-only list. """
+        # Post:
+        # This method returns a read-only list that describes the items in this table.
+        # Modifications to this list are not allowed - it is read-only.
+        # Furthermore, this list may be an alias to an internal list containing the table's items, or a copy.
+        # This list need not be sorted, but must contain every item in the table.
         self.sort_table()
         return self.sorted_list
 
@@ -69,4 +85,10 @@ class SortedTable(ISortableTable):
 
     def __getitem__(self, Key):
         """ Retrieves the item in the table with the specified key. """
+        # Pre:
+        # For this method to return an item in the table, rather than null, the key must be in the table, i.e.
+        # ContainsKey(Key) must return true.
+        # Post:
+        # The return value of this method will be the item that corresponds with the key, or None, if it is not found.
+        # It is recommended to check if the table contains the key by using ContainsKey.
         return self.table[Key]

@@ -9,4 +9,6 @@ class MovieTitleMap(IMap):
 
     def map(self, Item):
         """ Maps the item to its target representation. """
+        # Post:
+        # This function must produce a constant return value, irrespective of external changes.
         return Item.title

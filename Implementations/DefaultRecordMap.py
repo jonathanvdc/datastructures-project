@@ -8,4 +8,6 @@ class DefaultRecordMap(IMap):
 
     def map(self, Record):
         """ Maps the item to its target representation. """
+        # Post:
+        # This function must produce a constant return value, irrespective of external changes.
         return Record.key

@@ -18,6 +18,12 @@ class BinaryTree:
 
     def copy_from(self, Other):
         """ Copies all information in the given binary tree into this binary tree. """
+        # Pre:
+        # Other must either be a 'BinaryTree<T>' or 'None'.
+        # Post:
+        # If the given tree is not 'None', the Data, Left and Right properties are copied from the target tree into this tree.
+        # Note that these copies are shallow: the left and right trees (and possibly Data) will be mere aliases to the information contained in the other tree.
+        # If the provided other tree is 'None', Data, Left and Right are all set to 'None'.
         if Other is None:
             self.data = None
             self.left = None

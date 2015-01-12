@@ -5,6 +5,14 @@ class Time:
 
     def __init__(self, Hour, Minute, Second = None):
         """ Creates a new time based on an hour, minute and second. """
+        # Pre:
+        # Hour, minute and second must be non-negative integers.
+        # Post:
+        # Returns a Time instance that exactly represents the provided hour, minute and second.
+        # Pre:
+        # Hour and minute must be non-negative integers.
+        # Post:
+        # Returns a Time instance that exactly represents the provided hour and minute.
         if Second is None:
             self.total_seconds = 0
             self.total_seconds = Hour * 3600 + Minute * 60

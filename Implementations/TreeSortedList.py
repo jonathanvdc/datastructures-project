@@ -14,6 +14,11 @@ class TreeSortedList(ISortedList):
 
     def remove(self, Item):
         """ Removes an item from the list. """
+        # Pre:
+        # For Item to be successfully removed from the sorted list, it must have been in the list before removal.
+        # Post:
+        # Returns true if the sorted list contained the given item, false if not.
+        # If this returns true, the item has been removed from the sorted list.
         return self.tree.remove(self.key_map.map(Item))
 
     def contains(self, Item):
@@ -41,4 +46,6 @@ class TreeSortedList(ISortedList):
     @property
     def is_empty(self):
         """ Gets a boolean value that indicates whether the sorted list is empty or not. """
+        # Post:
+        # Return true if empty, false if not.
         return self.tree.is_empty

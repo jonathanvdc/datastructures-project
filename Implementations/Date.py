@@ -3,6 +3,10 @@ class Date:
 
     def __init__(self, Day, Month, Year):
         """ Creates a new date from a day, month and year. """
+        # Pre:
+        # Day must be a positive integer that represents a valid day for the provided month.
+        # Month must be an integer from 1 to 12.
+        # Year must be an integer.
         self.day_value = 0
         self.month_value = 0
         self.year_value = 0
@@ -16,6 +20,8 @@ class Date:
 
     def compare(self, Other):
         """ Compares this 'Date' instance with another 'Date' instance. """
+        # Post:
+        # Returns 1 if 'self > Other', -1 if 'self < Other', otherwise 0.
         if self.year > Other.year:
             return 1
         elif self.year < Other.year:

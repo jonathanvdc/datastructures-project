@@ -19,6 +19,8 @@ class BinarySearchTree(ITree):
 
     def traverse_inorder(self, Target = None):
         """ Performs inorder traversal on the binary search tree and writes its items to the given target collection. """
+        # Post:
+        # This method returns a read-only list with element type 'T' that can be used for iteration.
         if Target is None:
             aList = LinkedList()
             self.traverse_inorder(aList)
@@ -47,6 +49,8 @@ class BinarySearchTree(ITree):
 
     def insert(self, Item):
         """ Inserts an item in the binary search tree. """
+        # Post:
+        # The item will be added to the tree, regardless of whether the tree already contains an item with the same search key.
         if self.tree is None:
             self.tree = BinaryTree(Item)
         else:
@@ -63,6 +67,9 @@ class BinarySearchTree(ITree):
 
     def retrieve(self, Key):
         """ Retrieves the item with the specified key. """
+        # Post:
+        # If the binary search tree contains an item with the specified key, said item is returned.
+        # If not, None is returned.
         if self.tree is None:
             return None
         elif Key == self.key:
@@ -74,6 +81,9 @@ class BinarySearchTree(ITree):
 
     def remove(self, Key):
         """ Removes the item with the specified key from the binary search tree. """
+        # Post:
+        # If the search tree contains an item with the provided key, it is removed, and true is returned.
+        # Otherwise, the tree's state remains unchanged, and false is returned.
         if self.is_empty:
             return False
         elif self.count == 1:
@@ -89,7 +99,8 @@ class BinarySearchTree(ITree):
             return changed
 
     def immutable_remove(self, Key):
-        """ Returns a tree where one occurrence of an item with the provided key has been removed. Search trees are treated as immutable objects in this method. """
+        """ Returns a tree where one occurrence of an item with the provided key has been removed.
+            Search trees are treated as immutable objects in this method. """
         if self.is_empty:
             return self
         ownKey = self.key
@@ -114,7 +125,8 @@ class BinarySearchTree(ITree):
             return self.left
 
     def immutable_remove_leftmost(self):
-        """ Returns a tree with the leftmost child removed. Search trees are treated as immutable objects in this method. """
+        """ Returns a tree with the leftmost child removed.
+            Search trees are treated as immutable objects in this method. """
         if self.is_empty:
             return self
         elif self.left.is_empty:
@@ -126,7 +138,9 @@ class BinarySearchTree(ITree):
             return root
 
     def equals(self, Other):
-        """ Compares two trees for equality.  This method is not intended for general use, and was specifically created for the 'Remove(TKey)' method. It uses reference comparison to achieve O(log(n)) performance. """
+        """ Compares two trees for equality.
+            This method is not intended for general use, and was specifically created for the 'Remove(TKey)' method.
+            It uses reference comparison to achieve O(log(n)) performance. """
         if self.tree == Other.tree:
             return True
         elif self.is_empty or Other.is_empty:
@@ -196,4 +210,7 @@ class BinarySearchTree(ITree):
     @property
     def is_leaf(self):
         """ Gets a boolean value that indicates if the binary search tree is either empty, or a leaf. """
+        # Post:
+        # Returns true if this binary search tree is empty or has no children.
+        # Otherwise, returns false.
         return self.tree is None or self.tree.left is None and self.tree.right is None

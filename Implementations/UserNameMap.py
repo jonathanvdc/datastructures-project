@@ -9,4 +9,6 @@ class UserNameMap(IMap):
 
     def map(self, Customer):
         """ Maps the item to its target representation. """
+        # Post:
+        # This function must produce a constant return value, irrespective of external changes.
         return Customer.name

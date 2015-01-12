@@ -3,6 +3,8 @@ from IReadOnlyCollection import *
 
 class Queue(IReadOnlyCollection):
     """ Represents a generic queue. """
+    # Remarks:
+    # T is the type of item in the queue.
 
     def __init__(self, dataContainer = None):
         """ Creates a new queue instance that uses the specified list to store its data. """
@@ -19,6 +21,10 @@ class Queue(IReadOnlyCollection):
 
     def dequeue(self):
         """ Dequeues an item and returns it. """
+        # Pre:
+        # The queue may not be empty.
+        # Post:
+        # If the queue was empty, the queue's state will not change, and None will be returned.
         if self.is_empty:
             return None
         value = self.data_container[0]
@@ -42,6 +48,10 @@ class Queue(IReadOnlyCollection):
     @property
     def front(self):
         """ Peeks at the item at the top of the queue, without removing it. """
+        # Pre:
+        # The queue may not be empty.
+        # Post:
+        # If the queue was empty, None will be returned.
         if self.is_empty:
             return None
         else:

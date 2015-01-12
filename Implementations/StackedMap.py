@@ -1,7 +1,8 @@
 from IMap import *
 
 class StackedMap(IMap):
-    """ A stacked map is a map "stacks" two mapping function by applying a mapping function to the result of a first mapping function. A use case for this is when a key extracted from a record needs to be converted to its string representation. """
+    """ A stacked map is a map "stacks" two mapping function by applying a mapping function to the result of a first mapping function.
+        A use case for this is when a key extracted from a record needs to be converted to its string representation. """
 
     def __init__(self, FirstMap, SecondMap):
         """ Creates a new stacked map instance from the first and second mapping functions. """
@@ -12,6 +13,8 @@ class StackedMap(IMap):
 
     def map(self, Value):
         """ Maps the item to its target representation. """
+        # Post:
+        # This function must produce a constant return value, irrespective of external changes.
         return self.second_map.map(self.first_map.map(Value))
 
     @property

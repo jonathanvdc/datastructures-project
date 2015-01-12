@@ -6,6 +6,9 @@ class Hashtable(ITable):
 
     def __init__(self, KeyMap, BucketFactory):
         """ Creates a new hash table, from the provided key map and the bucket table factory. """
+        # Remarks:
+        # 'BucketFactory' of type 'IFactory<ITable<TKey, TValue>, IMap<TValue, TKey>>' is a factory that creates instances of 'ITable<TKey, TValue>' when provided an argument of type 'IMap<TValue, TKey>'.
+        # Essentially, it creates new buckets, which are themselves tables, from a key-value map.
         self.bucket_count = 0
         self.prime_list = [31, 97, 389, 1543, 6151, 24593, 98317, 393241, 1572869, 6291469, 25165843, 100663319, 402653189, 1610612741]
         self.buckets = None
@@ -16,7 +19,8 @@ class Hashtable(ITable):
         self.buckets = [None] * self.prime_list[0]
 
     def get_next_prime(self):
-        """ Gets the next prime in the prime list. If this prime is not available, -1 is returned. """
+        """ Gets the next prime in the prime list.
+            If this prime is not available, -1 is returned. """
         i = 0
         while i < len(self.prime_list) - 1:
             if self.prime_list[i] > self.bucket_capacity:
@@ -38,6 +42,8 @@ class Hashtable(ITable):
 
     def insert(self, Item):
         """ Inserts an item in the hash table. """
+        # Post:
+        # Returns true if item is successfully inserted, false if the table already contains an item with the same search key.
         key = self.key_map.map(Item)
         hashCode = hash(key)
         bucket = self.get_new_bucket(hashCode)
@@ -86,6 +92,8 @@ class Hashtable(ITable):
 
     def remove(self, Key):
         """ Removes a key from the table. """
+        # Post:
+        # This method returns true if the key is in the table, false if not.
         hashCode = hash(Key)
         bucket = self.get_bucket(hashCode)
         if bucket is None:
@@ -104,6 +112,11 @@ class Hashtable(ITable):
 
     def to_list(self):
         """ Gets the table's items as a read-only list. """
+        # Post:
+        # This method returns a read-only list that describes the items in this table.
+        # Modifications to this list are not allowed - it is read-only.
+        # Furthermore, this list may be an alias to an internal list containing the table's items, or a copy.
+        # This list need not be sorted, but must contain every item in the table.
         results = ArrayList()
         for i in range(len(self.buckets)):
             if self.buckets[i] is not None:
@@ -159,5 +172,11 @@ class Hashtable(ITable):
 
     def __getitem__(self, Key):
         """ Retrieves the item in the table with the specified key. """
+        # Pre:
+        # For this method to return an item in the table, rather than null, the key must be in the table, i.e.
+        # ContainsKey(Key) must return true.
+        # Post:
+        # The return value of this method will be the item that corresponds with the key, or None, if it is not found.
+        # It is recommended to check if the table contains the key by using ContainsKey.
         bucket = self.get_bucket(hash(Key))
         return self.find_in_bucket(bucket, Key)

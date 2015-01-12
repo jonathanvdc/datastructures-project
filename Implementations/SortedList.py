@@ -2,6 +2,8 @@ from ISortedList import *
 
 class SortedList(ISortedList):
     """ A straightforward implementation of a sorted list that uses a random-access list as backing storage and utilizes a mapping function to compare items. """
+    # Remarks:
+    # This 'ISortedList<T>' implementation can be used to implement selection sort when used in conjunction with a 'SortedListSort<T>' instance.
 
     def __init__(self, KeyMap, List):
         """ Creates a new sorted list from the given mapping function and list. """
@@ -21,6 +23,11 @@ class SortedList(ISortedList):
 
     def remove(self, Item):
         """ Removes an item from the list. """
+        # Pre:
+        # For Item to be successfully removed from the sorted list, it must have been in the list before removal.
+        # Post:
+        # Returns true if the sorted list contained the given item, false if not.
+        # If this returns true, the item has been removed from the sorted list.
         index = -1
         key = self.key_map.map(Item)
         i = 0
@@ -63,6 +70,8 @@ class SortedList(ISortedList):
     @property
     def is_empty(self):
         """ Gets a boolean value that indicates if the sorted list is empty. """
+        # Post:
+        # Return true if empty, false if not.
         return self.list.count == 0
 
     @property

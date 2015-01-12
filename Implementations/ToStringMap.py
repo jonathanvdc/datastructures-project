@@ -9,4 +9,6 @@ class ToStringMap(IMap):
 
     def map(self, Value):
         """ Maps the item to its target representation. """
+        # Post:
+        # This function must produce a constant return value, irrespective of external changes.
         return str(Value)

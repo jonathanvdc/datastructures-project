@@ -8,6 +8,8 @@ class Showtime(IRecord):
 
     def __init__(self, Id, Location, MoviePlaying, StartTime):
         """ Creates a new instance of a showtime. """
+        # Pre:
+        # Id must be a valid and unique identifier, the location must be an existing at the theater, the movie must be known to the theater and the start time must correspond to one of the theater's time slots.
         self.location_value = None
         self.start_time_value = None
         self.id_value = 0
@@ -28,6 +30,12 @@ class Showtime(IRecord):
 
     def make_reservation(self, Id, Request):
         """ Reserves a ticket for this showtime. """
+        # Pre:
+        # Id should be a unique identifier, and the number of seats in request should be no more than the amount of free seats.
+        # The reservation request must always be a reservation for this showtime.
+        # Post:
+        # If the reservation request demanded more seats than available, None will be returned, and no seats will be reserved.
+        # The reservation is in effect considered to be canceled.
         if Request.number_of_seats > self.number_of_free_seats:
             return None
         else:
@@ -40,13 +48,24 @@ class Showtime(IRecord):
 
     def has_ticket(self, Customer):
         """ Gets a boolean value that indicates whether the provided customer has a ticket for this showtime. """
+        # Post:
+        # If the showtime has any tickets associated with it that belong to the given customer, 'True' is returned.
+        # Otherwise, 'False' if returned.
         for item in self.tickets:
             if item.customer == Customer:
                 return True
         return False
 
     def redeem_ticket(self, Theater, Customer):
-        """ Have one person redeem their ticket and enter the showtime.  Note that a user who reserved more than one ticket must enter the showtime multiple times, once per ticket. """
+        """ Have one person redeem their ticket and enter the showtime.
+            Note that a user who reserved more than one ticket must enter the showtime multiple times, once per ticket. """
+        # Pre:
+        # The customer must be a user who has an unredeemed ticket for this showtime.
+        # The theater must be the theater containing this showtime.
+        # Post:
+        # If the customer does not have an unredeemed ticket for this showtime, this method does nothing.
+        # If, on the other hand, the user does, their ticket is redeemed, and their absence will no longer delay the showtime.
+        # If the last ticket was redeemed, the showtime begins, and is be removed from the theater's showtime list.
         if self.has_ticket(Customer):
             tempStorage = Stack()
             while not self.tickets.is_empty:

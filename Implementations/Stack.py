@@ -3,6 +3,8 @@ from IReadOnlyCollection import *
 
 class Stack(IReadOnlyCollection):
     """ Represents a generic stack. """
+    # Remarks:
+    # T is the type of item on the stack.
 
     def __init__(self, dataContainer = None):
         """ Creates a new stack instance that uses the specified list to store its data. """
@@ -19,6 +21,10 @@ class Stack(IReadOnlyCollection):
 
     def pop(self):
         """ Pops the item at the top of the stack. """
+        # Pre:
+        # The stack may not be empty.
+        # Post:
+        # If the stack was empty, the stack's state will not change, and None will be returned.
         if self.is_empty:
             return None
         value = self.data_container[0]
@@ -42,6 +48,10 @@ class Stack(IReadOnlyCollection):
     @property
     def top(self):
         """ Peeks at the item at the top of the stack, without removing it. """
+        # Pre:
+        # The stack may not be empty.
+        # Post:
+        # If the stack was empty, None will be returned.
         if self.is_empty:
             return None
         else:

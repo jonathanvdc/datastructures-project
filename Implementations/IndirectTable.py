@@ -12,6 +12,8 @@ class IndirectTable(ITable):
 
     def insert(self, Value):
         """ Inserts an item into the table. """
+        # Post:
+        # Returns true if item is successfully inserted, false if the table already contains an item with the same search key.
         return self.get_table().insert(Value)
 
     def contains_key(self, Key):
@@ -20,6 +22,8 @@ class IndirectTable(ITable):
 
     def remove(self, Key):
         """ Removes a key from the table. """
+        # Post:
+        # This method returns true if the key is in the table, false if not.
         return self.get_table().remove(Key)
 
     def __iter__(self):
@@ -28,6 +32,11 @@ class IndirectTable(ITable):
 
     def to_list(self):
         """ Gets the table's items as a read-only list. """
+        # Post:
+        # This method returns a read-only list that describes the items in this table.
+        # Modifications to this list are not allowed - it is read-only.
+        # Furthermore, this list may be an alias to an internal list containing the table's items, or a copy.
+        # This list need not be sorted, but must contain every item in the table.
         return self.get_table().to_list()
 
     @property
@@ -37,6 +46,12 @@ class IndirectTable(ITable):
 
     def __getitem__(self, Key):
         """ Retrieves the item in the table with the specified key. """
+        # Pre:
+        # For this method to return an item in the table, rather than null, the key must be in the table, i.e.
+        # ContainsKey(Key) must return true.
+        # Post:
+        # The return value of this method will be the item that corresponds with the key, or None, if it is not found.
+        # It is recommended to check if the table contains the key by using ContainsKey.
         return self.get_table()[Key]
 
     @property

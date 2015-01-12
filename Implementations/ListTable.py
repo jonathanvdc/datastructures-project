@@ -19,6 +19,8 @@ class ListTable(ISortableTable):
 
     def remove(self, Key):
         """ Removes a key from the table. """
+        # Post:
+        # This method returns true if the key is in the table, false if not.
         i = 0
         while i < self.list.count:
             if self.key_map.map(self.list[i]) == Key:
@@ -29,6 +31,8 @@ class ListTable(ISortableTable):
 
     def insert(self, Item):
         """ Inserts an item into the table. """
+        # Post:
+        # Returns true if item is successfully inserted, false if the table already contains an item with the same search key.
         if self.contains_key(self.key_map.map(Item)):
             return False
         else:
@@ -41,10 +45,21 @@ class ListTable(ISortableTable):
 
     def to_list(self):
         """ Gets the table's items as a read-only list. """
+        # Post:
+        # This method returns a read-only list that describes the items in this table.
+        # Modifications to this list are not allowed - it is read-only.
+        # Furthermore, this list may be an alias to an internal list containing the table's items, or a copy.
+        # This list need not be sorted, but must contain every item in the table.
         return self.list
 
     def sort(self, Sorter):
         """ Sorts the list based on the given item comparer. """
+        # Pre:
+        # The table must not be empty for this method to change the table's state.
+        # Post:
+        # The table's items will be sorted.
+        # After sorting, the table's 'ToList()' method must return a list whose items are sorted.
+        # If the table's state is modified after 'Sort()' is called, the list produced by 'ToList()' need no longer be sorted.
         self.list = Sorter.sort(self.list)
 
     @property
@@ -59,6 +74,12 @@ class ListTable(ISortableTable):
 
     def __getitem__(self, Key):
         """ Retrieves the item in the table with the specified key. """
+        # Pre:
+        # For this method to return an item in the table, rather than null, the key must be in the table, i.e.
+        # ContainsKey(Key) must return true.
+        # Post:
+        # The return value of this method will be the item that corresponds with the key, or None, if it is not found.
+        # It is recommended to check if the table contains the key by using ContainsKey.
         for item in self.list:
             if self.key_map.map(item) == Key:
                 return item
