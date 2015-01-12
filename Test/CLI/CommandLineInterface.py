@@ -68,11 +68,7 @@ mainDialog.add_option(createSettings())
 
 mainDialog.add_option(DeleteTimeslotDialog(theater))
 
-<<<<<<< HEAD
 parentDialog = TopLevelDialog(IOStreams.ConsoleInputStream(), IOStreams.ConsoleOutputStream())
-=======
-fart = 22
->>>>>>> origin/master
 
 while not done:
     mainDialog.RunDialog(parentDialog) # Run this dialog. Forever.

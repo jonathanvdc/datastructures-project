@@ -289,6 +289,7 @@
     <Compile Include="CLI\SelectListSorterDialog.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CLI\SetTimeDialog.py" />
     <Compile Include="CLI\ShowtimeStartDialog.py">
       <SubType>Code</SubType>
     </Compile>
