@@ -7,9 +7,10 @@ class MenuDialog(OptionDialog):
     def __init__(self, Name, Intro, OptionTable = None):
         OptionDialog.__init__(self, Name, Intro, OptionTable)
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Starts the dialog with the user. """
+        CommandLineDialog.RunDialog(self, Parent)
 
-        result = super().RunDialog()
+        result = super().RunDialog(self)
         # The result is itself a dialog, so let's run that
-        result.RunDialog()
+        result.RunDialog(self)

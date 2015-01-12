@@ -8,7 +8,8 @@ class QuitDialog(CommandLineDialog):
 
         self.quitCallback = Callback
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Calls the quit callback. """
+        CommandLineDialog.RunDialog(self, Parent)
 
         return self.quitCallback()

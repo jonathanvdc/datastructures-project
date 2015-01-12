@@ -39,21 +39,22 @@ class ShowtimeStartDialog(CommandLineDialog):
 
         return timeslotTable
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Runs the dialog to create a new user. """
+        CommandLineDialog.RunDialog(self, Parent)
 
         date = self.ReadStartDate()
         # Linear open-addressed hash table with time -> time map
         timeslotTable = self.CreateTimeslotTable(date)
 
         while timeslotTable.count == 0:
-            print("The selected date did not have any open timeslots. Please select another date.")
+            self.Write("The selected date did not have any open timeslots. Please select another date.")
             date = self.ReadStartDate()
             timeslotTable = self.CreateTimeslotTable(date)
 
         selectTimeslotDialog = OptionDialog("select timeslot", "Which timeslot would you like to schedule the showtime for?", timeslotTable)
         # Reads times as keys
         selectTimeslotDialog.ReadOptionKey = selectTimeslotDialog.ReadTime
-        time = selectTimeslotDialog.RunDialog()
+        time = selectTimeslotDialog.RunDialog(self)
 
         return Project.DateTime(date, time)

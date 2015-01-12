@@ -7,8 +7,10 @@ class NewAuditoriumDialog(CommandLineDialog):
         CommandLineDialog.__init__(self, "new auditorium")
         self.theater = Theater
         
-    def RunDialog(self):
+    def RunDialog(self, Parent):
+        CommandLineDialog.RunDialog(self, Parent)
+
         numberOfSeats = self.ReadInteger("How many seats should the auditorium have?", lambda x: x is not None and x > 0, "The given input is not a positive integer. Please input a positive integer.")
         aud = self.theater.build_auditorium(numberOfSeats)
-        print(str(aud) + " has been created")
+        self.Write(str(aud) + " has been created")
         return aud

@@ -15,14 +15,14 @@ class NewTimeslotDialog(CommandLineDialog):
         return min([Time - item if Time > item else item - Time for item in self.theater.timeslots])
 
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Schedules a new timeslot through input procured via the command line. """
         
         time = self.ReadTime("When would you like to schedule a new timeslot?")
 
         while self.GetMinDistance(time) < self.threshold:
-            print("The timeslot may not be closer to another timeslot than " + str(self.threshold))
-            CollectionDialog("view timeslots", "List of current timeslots:", self.theater.timeslots).RunDialog()
+            self.Write("The timeslot may not be closer to another timeslot than " + str(self.threshold))
+            CollectionDialog("view timeslots", "List of current timeslots:", self.theater.timeslots).RunDialog(self)
             time = self.ReadTime("When would you like to schedule a new timeslot?")
 
         self.theater.timeslots.add(time)

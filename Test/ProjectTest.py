@@ -139,7 +139,7 @@ def test_table(aTable):
     for i in range(0, 100):
         diff = aTable.count - len(pyDict);
         assert(diff == 0)
-        assert(aTable.is_empty == (len(pyDict) == 0))
+        if hasattr(aTable, "is_empty"): assert(aTable.is_empty == (len(pyDict) == 0))
         record = IntRecord(rng.randrange(-100, 100))
         if not aTable.contains_key(record.key):
             assert(record.key not in pyDict)
@@ -151,7 +151,7 @@ def test_table(aTable):
         value = rng.randrange(-100, 100)
         diff = aTable.count - len(pyDict);
         assert(diff == 0)
-        assert(aTable.is_empty == (len(pyDict) == 0))
+        if hasattr(aTable, "is_empty"): assert(aTable.is_empty == (len(pyDict) == 0))
         if aTable.contains_key(value):
             assert(value in pyDict)
             assert(symmetric_table_remove(aTable, pyDict, value))
@@ -165,7 +165,7 @@ def test_sorted_list(aList):
     l = []
 
     rng = random.Random()
-
+    
     for i in range(0, 100):
         record = IntRecord(rng.randrange(-100, 100))
         aList.add(record)
@@ -208,6 +208,9 @@ test_table(OpenHashtable(DefaultRecordMap(), PowerSequenceMap(1)))
 
 print("Testing quadratic open addressing hash table...")
 test_table(OpenHashtable(DefaultRecordMap(), PowerSequenceMap(2)))
+
+print("Testing sorted table...")
+test_table(SortedTable(Hashtable(DefaultRecordMap(), BinaryTreeTableFactory()), Quicksort(RecordKeyComparer())))
 
 print("Testing binary tree sorted list...")
 test_sorted_list(TreeSortedList(BinarySearchTree(DefaultRecordMap())))

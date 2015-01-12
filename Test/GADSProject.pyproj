@@ -82,6 +82,9 @@
     <Compile Include="..\Implementations\IMap.py">
       <Link>Implementation\IMap.py</Link>
     </Compile>
+    <Compile Include="..\Implementations\IndirectTable.py">
+      <Link>Implementation\IndirectTable.py</Link>
+    </Compile>
     <Compile Include="..\Implementations\IReadOnlyCollection.py">
       <Link>Implementation\IReadOnlyCollection.py</Link>
     </Compile>
@@ -163,6 +166,9 @@
     <Compile Include="..\Implementations\Showtime.py">
       <Link>Implementation\Showtime.py</Link>
     </Compile>
+    <Compile Include="..\Implementations\SortableSwapTable.py">
+      <Link>Implementation\SortableSwapTable.py</Link>
+    </Compile>
     <Compile Include="..\Implementations\SortedList.py">
       <Link>Implementation\SortedList.py</Link>
     </Compile>
@@ -171,6 +177,9 @@
     </Compile>
     <Compile Include="..\Implementations\SortedSwapList.py">
       <Link>Implementation\SortedSwapList.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\SortedTable.py">
+      <Link>Implementation\SortedTable.py</Link>
     </Compile>
     <Compile Include="..\Implementations\Stack.py">
       <Link>Implementation\Stack.py</Link>
@@ -211,10 +220,19 @@
     <Compile Include="..\Implementations\User.py">
       <Link>Implementation\User.py</Link>
     </Compile>
+    <Compile Include="..\Implementations\UserNameMap.py">
+      <Link>Implementation\UserNameMap.py</Link>
+    </Compile>
     <Compile Include="CLI\CommandLineDialog.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\CommandLineInterface.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\ConsoleInputStream.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\ConsoleOutputStream.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\DeleteTimeslotDialog.py">
@@ -233,6 +251,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\FieldMap.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\IOStreams.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\MenuDialog.py">
@@ -265,10 +286,19 @@
     <Compile Include="CLI\ReserveTicketDialog.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CLI\SelectListSorterDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CLI\ShowtimeStartDialog.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\SortTableDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\StringInputStream.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\StringOutputStream.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\SwapBackingListDialog.py">
@@ -278,6 +308,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\SwapBackingTableDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\SwapSortableBackingTableDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\TopLevelDialog.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\TypeBucketFactory.py">

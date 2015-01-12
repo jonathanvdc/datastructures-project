@@ -2,6 +2,7 @@ import sys
 sys.path.append('..\..\Implementations')
 
 from Dialogs import *
+import IOStreams
 import Project
 
 theater = Project.Theater("Kinepolis")
@@ -40,6 +41,7 @@ def createSettings():
     settingsDialog.add_option(SwapBackingListDialog("swap timeslots list", theater.timeslots))
     settingsDialog.add_option(SwapBackingListDialog("swap reservation list", theater.reservations.reservations))
     settingsDialog.add_option(SwapBackingSortedListDialog("swap movies sorted list", theater.movies, getMovieMaps()))
+    settingsDialog.add_option(SwapSortableBackingTableDialog("swap showtimes sortable table", theater.showtimes, getShowtimeMaps()))
     settingsDialog.add_option(SortTableDialog("sort showtimes", theater.showtimes, getShowtimeMaps()))
     return settingsDialog
 
@@ -65,5 +67,7 @@ mainDialog.add_option(createSettings())
 
 mainDialog.add_option(DeleteTimeslotDialog(theater))
 
+parentDialog = TopLevelDialog(IOStreams.ConsoleInputStream(), IOStreams.ConsoleOutputStream())
+
 while not done:
-    mainDialog.RunDialog() # Run this dialog. Forever.
+    mainDialog.RunDialog(parentDialog) # Run this dialog. Forever.

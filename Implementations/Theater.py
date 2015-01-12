@@ -8,8 +8,10 @@ from SortedSwapList import *
 from TreeSortedList import *
 from BinarySearchTree import *
 from MovieRatingMap import *
+from SortableSwapTable import *
 from ListTable import *
 from DefaultRecordMap import *
+from LinkedList import *
 from ReservationManager import *
 from Time import *
 
@@ -23,7 +25,7 @@ class Theater:
         self.auditors = SwapList(ArrayList())
         self.slots = SwapList(ArrayList())
         self.allmovies = SortedSwapList(TreeSortedList(BinarySearchTree(MovieRatingMap())))
-        self.scheduled_showtimes = ListTable(DefaultRecordMap(), ArrayList())
+        self.scheduled_showtimes = SortableSwapTable(ListTable(DefaultRecordMap(), LinkedList()))
         self.registered_users = SwapList(ArrayList())
         self.name_value = None
         self.reservations_value = None

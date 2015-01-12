@@ -16,9 +16,9 @@ from ArrayList import *
 from ListNode import *
 from LinkedList import *
 from ListTable import *
+from SortedList import *
 from SwapList import *
 from SortedSwapList import *
-from SortedList import *
 from Stack import *
 from Queue import *
 from BinaryTree import *
@@ -30,7 +30,10 @@ from DoublyLinkedList import *
 from Hashtable import *
 from OpenHashtableItem import *
 from OpenHashtable import *
+from IndirectTable import *
 from SwapTable import *
+from SortableSwapTable import *
+from SortedTable import *
 from PowerSequenceMap import *
 from ToStringMap import *
 from StackedMap import *
@@ -38,8 +41,8 @@ from BinaryTreeTableFactory import *
 from DefaultRecordMap import *
 from IdentityMap import *
 from KeyValuePair import *
-from DefaultComparer import *
 from RecordKeyComparer import *
+from DefaultComparer import *
 from MapComparer import *
 from Quicksort import *
 from SortedListSort import *

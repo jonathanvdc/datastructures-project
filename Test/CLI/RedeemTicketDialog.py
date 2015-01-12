@@ -27,19 +27,20 @@ class RedeemTicketDialog(CommandLineDialog):
                     tailNode = tailNode.successor
         return result
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Runs the dialog to redeem a user's ticket. """
+        CommandLineDialog.RunDialog(self, Parent)
 
-        user = DialogHelpers.SelectCustomer(self.theater, "Whose ticket would you like to redeem?")
+        user = DialogHelpers.SelectCustomer(self, self.theater, "Whose ticket would you like to redeem?")
         if user is None:
-            print("Could not redeem ticket.")
+            self.Write("Could not redeem ticket.")
             return
         reserved = self.GetReservedShowtimes(user)
         if reserved.count == 0:
-            print("You do not have any outstanding tickets.")
+            self.Write("You do not have any outstanding tickets.")
             return
 
-        showtime = DialogHelpers.SelectShowtime(reserved)
+        showtime = DialogHelpers.SelectShowtime(self, reserved)
 
         showtime.redeem_ticket(self.theater, user)
-        print("One ticket has been redeemed")
+        self.Write("One ticket has been redeemed")

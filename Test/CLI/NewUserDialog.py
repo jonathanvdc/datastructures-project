@@ -10,8 +10,9 @@ class NewUserDialog(CommandLineDialog):
 
         self.finishCallback = Callback
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Runs the dialog to create a new user. """
+        CommandLineDialog.RunDialog(self, Parent)
 
         firstName = self.ReadNoBlankString("Please enter your first name.")
         lastName = self.ReadNoBlankString("How about your last name?")

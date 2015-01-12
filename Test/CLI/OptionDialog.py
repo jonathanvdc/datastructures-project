@@ -35,18 +35,19 @@ class OptionDialog(CommandLineDialog):
 
         return self.optionTable[Key]
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Starts the dialog with the user. """
+        CommandLineDialog.RunDialog(self, Parent)
 
-        print(self.intro)
+        self.Write(self.intro)
         if self.showValues:
-            print("options (please enter an item's key, not its whole value):")
+            self.Write("options (please enter an item's key, not its whole value):")
         else:
-            print("options:")
+            self.Write("options:")
         for item in self.options:
-            print(" - " + str(item))
+            self.Write(" - " + str(item))
         val = self.get_value(self.ReadOptionKey())
         while val is None:
-            print("The provided input could not be matched exactly to a valid option. Please try again.")
+            self.Write("The provided input could not be matched exactly to a valid option. Please try again.")
             val = self.get_value(self.ReadOptionKey())
         return val

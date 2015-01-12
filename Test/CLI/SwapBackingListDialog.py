@@ -20,9 +20,10 @@ class SwapBackingListDialog(CommandLineDialog):
 
         return table
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
+        CommandLineDialog.RunDialog(self, Parent)
         
-        result = OptionDialog("", "To which kind of list would you like to switch?", self.options).RunDialog()
+        result = OptionDialog("", "To which kind of list would you like to switch?", self.options).RunDialog(self)
         self.target.swap(result.value)
-        print("List backing storage switched.")
+        self.Write("List backing storage switched.")
         return self.target

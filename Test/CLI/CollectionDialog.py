@@ -8,10 +8,11 @@ class CollectionDialog(CommandLineDialog):
         self.intro = Intro
         self.collection = Collection
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Displays the list of items. """
+        CommandLineDialog.RunDialog(self, Parent)
 
-        print(self.intro)
+        self.Write(self.intro)
         for item in self.collection:
-            print(str(item))
-        print("========================")
+            self.Write(str(item))
+        self.Write("========================")

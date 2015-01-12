@@ -1,6 +1,7 @@
 from IndirectTable import *
+from ISortableTable import *
 
-class SwapTable(IndirectTable):
+class SortableSwapTable(IndirectTable, ISortableTable):
     """ A wrapper table that allows for the underlying table to be 'swapped'. """
 
     def __init__(self, table):
@@ -14,7 +15,11 @@ class SwapTable(IndirectTable):
         return self.table
 
     def swap(self, Table):
-        """ Changes the underlying table implementation to the provided table. """
+        """ Changes the underlying sortable table implementation to the provided table. """
         for item in self:
             Table.insert(item)
         self.table = Table
+
+    def sort(self, Sorter):
+        """ Sorts the table's contents in ascending order based on the the provided comparer. """
+        self.table.sort(Sorter)

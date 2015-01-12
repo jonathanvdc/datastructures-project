@@ -10,8 +10,9 @@ class NewMovieDialog(CommandLineDialog):
 
         self.finishCallback = Callback
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Runs the dialog to create a new user. """
+        CommandLineDialog.RunDialog(self, Parent)
 
         title = self.ReadNoBlankString("What is the movie's title?")
         rating = self.ReadRangeFloat(0.0, 5.0, "How is the movie rated?")

@@ -23,22 +23,23 @@ class ReserveTicketDialog(CommandLineDialog):
 
         return table
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Runs the ticket reservation dialog. """
+        CommandLineDialog.RunDialog(self, Parent)
 
-        user = DialogHelpers.SelectCustomer(self.theater, "Who are you?")
+        user = DialogHelpers.SelectCustomer(self, self.theater, "Who are you?")
         if user is None:
-            print("Could not reserve tickets.")
+            self.Write("Could not reserve tickets.")
             return None
 
         showtimes = self.GetAvailableShowtimes()
         if showtimes.count == 0:
-            print("No showtimes have been scheduled yet. Tickets cannot be reserved.")
+            self.Write("No showtimes have been scheduled yet. Tickets cannot be reserved.")
             return None
 
         showtimeDialog = OptionDialog("select showtime", "Please select a showtime", showtimes, True)
         showtimeDialog.ReadOptionKey = showtimeDialog.ReadIndex
-        selectedShowtime = showtimeDialog.RunDialog()
+        selectedShowtime = showtimeDialog.RunDialog(self)
 
         numberOfSeats = self.ReadInteger("How many seats would you like to reserve?", lambda x: x is not None and x > 0, "The given input was not a positive integer, please input an integer greater than or equal to one.")
         
@@ -51,6 +52,6 @@ class ReserveTicketDialog(CommandLineDialog):
         # And processes the reservations right away
         # Otherwise, a blissfully ignorant user might reserve more tickets than the number of remaining tickets,
         # as the showtime's free seat counter has not been updated yet
-        print("Your reservation:")
+        self.Write("Your reservation:")
         for item in self.theater.reservations.process_reservations():
-            print(str(item))
+            self.Write(str(item))

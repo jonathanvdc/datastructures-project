@@ -13,8 +13,10 @@ from DeleteTimeslotDialog import *
 from SwapBackingListDialog import *
 from SwapBackingTableDialog import *
 from SwapBackingSortedListDialog import *
+from SwapSortableBackingTableDialog import *
 from SortTableDialog import *
 from QuitDialog import *
+from TopLevelDialog import *
 
 # These types can only exist in dynamic programming languages such as Python
 # They have been added to the CLI folder, rather than the core 'Implementations' folder,

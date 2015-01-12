@@ -12,12 +12,13 @@ class NewShowtimeDialog(CommandLineDialog):
 
         self.theater = Theater
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Runs the dialog to create a new user. """
+        CommandLineDialog.RunDialog(self, Parent)
 
-        selectedMovie = DialogHelpers.SelectMovie(self.theater, "Which movie will play at the showtime?")
-        selectedAuditorium = DialogHelpers.SelectAuditorium(self.theater, "In which auditorium will the showtime take place?")
-        selectedStartTime = DialogHelpers.SelectStartTime(self.theater, selectedAuditorium)
+        selectedMovie = DialogHelpers.SelectMovie(self, self.theater, "Which movie will play at the showtime?")
+        selectedAuditorium = DialogHelpers.SelectAuditorium(self, self.theater, "In which auditorium will the showtime take place?")
+        selectedStartTime = DialogHelpers.SelectStartTime(self, self.theater, selectedAuditorium)
         
         return self.theater.schedule_showtime(selectedAuditorium, selectedMovie, selectedStartTime)
 

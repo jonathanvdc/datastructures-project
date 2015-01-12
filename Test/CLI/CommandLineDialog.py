@@ -1,4 +1,5 @@
 import Project
+import IOStreams
 import datetime
 
 def get_now():
@@ -8,8 +9,10 @@ def get_now():
 class CommandLineDialog(Project.IRecord):
     """ A base class for command-line dialogs. """
 
-    def __init__(self, Name):
+    def __init__(self, Name, InputStream = None, OutputStream = None):
         self.name_value = Name
+        self.istream = InputStream
+        self.ostream = OutputStream
 
     @property
     def name(self):
@@ -21,24 +24,28 @@ class CommandLineDialog(Project.IRecord):
         """ Gets the key of the command-line dialog as a record."""
         return self.name
 
+    def Write(self, Value):
+        """ Writes a line of text to the output stream. """
+        return self.ostream.Write(Value)
+
     def PersistRead(self, ReadDelegate, Text, Predicate = lambda x: x is None):
         """ Reads input from the command line until a suitable answer is found. """
         result = ReadDelegate()
         while not Predicate(result):
-            print(Text)
+            self.Write(Text)
             result = ReadDelegate()
         return result
 
     def TryReadInteger(self):
         """ Tries to read a integer from the command line. """
         try:
-            return int(input())
+            return int(self.ReadString())
         except:
             return None
 
     def TryReadIndex(self):
         """ Tries to read an integer index from the command line. """
-        val = input().strip()
+        val = self.ReadString().strip()
         if val[0] == '#':
             try:
                 return int(val[1:])
@@ -53,13 +60,13 @@ class CommandLineDialog(Project.IRecord):
     def TryReadFloat(self):
         """ Tries to read a floating-point number from the command line. """
         try:
-            return float(input())
+            return float(self.ReadString())
         except:
             return None
 
     def TryReadBoolean(self):
         """ Tries to read a boolean value from the command line. """
-        val = input().strip().lower()
+        val = self.ReadString().strip().lower()
         if val == "y" or val == "yes":
             return True
         elif val == "n" or val == "no":
@@ -69,7 +76,7 @@ class CommandLineDialog(Project.IRecord):
 
     def TryReadDate(self):
         """ Tries to read a date from the command line. """
-        splitVals = input().replace(" ", "").split('/')
+        splitVals = self.ReadString().replace(" ", "").split('/')
         today = get_now().date
         try:
             dayData = [today.day, today.month, today.year]
@@ -88,7 +95,7 @@ class CommandLineDialog(Project.IRecord):
 
     def TryReadTime(self):
         """ Tries to read a time from the command line. """
-        splitVals = input().replace(" ", "").split(':')
+        splitVals = self.ReadString().replace(" ", "").split(':')
         if len(splitVals) < 2 or len(splitVals) > 3:
             return None
         try:
@@ -115,7 +122,7 @@ class CommandLineDialog(Project.IRecord):
                     FailText = "The given input was not an integer. Please input an integer."):
         """ Reads an integer from the command line. """
         if Text is not None:
-            print(Text)
+            self.Write(Text)
         return self.PersistRead(self.TryReadInteger, FailText, Predicate)
 
     def ReadIndex(self, 
@@ -124,7 +131,7 @@ class CommandLineDialog(Project.IRecord):
                     FailText = "The given input was not an integer index. Please input an integer index."):
         """ Reads an integer index from the command line. """
         if Text is not None:
-            print(Text)
+            self.Write(Text)
         return self.PersistRead(self.TryReadIndex, FailText, Predicate)
 
     def ReadFloat(self, 
@@ -133,7 +140,7 @@ class CommandLineDialog(Project.IRecord):
                   FailText = "The given input could not be parsed as a floating-point number. Please input a float."):
         """ Reads a floating-point number from the command line. """
         if Text is not None:
-            print(Text)
+            self.Write(Text)
         return self.PersistRead(self.TryReadFloat, FailText, Predicate)
 
     def ReadBoolean(self, 
@@ -142,7 +149,7 @@ class CommandLineDialog(Project.IRecord):
                   FailText = "The given input could not be parsed as a boolean number. Please input either 'yes' or 'no'."):
         """ Reads a boolean value from the command line. """
         if Text is not None:
-            print(Text)
+            self.Write(Text)
         return self.PersistRead(self.TryReadBoolean, FailText, Predicate)
 
     def ReadTime(self, 
@@ -151,7 +158,7 @@ class CommandLineDialog(Project.IRecord):
                   FailText = "The given input could not be parsed as a time. Please format times as 'hh:mm:ss' or 'hh:mm'."):
         """ Reads a time value from the command line. """
         if Text is not None:
-            print(Text)
+            self.Write(Text)
         return self.PersistRead(self.TryReadTime, FailText, Predicate)
 
     def ReadDate(self, 
@@ -160,7 +167,7 @@ class CommandLineDialog(Project.IRecord):
                   FailText = "The given input could not be parsed as a date. Please format dates as 'dd/mm/yyyy'."):
         """ Reads a date value from the command line. """
         if Text is not None:
-            print(Text)
+            self.Write(Text)
         return self.PersistRead(self.TryReadDate, FailText, Predicate)
 
     def ReadRangeFloat(self, Min, Max, Text = None):
@@ -170,13 +177,13 @@ class CommandLineDialog(Project.IRecord):
     def ReadString(self, Text = None):
         """ Reads a string from the command line. """
         if Text is not None:
-            print(Text)
-        return input()
+            self.Write(Text)
+        return self.istream.Read()
 
     def ReadNoBlankString(self, Text = None):
         """ Reads a non-empty string that is not blank from the command line. """
         if Text is not None:
-            print(Text)
+            self.Write(Text)
         return self.PersistRead(self.ReadString, "The given string was empty or blank. Please input a non-empty string that is not blank.", lambda x: x is not None and x != "" and not x.isspace())
 
     def ReadFutureDate(self, Text = None):
@@ -189,7 +196,8 @@ class CommandLineDialog(Project.IRecord):
                              lambda x: x is not None and x >= get_now().date, 
                              "The given input could not be parsed as a future date. Please format dates as 'dd/mm/yyyy'.")
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Starts the command-line dialog with the user. """
         
-        raise NotImplementedError("Method 'CommandLineDialog.RunDialog' was not implemented.")
+        self.istream = Parent.istream
+        self.ostream = Parent.ostream

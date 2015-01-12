@@ -22,9 +22,11 @@ class SwapBackingSortedListDialog(CommandLineDialog):
 
         table = Project.Hashtable(Project.DefaultRecordMap(), TypeBucketFactory(lambda map: Project.ListTable(map, Project.LinkedList())))
 
-        table.insert(Project.KeyValuePair("current map", self.key_map))
         for k, v in self.map_options:
             table.insert(Project.KeyValuePair(k, v))
+
+        if table.count == 0:
+            table.insert(Project.KeyValuePair("current map", self.key_map))
 
         return table
 
@@ -40,16 +42,17 @@ class SwapBackingSortedListDialog(CommandLineDialog):
 
         return table
 
-    def RunDialog(self):
+    def RunDialog(self, Parent):
         """ Displays the dialog. """
+        CommandLineDialog.RunDialog(self, Parent)
 
         km_options = self.key_map_options
         if km_options.count > 1:
-            map = OptionDialog("", "Which mapping funtion would you like to use to sort the list with?", self.key_map_options).RunDialog().value
+            map = OptionDialog("", "Which mapping funtion would you like to use to sort the list with?", self.key_map_options).RunDialog(self).value
         else:
             map = self.key_map
 
-        result = OptionDialog("", "To which kind of sorted list would you like to switch?", self.options).RunDialog()
+        result = OptionDialog("", "To which kind of sorted list would you like to switch?", self.options).RunDialog(self)
         self.target.swap(result.value(map))
-        print("Sorted list backing storage switched.")
+        self.Write("Sorted list backing storage switched.")
         return self.target
