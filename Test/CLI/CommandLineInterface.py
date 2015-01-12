@@ -46,6 +46,18 @@ def createSettings():
     settingsDialog.add_option(SetTimeDialog("set current time"))
     return settingsDialog
 
+def getStreams():
+    """ Gets an input and output stream for the current application. """
+    if len(sys.argv) > 1:
+        istream = IOStreams.FileInputStream(sys.argv[1])
+    else:
+        istream = IOStreams.ConsoleInputStream()
+    if len(sys.argv) > 2:
+        ostream = IOStreams.FileOutputStream(sys.argv[2])
+    else:
+        ostream = IOStreams.ConsoleOutputStream()
+    return (istream, ostream)
+
 mainDialog = MenuDialog("main dialog", "Welcome to the theater management menu for " + theater.name, Project.TreeTable(Project.BinarySearchTree(Project.DefaultRecordMap())))
 mainDialog.add_option(NewUserDialog(theater.register_customer))
 mainDialog.add_option(NewMovieDialog(theater.register_movie))
@@ -68,7 +80,10 @@ mainDialog.add_option(createSettings())
 
 mainDialog.add_option(DeleteTimeslotDialog(theater))
 
-parentDialog = TopLevelDialog(IOStreams.ConsoleInputStream(), IOStreams.ConsoleOutputStream())
+istream, ostream = getStreams()
 
-while not done:
-    mainDialog.RunDialog(parentDialog) # Run this dialog. Forever.
+with istream, ostream:
+    parentDialog = TopLevelDialog(istream, ostream)
+
+    while not done:
+        mainDialog.RunDialog(parentDialog) # Run this dialog. Forever.

@@ -253,6 +253,12 @@
     <Compile Include="CLI\FieldMap.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CLI\FileInputStream.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\FileOutputStream.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CLI\IOStreams.py">
       <SubType>Code</SubType>
     </Compile>
@@ -275,6 +281,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\OptionDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\OutputType.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\QuitDialog.py">
@@ -300,6 +309,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\IStringOutputStream.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLI\StringOutputStreamBase.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\SwapBackingListDialog.py">

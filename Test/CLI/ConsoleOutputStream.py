@@ -7,5 +7,18 @@ class ConsoleOutputStream(IStringOutputStream):
         pass
 
     def Write(self, Text):
-        return print(str(Text))
+        print(str(Text))
 
+    def __enter__(self):
+        pass
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        pass
+
+    def PopOutputType(self):
+        """ Does nothing. Output types are not used in console output. """
+        pass
+
+    def PushOutputType(self, Type):
+        """ Does nothing. Output types are not used in console output. """
+        pass

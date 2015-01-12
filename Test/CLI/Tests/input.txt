@@ -1,0 +1,14 @@
+new user
+Javi
+Gonzalez
+javi.gonzalez@outlook.com
+new user
+Andrew
+Morgan
+andrew.morgan@gmail.com
+new user
+Kate
+Zane
+kate.zane@yahoo.com
+view users
+quit

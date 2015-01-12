@@ -39,15 +39,16 @@ class OptionDialog(CommandLineDialog):
         """ Starts the dialog with the user. """
         CommandLineDialog.RunDialog(self, Parent)
 
-        self.Write(self.intro)
-        if self.showValues:
-            self.Write("options (please enter an item's key, not its whole value):")
-        else:
-            self.Write("options:")
-        for item in self.options:
-            self.Write(" - " + str(item))
-        val = self.get_value(self.ReadOptionKey())
-        while val is None:
-            self.Write("The provided input could not be matched exactly to a valid option. Please try again.")
+        with self.Query:
+            self.Write(self.intro)
+            if self.showValues:
+                self.Write("options (please enter an item's key, not its whole value):")
+            else:
+                self.Write("options:")
+            for item in self.options:
+                self.Write(" - " + str(item))
             val = self.get_value(self.ReadOptionKey())
+            while val is None:
+                self.WriteError("The provided input could not be matched exactly to a valid option. Please try again.")
+                val = self.get_value(self.ReadOptionKey())
         return val
