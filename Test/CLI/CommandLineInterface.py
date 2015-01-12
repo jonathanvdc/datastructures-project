@@ -79,6 +79,9 @@ mainDialog.add_option(CollectionDialog("view reservations", "Current reservation
 mainDialog.add_option(createSettings())
 
 mainDialog.add_option(DeleteTimeslotDialog(theater))
+mainDialog.add_option(DeleteUserDialog(theater))
+mainDialog.add_option(DeleteMovieDialog(theater))
+mainDialog.add_option(DeleteShowtimeDialog(theater))
 
 istream, ostream = getStreams()
 

@@ -20,6 +20,9 @@ from QuitDialog import *
 from TopLevelDialog import *
 
 from SetTimeDialog import *
+from DeleteUserDialog import *
+from DeleteMovieDialog import *
+from DeleteShowtimeDialog import *
 
 # These types can only exist in dynamic programming languages such as Python
 # They have been added to the CLI folder, rather than the core 'Implementations' folder,
