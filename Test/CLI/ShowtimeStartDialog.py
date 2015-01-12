@@ -1,10 +1,11 @@
 from CommandLineDialog import *
 from OptionDialog import *
 from MenuDialog import *
+from ShowtimeManager import *
 import Project
 
 class ShowtimeStartDialog(CommandLineDialog):
-    """ A dialog that creates and registers a new user. """
+    """ A dialog that selects the start time for a showtime. """
 
     def __init__(self, Theater, Auditorium):
         CommandLineDialog.__init__(self, "select showtime start")
@@ -15,7 +16,7 @@ class ShowtimeStartDialog(CommandLineDialog):
     def ShowtimeScheduled(self, StartTime):
         """ Returns a boolean value that indicates whether a showtime has been scheduled for this auditorium for the specified time. """
 
-        for item in self.theater.showtimes:
+        for item in FilterShowtimes(self.theater):
             if item.location == self.auditorium and item.start_time == StartTime:
                 return True
         return False

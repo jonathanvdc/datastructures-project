@@ -71,7 +71,7 @@ mainDialog.add_option(QuitDialog(quitDialogs))
 
 mainDialog.add_option(CollectionDialog("view movies", "Movies currently playing:", theater.movies))
 mainDialog.add_option(CollectionDialog("view timeslots", "Current timeslots:", theater.timeslots))
-mainDialog.add_option(CollectionDialog("view showtimes", "Current showtimes:", theater.showtimes))
+mainDialog.add_option(LazyCollectionDialog("view showtimes", "Current showtimes:", lambda: ShowtimeManager.FilterShowtimes(theater)))
 mainDialog.add_option(CollectionDialog("view auditoria", "Current auditoria:", theater.auditoria))
 mainDialog.add_option(CollectionDialog("view users", "Current users:", theater.registered_customers))
 mainDialog.add_option(CollectionDialog("view reservations", "Current reservations:", theater.reservations.reservations))

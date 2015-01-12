@@ -262,6 +262,9 @@
     <Compile Include="CLI\IOStreams.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CLI\LazyCollectionDialog.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CLI\MenuDialog.py">
       <SubType>Code</SubType>
     </Compile>
@@ -299,6 +302,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CLI\SetTimeDialog.py" />
+    <Compile Include="CLI\ShowtimeManager.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CLI\ShowtimeStartDialog.py">
       <SubType>Code</SubType>
     </Compile>

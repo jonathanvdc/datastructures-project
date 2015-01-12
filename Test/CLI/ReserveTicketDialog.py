@@ -1,6 +1,7 @@
 from CommandLineDialog import *
 from OptionDialog import *
 import DialogHelpers
+import ShowtimeManager
 import Project
 
 class ReserveTicketDialog(CommandLineDialog):
@@ -17,8 +18,8 @@ class ReserveTicketDialog(CommandLineDialog):
 
         # Quadratic open-addressed hashtable with default Record -> Key map
         table = Project.OpenHashtable(Project.DefaultRecordMap(), Project.PowerSequenceMap(2))
-        for item in self.theater.showtimes:
-            if item.start_time > now and item.number_of_free_seats > 0:
+        for item in ShowtimeManager.FilterShowtimes(self.theater):
+            if item.number_of_free_seats > 0:
                 table.insert(item)
 
         return table

@@ -1,4 +1,5 @@
 from CommandLineDialog import *
+import ShowtimeManager
 import DialogHelpers
 import Project
 
@@ -13,12 +14,12 @@ class RedeemTicketDialog(CommandLineDialog):
     def GetReservedShowtimes(self, Customer):
         """ Gets a collection of all showtimes a ticket has been reserved for by the given customer. """
         result = Project.LinkedList()
-        # I know I'm working with a linked list, whose contract specifically grants us access to its nodes.
-        # I am using the linked list's public API. This code may be less portable, but this is a performance optimization.
-        # This method has O(n) performance, using only the methods exposed by IList<Showtime> would yield O(n^2) performance, which is undesirable.
+        # We know we're working with a linked list, whose contract specifically grants us access to its nodes.
+        # We're using the linked list's public API. This code may be less portable, but this is a performance optimization.
+        # This method has O(n) performance, using only the methods exposed by IList<Showtime> would yield O(n^2) performance for linked lists, which is undesirable.
         tailNode = None
-        for item in self.theater.showtimes:
-            if item.has_ticket(Customer):
+        for item in ShowtimeManager.FilterShowtimes(self.theater):
+            if item.has_ticket(Customer) and ShowtimeManager.CanEnter(item):
                 if tailNode is None:
                     result.add(item)
                     tailNode = result.tail
@@ -37,7 +38,7 @@ class RedeemTicketDialog(CommandLineDialog):
             return
         reserved = self.GetReservedShowtimes(user)
         if reserved.count == 0:
-            self.Write("You do not have any outstanding tickets.")
+            self.Write("You do not have any outstanding tickets for showtimes that begin in the next " + str(ShowtimeManager.overdue_time) + ".")
             return
 
         showtime = DialogHelpers.SelectShowtime(self, reserved)

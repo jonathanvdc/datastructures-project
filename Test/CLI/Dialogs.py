@@ -2,6 +2,7 @@ from CommandLineDialog import *
 from MenuDialog import *
 from OptionDialog import *
 from CollectionDialog import *
+from LazyCollectionDialog import *
 from NewUserDialog import *
 from NewMovieDialog import *
 from NewShowtimeDialog import *
@@ -29,3 +30,5 @@ from SetTimeDialog import *
 from FieldComparer import *
 from FieldMap import *
 from TypeBucketFactory import *
+
+import ShowtimeManager
