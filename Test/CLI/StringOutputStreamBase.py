@@ -7,7 +7,7 @@ class StringOutputStreamBase(IStringOutputStream):
 
     def __init__(self):
         """ Creates a new file ouput stream from the given file name. """
-        self.type_stack = Project.Stack(Project.ArrayList())
+        self.type_stack = Project.Stack(Project.LinkedList())
         OutputType.Info(self).Push()
 
     @property

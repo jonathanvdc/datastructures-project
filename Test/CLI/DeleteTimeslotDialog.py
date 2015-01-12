@@ -11,7 +11,7 @@ class DeleteTimeslotDialog(CommandLineDialog):
     def RunDialog(self, Parent):
         CommandLineDialog.RunDialog(self, Parent)
 
-        slot = DialogHelpers.SelectTimeslot(self.theater.timeslots, "Which timeslot would you like to delete?")
+        slot = DialogHelpers.SelectTimeslot(self, self.theater.timeslots, "Which timeslot would you like to delete?")
         if slot is None:
             self.Write("Could not delete timeslot.")
             return
