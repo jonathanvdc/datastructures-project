@@ -26,14 +26,13 @@ class TreeSortedList<T> : ISortedList<T>
 
         +get() : boolean { query }
         // Gets a boolean value that indicates whether the sorted list is empty or not.
+        // Post:
+        // Return true if empty, false if not.
 
     }
 
     +Add(in Item : T)
     // Adds an item to the collection.
-    // Remarks:
-    // This method allows items to be added to a collection without knowledge of how the collection organizes itself.
-    // It does not specify where the item will be inserted, only that it will be inserted.
 
     +Remove(in Item : T) : boolean
     // Removes an item from the list.

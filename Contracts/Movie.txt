@@ -19,6 +19,9 @@ class Movie : IRecord<integer>
         +get() : integer { query }
         // Gets the movie's identifier.
 
+        -set(in value : integer)
+        // Sets the movie's identifier.
+
     }
 
     property Title
@@ -27,6 +30,9 @@ class Movie : IRecord<integer>
         +get() : string { query }
         // Gets the movie's title.
 
+        -set(in value : string)
+        // Sets the movie's title.
+
     }
 
     property Rating
@@ -34,6 +40,9 @@ class Movie : IRecord<integer>
 
         +get() : float { query }
         // Gets the movie's rating.
+
+        -set(in value : float)
+        // Sets the movie's rating.
 
     }
 

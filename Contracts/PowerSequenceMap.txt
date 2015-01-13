@@ -17,6 +17,9 @@ class PowerSequenceMap : IMap<integer, iterable<integer>>
         +get() : integer { query }
         // Gets the power to which the offsets will be exponentiated.
 
+        -set(in value : integer)
+        // Sets the power to which the offsets will be exponentiated.
+
     }
 
     +Map(in Value : integer) : iterable<integer> { query }

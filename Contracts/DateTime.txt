@@ -11,6 +11,9 @@ class DateTime
         +get() : Date { query }
         // Gets this timestamp's date.
 
+        -set(in value : Date)
+        // Sets this timestamp's date.
+
     }
 
     property TimeOfDay
@@ -19,6 +22,33 @@ class DateTime
         +get() : Time { query }
         // Gets this timestamp's time of day.
 
+        -set(in value : Time)
+        // Sets this timestamp's time of day.
+
     }
+
+    +ToString() : string { query }
+    // Gets the time's string representation.
+
+    +GetHashCode() : integer { query }
+    // Gets a hash code for the current DateTime instance.
+
+    +operator==(in Other : DateTime) : boolean { query }
+    // Finds out if two 'DateTime' instances are equal.
+
+    +operator!=(in Other : DateTime) : boolean { query }
+    // Finds out if two 'DateTime' instances are not equal.
+
+    +operator<(in Other : DateTime) : boolean { query }
+    // Finds out if this 'DateTime' instance is less than the given 'DateTime' instance.
+
+    +operator>(in Other : DateTime) : boolean { query }
+    // Finds out if this 'DateTime' instance is greater than the given 'DateTime' instance.
+
+    +operator<=(in Other : DateTime) : boolean { query }
+    // Finds out if this 'DateTime' instance is less than or equal to the given 'DateTime' instance.
+
+    +operator>=(in Other : DateTime) : boolean { query }
+    // Finds out if this 'DateTime' instance is greater than or equal to the given 'DateTime' instance.
 
 }

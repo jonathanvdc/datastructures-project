@@ -2,6 +2,8 @@ class DefaultRecordMap<TKey> : IMap<IRecord<TKey>, TKey>
 // A mapping function that simply passes along the search key provided by the record.
 {
 
+    +CreateDefaultRecordMap() : DefaultRecordMap<TKey>
+
     +Map(in Record : IRecord<TKey>) : TKey
     // Maps the item to its target representation.
     // Post:

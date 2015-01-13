@@ -2,6 +2,8 @@ class BinaryTreeTableFactory<TKey, TValue> : IFactory<ITable<TKey, TValue>, IMap
 // A factory that creates empty binary search tree tables from a value-key mapping function.
 {
 
+    +CreateBinaryTreeTableFactory() : BinaryTreeTableFactory<TKey, TValue>
+
     +Create(in Argument : IMap<TValue, TKey>) : ITable<TKey, TValue>
     // Creates a new instance from the provided argument.
     // Post:

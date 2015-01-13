@@ -27,6 +27,9 @@ class Ticket : IRecord<integer>
         +get() : User { query }
         // Gets the user that is associated with this ticket.
 
+        -set(in value : User)
+        // Sets the user that is associated with this ticket.
+
     }
 
 }

@@ -19,6 +19,9 @@ class Reservation : IRecord<integer>
         +get() : integer { query }
         // Gets the reservation's unique identifier.
 
+        -set(in value : integer)
+        // Sets the reservation's unique identifier.
+
     }
 
     property Customer
@@ -26,6 +29,9 @@ class Reservation : IRecord<integer>
 
         +get() : User { query }
         // Gets the customer that has reserved a seat.
+
+        -set(in value : User)
+        // Sets the customer that has reserved a seat.
 
     }
 
@@ -35,6 +41,9 @@ class Reservation : IRecord<integer>
         +get() : DateTime { query }
         // Gets the date and time at which the reservation was processed.
 
+        -set(in value : DateTime)
+        // Sets the date and time at which the reservation was processed.
+
     }
 
     property Showtime
@@ -43,6 +52,9 @@ class Reservation : IRecord<integer>
         +get() : Showtime { query }
         // Gets the showtime associated with this reservation.
 
+        -set(in value : Showtime)
+        // Sets the showtime associated with this reservation.
+
     }
 
     property NumberOfSeats
@@ -50,6 +62,9 @@ class Reservation : IRecord<integer>
 
         +get() : integer { query }
         // Gets the number of seats reserved by the user.
+
+        -set(in value : integer)
+        // Sets the number of seats reserved by the user.
 
     }
 

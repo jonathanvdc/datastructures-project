@@ -15,6 +15,9 @@ class ReservationRequest
         +get() : User { query }
         // Gets the user who placed this request.
 
+        -set(in value : User)
+        // Sets the user who placed this request.
+
     }
 
     property Showtime
@@ -22,6 +25,9 @@ class ReservationRequest
 
         +get() : Showtime { query }
         // Gets the showtime request this reservation was placed for.
+
+        -set(in value : Showtime)
+        // Sets the showtime request this reservation was placed for.
 
     }
 
@@ -31,6 +37,9 @@ class ReservationRequest
         +get() : integer { query }
         // Gets the number of seats this reservation requests.
 
+        -set(in value : integer)
+        // Sets the number of seats this reservation requests.
+
     }
 
     property Timestamp
@@ -38,6 +47,9 @@ class ReservationRequest
 
         +get() : DateTime { query }
         // Gets this reservation's timestamp.
+
+        -set(in value : DateTime)
+        // Sets this reservation's timestamp.
 
     }
 

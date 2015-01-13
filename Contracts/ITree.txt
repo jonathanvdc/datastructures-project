@@ -26,7 +26,7 @@ class ITree<T, TKey> : iterable<T>
     {
 
         +get() : boolean { query }
-        // Gets a boolean value that indicates if the list is empty.
+        // Gets a boolean value that indicates if the tree is empty.
 
     }
 

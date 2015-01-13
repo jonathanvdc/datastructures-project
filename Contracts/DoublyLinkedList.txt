@@ -5,6 +5,14 @@ class DoublyLinkedList<T> : IList<T>
     +CreateDoublyLinkedList() : DoublyLinkedList<T> { query }
     // Creates a new doubly linked list.
 
+    property Tail
+    {
+
+        -get() : DoubleNode<T> { query }
+        // Gets the linked list's tail node.
+
+    }
+
     property Count
     {
 

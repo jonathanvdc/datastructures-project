@@ -43,6 +43,7 @@ from IdentityMap import *
 from KeyValuePair import *
 from RecordKeyComparer import *
 from DefaultComparer import *
+from InvertedComparer import *
 from MapComparer import *
 from Quicksort import *
 from SortedListSort import *

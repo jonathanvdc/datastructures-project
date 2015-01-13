@@ -7,6 +7,14 @@ class ISortedList<T> : ICollection<T>
 // Also, the 'int locatePosition(T anItem, out bool isPresent)' method has been removed, as this is essentially table functionality, and the position of an item cannot be retrieved unambiguously, since sorted lists may contain more than one item with the same search key. 'void sortedInsert(T anItem)' is handled by the inherited 'void Add(T Item)' method in ICollection<T>.
 {
 
+    property KeyMap
+    {
+
+        +get() : IMap<T, object> { query }
+        // Gets a record-to-key map that maps records to sortable keys.
+
+    }
+
     property IsEmpty
     {
 

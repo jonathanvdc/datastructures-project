@@ -55,6 +55,7 @@ class SwapSortableBackingTableDialog(CommandLineDialog):
             sorter = None
 
         result = tableFactory.create(self.target.key_map, sorter)
+        self.Write("Sortable table backing storage switched.")
         self.target.swap(result)
 
         

@@ -2,7 +2,7 @@ class ISortableTable<TKey, TItem> : ITable<TKey, TItem>
 // Describes a sortable table.
 {
 
-    +Sort(in ItemComparer : IComparer<TItem>)
+    +Sort(in Sorter : IListSorter<TItem>)
     // Sorts the table's contents in ascending order based on the the provided comparer.
     // Pre:
     // The table must not be empty for this method to change the table's state.

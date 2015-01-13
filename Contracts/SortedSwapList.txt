@@ -6,6 +6,14 @@ class SortedSwapList<T> : ISortedList<T>
     +CreateSortedSwapList(in backingList : ISortedList<T>) : SortedSwapList<T> { query }
     // Creates a new sorted swap list with the specified backing list.
 
+    property KeyMap
+    {
+
+        +get() : IMap<T, object> { query }
+        // Gets a record-to-key map that maps records to sortable keys.
+
+    }
+
     property IsEmpty
     {
 
@@ -34,13 +42,20 @@ class SortedSwapList<T> : ISortedList<T>
     // Then, all items in the current backing list are copied to 'Container'.
     // After that, the backing list of this sorted swap list is set to 'Container'.
 
+    -BinaryCopy(in Source : IReadOnlyList<T>, in Target : ISortedList<T>, in StartIndex : integer, in Count : integer)
+    // A recursive algorithm that copies all items from a read-only list to the given target list.
+    // This is intended to maximize performance when switching to a backing sorted list implemented by a binary tree.
+
     +Add(in Item : T)
     // Adds an item to the collection.
-    // Remarks:
-    // This method allows items to be added to a collection without knowledge of how the collection organizes itself.
-    // It does not specify where the item will be inserted, only that it will be inserted.
 
-    +Remove(in Item : T)
+    +Remove(in Item : T) : boolean
+    // Removes an item from the list.
+    // Pre:
+    // For Item to be successfully removed from the sorted list, it must have been in the list before removal.
+    // Post:
+    // Returns true if the sorted list contained the given item, false if not.
+    // If this returns true, the item has been removed from the sorted list.
 
     +Contains(in Item : T) : boolean { query }
     // Finds out if the sorted list contains the given item.

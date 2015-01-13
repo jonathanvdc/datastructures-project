@@ -8,7 +8,7 @@ class ReservationManager
     property Reservations
     {
 
-        +get() : IReadOnlyList<Reservation> { query }
+        +get() : IReadOnlySwapList<Reservation> { query }
         // Gets the movie theater's processed and accepted reservations.
 
     }
@@ -16,7 +16,7 @@ class ReservationManager
     +QueueReservation(in Request : ReservationRequest)
     // Queues a reservation for a showtime for processing.
 
-    +ProcessReservations()
-    // Processes all queued reservations.
+    +ProcessReservations() : IReadOnlyList<Reservation>
+    // Processes all queued reservations and returns a read-only list containing the newly made reservations.
 
 }

@@ -21,6 +21,9 @@ class Auditorium : IRecord<integer>
         +get() : integer { query }
         // Gets the auditorium's index, or room number.
 
+        -set(in value : integer)
+        // Sets the auditorium's index, or room number.
+
     }
 
     property NumberOfSeats
@@ -29,6 +32,15 @@ class Auditorium : IRecord<integer>
         +get() : integer { query }
         // Gets the number of seats in the auditorium.
 
+        -set(in value : integer)
+        // Sets the number of seats in the auditorium.
+
     }
+
+    +operator==(in Other : Auditorium) : boolean { query }
+    // Finds out if this auditorium equals the given auditorium.
+
+    +operator!=(in Other : Auditorium) : boolean { query }
+    // Finds out if this auditorium is not equal to the given auditorium.
 
 }

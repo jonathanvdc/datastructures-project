@@ -88,6 +88,7 @@ def GetTableDelegates():
     table.insert(Project.KeyValuePair("binary tree table", lambda map: Project.TreeTable(Project.BinarySearchTree(map))))
     table.insert(Project.KeyValuePair("2-3-4 tree table", lambda map: Project.TreeTable(Project.TwoThreeFourSearchTree(map))))
     table.insert(Project.KeyValuePair("separate chaining hashtable - binary tree", lambda map: Project.Hashtable(map, Project.BinaryTreeTableFactory())))
+    table.insert(Project.KeyValuePair("separate chaining hashtable - 2-3-4 tree", lambda map: Project.Hashtable(map, TypeBucketFactory(Project.TwoThreeFourSearchTree))))
     table.insert(Project.KeyValuePair("separate chaining hashtable - array list", lambda map: Project.Hashtable(map, TypeBucketFactory(lambda bucket_map: Project.ListTable(bucket_map, Project.ArrayList())))))
     table.insert(Project.KeyValuePair("separate chaining hashtable - linked list", lambda map: Project.Hashtable(map, TypeBucketFactory(lambda bucket_map: Project.ListTable(bucket_map, Project.LinkedList())))))
     table.insert(Project.KeyValuePair("linear open addressing hashtable", lambda map: Project.OpenHashtable(map, Project.PowerSequenceMap(1))))

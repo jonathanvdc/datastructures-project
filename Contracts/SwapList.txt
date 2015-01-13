@@ -44,14 +44,9 @@ class SwapList<T> : IReadOnlySwapList<T>, IList<T>
     // Post:
     // The swap list's backing list is set to list 'Container'.
     // If 'Container' is not empty, the swap list may clear it.
-    // Remarks:
-    // This method cannot be used to reliably insert new items in the swap list, as 'Container' may be cleared by the swap list.
 
     +Add(in Item : T)
     // Adds an item to the collection.
-    // Remarks:
-    // This method allows items to be added to a collection without knowledge of how the collection organizes itself.
-    // It does not specify where the item will be inserted, only that it will be inserted.
 
     +Insert(in Index : integer, in Item : T) : boolean
     // Inserts an item in the list at the specified position.

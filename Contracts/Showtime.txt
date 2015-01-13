@@ -23,14 +23,6 @@ class Showtime : IRecord<integer>
 
     }
 
-    property NumberOfFreeSeats
-    {
-
-        +get() : integer { query }
-        // Gets the number of remaining free seats for this showtime.
-
-    }
-
     property AuditoriumIndex
     {
 
@@ -61,6 +53,9 @@ class Showtime : IRecord<integer>
         +get() : integer { query }
         // Gets the showtime's unique identifier.
 
+        -set(in value : integer)
+        // Sets the showtime's unique identifier.
+
     }
 
     property Location
@@ -68,6 +63,9 @@ class Showtime : IRecord<integer>
 
         +get() : Auditorium { query }
         // Gets the auditorium where the showtime will take place.
+
+        -set(in value : Auditorium)
+        // Sets the auditorium where the showtime will take place.
 
     }
 
@@ -77,6 +75,9 @@ class Showtime : IRecord<integer>
         +get() : Movie { query }
         // Gets the movie that will play at the showtime.
 
+        -set(in value : Movie)
+        // Sets the movie that will play at the showtime.
+
     }
 
     property StartTime
@@ -84,6 +85,20 @@ class Showtime : IRecord<integer>
 
         +get() : DateTime { query }
         // Gets the date and time for which this showtime is scheduled.
+
+        -set(in value : DateTime)
+        // Sets the date and time for which this showtime is scheduled.
+
+    }
+
+    property NumberOfFreeSeats
+    {
+
+        +get() : integer { query }
+        // Gets the number of remaining free seats for this showtime.
+
+        -set(in value : integer)
+        // Sets the number of remaining free seats for this showtime.
 
     }
 
@@ -95,6 +110,12 @@ class Showtime : IRecord<integer>
     // Post:
     // If the reservation request demanded more seats than available, None will be returned, and no seats will be reserved.
     // The reservation is in effect considered to be canceled.
+
+    +HasTicket(in Customer : User) : boolean { query }
+    // Gets a boolean value that indicates whether the provided customer has a ticket for this showtime.
+    // Post:
+    // If the showtime has any tickets associated with it that belong to the given customer, 'True' is returned.
+    // Otherwise, 'False' if returned.
 
     +RedeemTicket(in Theater : Theater, in Customer : User)
     // Have one person redeem their ticket and enter the showtime.

@@ -8,7 +8,7 @@ class Theater
     property Auditoria
     {
 
-        +get() : IReadOnlySwapList<Auditorium> { query }
+        +get() : SwapList<Auditorium> { query }
         // Gets a read-only list of all auditoria in this movie theater.
 
     }
@@ -16,7 +16,7 @@ class Theater
     property Timeslots
     {
 
-        +get() : IReadOnlySwapList<Time> { query }
+        +get() : SwapList<Time> { query }
         // Gets the list of all available timeslots for this movie theater.
 
     }
@@ -41,7 +41,7 @@ class Theater
     property RegisteredCustomers
     {
 
-        +get() : IReadOnlySwapList<User> { query }
+        +get() : SwapList<User> { query }
         // Gets a read-only view of all customers registered with this theater.
 
     }
@@ -52,6 +52,9 @@ class Theater
         +get() : string { query }
         // Gets the movie theater's name.
 
+        -set(in value : string)
+        // Sets the movie theater's name.
+
     }
 
     property Reservations
@@ -60,7 +63,23 @@ class Theater
         +get() : ReservationManager { query }
         // Gets the reservation manager instance.
 
+        -set(in value : ReservationManager)
+        // Sets the reservation manager instance.
+
     }
+
+    +FindMovie(in Title : string) : Movie { query }
+    // Tries to find a movie based on its complete title.
+    // Post:
+    // Searches through all movies until it finds one that corresponds to the given title.
+    // The first movie that matches this title will be returned.
+    // If no movie matches the given title, 'None' is returned.
+
+    +IsTimeslot(in Value : Time) : boolean { query }
+    // Gets a boolean value that indicates if the provided time corresponds to a timeslot.
+
+    +ShowtimePlanned(in Location : Auditorium, in StartTime : DateTime) : boolean { query }
+    // Gets a boolean value that indicates whether a showtime has been planned or not at the specified time in the specified auditorium.
 
     +BuildAuditorium(in NumberOfSeats : integer) : Auditorium
     // Builds and returns a new auditorium with the specified number of seats.
@@ -75,7 +94,7 @@ class Theater
     // The auditorium must not be booked for a showtime yet at that specific time, the movie must be a known movie to this theater, and the start time must correspond to a future, valid timeslot.
     // Post:
     // A new showtime is created and assigned its own unique identifier, it is subsequently added to the theater's list of showtimes and then returned.
-    // If any of the provided arguments are invalid, an exception is thrown.
+    // If any of the provided arguments are invalid, 'None' is returned, and no showtime will be scheduled.
 
     +RegisterCustomer(in FirstName : string, in LastName : string, in EmailAddress : string) : User
     // Registers a new customer and returns a User instance that describes them.
@@ -83,5 +102,11 @@ class Theater
     // FirstName and LastName should be the user's first and last name, respectively, and EmailAddress should be the user's e-mail address.
     // Post:
     // Creates a new User instance, assigns it a unique id and the given arguments, adds it to the list of registered users, and returns it.
+
+    +RegisterMovie(in Title : string, in Rating : float) : Movie
+    // Creates a new movie from the given arguments and adds it to the list of playing movies.
+    // Post:
+    // A new movie is created based on a unique ID, 'Title' and 'Rating', and is then added to the 'Movies' list.
+    // The created movie is subsequently returned.
 
 }

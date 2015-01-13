@@ -11,4 +11,60 @@ Kate
 Zane
 kate.zane@yahoo.com
 view users
+new movie
+Titanic
+4
+new showtime
+Titanic
+#0
+23/2/2015
+14:30
+reserve tickets
+Kate Zane
+#0
+3
+reserve tickets
+Andrew Morgan
+#0
+2
+reserve tickets
+Javi Gonzalez
+#0
+2
+reserve tickets
+Javi Gonzalez
+#0
+7
+2
+view reservations
+settings
+swap showtimes sortable table
+sorted separate chaining hashtable - 2-3-4 tree
+movie title
+quicksort
+settings
+set current time
+23/2/2015
+14:00
+redeem ticket
+Javi Gonzalez
+#0
+redeem ticket
+Javi Gonzalez
+#0
+redeem ticket
+Andrew Morgan
+#0
+redeem ticket
+Andrew Morgan
+#0
+view showtimes
+settings
+set current time
+24/2/2015
+14:00
+view showtimes
+new auditorium
+15
+view auditoria
 quit

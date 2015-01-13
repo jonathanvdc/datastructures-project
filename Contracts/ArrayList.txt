@@ -21,9 +21,19 @@ class ArrayList<T> : IList<T>
 
         +get(in Index : integer) : T { query }
         // Gets the item in the list at the specified position.
+        // Pre:
+        // Index must be a valid index in the list: it must be non-negative and less than the list's length, as exposed by the Count property.
+        // Post:
+        // If the index is a valid index in the linked list, the operation on said index is performed.
+        // Otherwise, an exception is thrown.
 
         +set(in Index : integer, in value : T)
         // Sets the item in the list at the specified position.
+        // Pre:
+        // Index must be a valid index in the list: it must be non-negative and less than the list's length, as exposed by the Count property.
+        // Post:
+        // If the index is a valid index in the linked list, the operation on said index is performed.
+        // Otherwise, an exception is thrown.
 
     }
 
@@ -45,6 +55,12 @@ class ArrayList<T> : IList<T>
     // Post:
     // If the provided index was an invalid index in the list, the list's state is not changed, and false is returned.
     // Otherwise, the item at the specified index is removed and the index of all items whose index is greater than the provided index, will be decremented by one.
+
+    -ShiftRight(in StartIndex : integer)
+    // Shifts the elements in the list to the right from the provided index onward.
+
+    -ShiftLeft(in StartIndex : integer)
+    // Shifts the elements in the list to the left from the provided index onward.
 
     +CopyTo(in Target : T[])
     // Copies the array list's contents to the provided target array.

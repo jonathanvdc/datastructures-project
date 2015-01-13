@@ -13,7 +13,7 @@ class SortedTable(ISortableTable):
         self.sorter = Sorter
 
     def sort_table(self):
-        """ 
+        """ Writes a sorted list of the table's items to 'sortedList'.
             This method is private. """
         if self.sorted_list is None:
             targetList = ArrayList()

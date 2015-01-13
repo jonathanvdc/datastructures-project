@@ -1,17 +1,15 @@
-class TreeTable<TKey, TValue> : ITable<TKey, TValue>
-// A search tree implementation of a table.
-// Remarks:
-// TKey is the type of keys stored in the table, TValue is the type of values.
+class SortedTable<TKey, TItem> : ISortableTable<TKey, TItem>
+// A sortable table implementation that provides access to sorted objects which are sorted lazily.
 {
 
-    +CreateTreeTable(in tree : ITree<TValue, TKey>) : TreeTable<TKey, TValue> { query }
-    // Creates a new tree implementation of a table, using the provided tree as backing storage.
+    +CreateSortedTable(in Table : ITable<TKey, TItem>, in Sorter : IListSorter<TItem>) : SortedTable<TKey, TItem> { query }
+    // Creates a lazily sorted table with the specified table as backing storage, and the specified list sorter for sorting functionality.
 
     property KeyMap
     {
 
-        +get() : IMap<TValue, TKey> { query }
-        // Gets the mapping function that maps list items to their search keys.
+        +get() : IMap<TItem, TKey> { query }
+        // Gets the table's record-to-key map.
 
     }
 
@@ -23,18 +21,10 @@ class TreeTable<TKey, TValue> : ITable<TKey, TValue>
 
     }
 
-    property IsEmpty
-    {
-
-        +get() : boolean { query }
-        // Gets a boolean value that indicates whether the table is empty or not.
-
-    }
-
     indexer
     {
 
-        +get(in Key : TKey) : TValue { query }
+        +get(in Key : TKey) : TItem { query }
         // Retrieves the item in the table with the specified key.
         // Pre:
         // For this method to return an item in the table, rather than null, the key must be in the table, i.e.
@@ -45,7 +35,31 @@ class TreeTable<TKey, TValue> : ITable<TKey, TValue>
 
     }
 
-    +Insert(in Item : TValue) : boolean
+    property Sorter
+    {
+
+        +get() : IListSorter<TItem> { query }
+        // Gets the sorted table's list sorter.
+
+        -set(in value : IListSorter<TItem>)
+        // Sets the sorted table's list sorter.
+
+    }
+
+    -SortTable()
+    // Writes a sorted list of the table's items to 'sortedList'.
+
+    +Sort(in Sorter : IListSorter<TItem>)
+    // 'Sorts' the sorted table with the specified list sorter.
+    // The actual sorting process is deferred until __iter__ or ToList are called, however.
+    // Pre:
+    // The table must not be empty for this method to change the table's state.
+    // Post:
+    // The table's items will be sorted.
+    // After sorting, the table's 'ToList()' method must return a list whose items are sorted.
+    // If the table's state is modified after 'Sort()' is called, the list produced by 'ToList()' need no longer be sorted.
+
+    +Insert(in Item : TItem) : boolean
     // Inserts an item into the table.
     // Post:
     // Returns true if item is successfully inserted, false if the table already contains an item with the same search key.
@@ -58,7 +72,7 @@ class TreeTable<TKey, TValue> : ITable<TKey, TValue>
     +ContainsKey(in Key : TKey) : boolean { query }
     // Finds out if the table contains the specified key.
 
-    +ToList() : IReadOnlyList<TValue> { query }
+    +ToList() : IReadOnlyList<TItem> { query }
     // Gets the table's items as a read-only list.
     // The elements in this list are in the same order as those in the table's iterator, obtained through '__iter__' (the get iterator method).
     // Any statement that applies to this method therefore also applies to the '__iter__' (get iterator) method, and vice-versa.

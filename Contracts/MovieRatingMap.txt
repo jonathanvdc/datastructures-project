@@ -3,6 +3,7 @@ class MovieRatingMap : IMap<Movie, float>
 {
 
     +CreateMovieRatingMap() : MovieRatingMap { query }
+    // Creates a new movie-rating map.
 
     +Map(in Item : Movie) : float
     // Maps the item to its target representation.
