@@ -7,10 +7,6 @@ class BinarySearchTree(ITree):
     """ Describes a binary search tree. """
 
     def __init__(self, KeyMap, tree = None):
-        if tree is None:
-            self.tree = None
-            self.key_map = KeyMap
-            return
         self.key_map = KeyMap
         self.tree = tree
 
