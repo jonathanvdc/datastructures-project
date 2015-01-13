@@ -424,7 +424,7 @@ class TwoThreeFourTree:
         if searchNode.size() == 1: # Als dit kind slechts 1 item bevat, mergen we dit kind
             self.Merge(node, itemNum + 1)
             return (node, False)	# Hierdoor is mogelijk de locatie van het te swappen item veranderd, 
-											#we keren terug naar de "remove" functie en geven aan dat er geen swap gebeurd is
+                                    # we keren terug naar de "remove" functie en geven aan dat er geen swap gebeurd is
             
         while not searchNode.is_leaf(): # Naar 'links', i.e. het eerste kind, blijven gaan tot een blad bereikt is
             if searchNode.c1.size() == 1:
@@ -480,9 +480,9 @@ class TwoThreeFourTree:
         # moeten worden met de parent.
         elif parent.size() == 1:		# Speciaal geval: Dit kan enkel gebeuren als de parent de root van de boom is
             leftNode = parent.c1	    # Het maakt niet uit welke van deze 2 de te mergen node is, het resultaat is
-												# hoe dan ook hetzelfde
+                                        # hoe dan ook hetzelfde
             rightNode = parent.c2
-		
+        
             (parent.k2, parent.d2) = (parent.k1, parent.d1) 
             (parent.k1, parent.d1, parent.c1, parent.c2) = (leftNode.k1, leftNode.d1, leftNode.c1, leftNode.c2)
             (parent.k3, parent.d3, parent.c3, parent.c4) = (rightNode.k1, rightNode.d1, rightNode.c1, rightNode.c2)
