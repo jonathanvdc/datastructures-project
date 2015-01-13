@@ -241,6 +241,9 @@ test_stack(Stack(LinkedList()))
 print("Testing stack with array list...")
 test_stack(Stack(ArrayList()))
 
+print("Testing array list table...")
+test_table(ListTable(DefaultRecordMap(), ArrayList()))
+
 print("Testing binary tree table...")
 test_table(TreeTable(BinarySearchTree(DefaultRecordMap())))
 

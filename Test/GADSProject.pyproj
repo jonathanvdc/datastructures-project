@@ -372,7 +372,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ProjectTest.py" />
-    <Compile Include="TableTest.py" />
     <Compile Include="TheaterTests.py">
       <SubType>Code</SubType>
     </Compile>
