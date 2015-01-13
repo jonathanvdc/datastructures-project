@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f4b8f817-b814-4872-9690-ea3a8d6e748d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ProjectTest.py</StartupFile>
+    <StartupFile>CLI\CommandLineInterface.py</StartupFile>
     <SearchPath>..\Implementations\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -238,9 +238,12 @@
     <Compile Include="CLI\ConsoleOutputStream.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CLI\DeleteMovieDialog.py" />
+    <Compile Include="CLI\DeleteShowtimeDialog.py" />
     <Compile Include="CLI\DeleteTimeslotDialog.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CLI\DeleteUserDialog.py" />
     <Compile Include="CLI\DialogHelpers.py">
       <SubType>Code</SubType>
     </Compile>

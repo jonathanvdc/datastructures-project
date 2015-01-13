@@ -13,7 +13,7 @@ class DeleteUserDialog(CommandLineDialog):
 
         user = DialogHelpers.SelectCustomer(self, self.theater, "Which user would you like to delete?")
         if user is None:
-            self.Write("Could not delete user.")
+            self.WriteError("Could not delete user.")
             return
         
         for i, item in enumerate(self.theater.registered_customers):
@@ -22,4 +22,4 @@ class DeleteUserDialog(CommandLineDialog):
                 self.Write("User removed.")
                 return
 
-        self.Write("User could not be deleted.")
+        self.WriteError("User could not be deleted.")

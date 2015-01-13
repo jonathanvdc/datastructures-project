@@ -13,7 +13,7 @@ class DeleteTimeslotDialog(CommandLineDialog):
 
         slot = DialogHelpers.SelectTimeslot(self, self.theater.timeslots, "Which timeslot would you like to delete?")
         if slot is None:
-            self.Write("Could not delete timeslot.")
+            self.WriteError("Could not delete timeslot.")
             return
         
         for i, item in enumerate(self.theater.timeslots):
@@ -22,4 +22,4 @@ class DeleteTimeslotDialog(CommandLineDialog):
                 self.Write("Timeslot removed.")
                 return
 
-        self.Write("Timeslot could not be deleted.")
+        self.WriteError("Timeslot could not be deleted.")

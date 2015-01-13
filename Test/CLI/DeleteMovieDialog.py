@@ -13,9 +13,10 @@ class DeleteMovieDialog(CommandLineDialog):
 
         movie = DialogHelpers.SelectMovie(self, self.theater, "Which movie would you like to delete?")
         if movie is None:
-            self.Write("Could not delete movie.")
+            self.WriteError("Could not delete movie.")
             return
         
-        self.theater.movies.remove(movie)
-
-        self.Write("Movie could not be deleted.")
+        if self.theater.movies.remove(movie):
+            self.Write("Movie successfully deleted.")
+        else:
+            self.WriteError("Movie could not be deleted.")

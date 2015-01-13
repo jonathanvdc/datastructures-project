@@ -17,6 +17,5 @@ class DeleteShowtimeDialog(CommandLineDialog):
         
         if self.theater.showtimes.remove(showtime.id):
             self.Write("Showtime successfully deleted.")
-            return
-		
-        self.Write("Could not delete showtime.")
+        else:
+            self.WriteError("Could not delete showtime.")
