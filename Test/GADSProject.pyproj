@@ -374,6 +374,7 @@
     <Compile Include="GUI\tkhelpers.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="movies.py" />
     <Compile Include="ProjectTest.py" />
     <Compile Include="TheaterTests.py">
       <SubType>Code</SubType>

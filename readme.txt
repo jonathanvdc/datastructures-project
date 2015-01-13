@@ -15,10 +15,13 @@ Inhoud:
 =========================================================
 Tests:
 - ProjectTest.py (Test/ProjectTest.py): tests voor de verschillende datastructuren die geimplementeerd zijn
+
 - TheaterTests.py (Test/TheaterTests.py): tests voor het reservatiesysteem: 
   genereert films, auditoria, klanten en vertoningen, reserveert tickets en laat klanten binnengaan in de zaal.
+
 - CommandLineInterface.py (Test/CLI/CommandLineInterface.py - manuele modus): 
   geeft een command-line interface waarmee het reservatiesysteem en de onderliggende ADTs gemanipuleerd kunnen worden.
+
 - CommandLineInterface.py (Test/CLI/CommandLineInterface - automatische mode: python CommandLineInterface.py Tests/input.txt Tests/output.txt):
   laat toe het voorgaande UI te automatiseren door middel van een input file (Tests/input.txt) en een output file (Tests/output.txt).
   Een gelijkaardig effect kan bereikt worden door 'python CommandLineInterface.py < Tests/input.txt > Tests/output.txt', maar dit zorgt voor een verschillende output:
@@ -26,3 +29,5 @@ Tests:
   maar genegeerd door 'FileOutputStream', de output stream implementatie voor files.
   Dit omwille van de redenering dat een input file alvast alle antwoorden bevat op de vragen die normaalgezien gesteld worden,
   waardoor het vertonen van vragen en opties in de output strikt overbodig zou zijn.
+
+- movies.py (Test/movies.py) - genereert 10 (min of meer plausibele) filmnamen.
