@@ -6,9 +6,7 @@ class SortedTable(ISortableTable):
 
     def __init__(self, Table, Sorter):
         """ Creates a lazily sorted table with the specified table as backing storage, and the specified list sorter for sorting functionality. """
-        self.table = None
         self.sorted_list = None
-        self.sorter_value = None
         self.table = Table
         self.sorter = Sorter
 

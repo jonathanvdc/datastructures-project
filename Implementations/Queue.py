@@ -12,7 +12,6 @@ class Queue(IReadOnlyCollection):
             self.data_container = None
             self.data_container = ArrayList()
             return
-        self.data_container = None
         self.data_container = dataContainer
 
     def enqueue(self, Item):

@@ -11,7 +11,6 @@ class PowerSequenceMap(IMap):
         # Power should be a non-zero, positive integer.
         # If it is negative or zero, the argument will be accessible in its original form as exposed through the 'Power' property.
         # The 'Map' method will, however, generate a linear sequence.
-        self.power_value = 0
         self.power = Power
 
     def map(self, Value):

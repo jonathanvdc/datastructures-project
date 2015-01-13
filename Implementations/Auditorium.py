@@ -7,8 +7,6 @@ class Auditorium(IRecord):
         """ Creates a new auditorium instance for the provided index and number of seats. """
         # Pre:
         # 'Index' must be a unique index and 'NumberOfSeats' must be a nonzero positive integer.
-        self.index_value = 0
-        self.number_of_seats_value = 0
         self.index = Index
         self.number_of_seats = NumberOfSeats
 

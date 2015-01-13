@@ -18,14 +18,15 @@ class TwoThreeFourSearchTree(ITree):
     @property
     def count(self):
         """ Counts the number of elements in the search tree. """
-        if self.tree.root == None:
+        if self.tree.root is None:
             return 0
         else:
             return self.tree.root.count()
 
+    @property
     def is_empty(self):
         """ Gets a boolean value that indicates if the tree is empty. """
-        return self.tree.root == None
+        return self.tree.root is None
 
     def insert(self, Item):
         """ Inserts an item into the search tree. """
@@ -41,7 +42,7 @@ class TwoThreeFourSearchTree(ITree):
 
     def __iter__(self):
         """ Creates an iterator that iterates over every element in the tree. """
-        if self.tree.root == None:
+        if self.tree.root is None:
             return iter([])
         else:
             return self.tree.root.IterateInorder()

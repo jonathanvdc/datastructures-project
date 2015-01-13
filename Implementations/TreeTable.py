@@ -7,7 +7,6 @@ class TreeTable(ITable):
 
     def __init__(self, tree):
         """ Creates a new tree implementation of a table, using the provided tree as backing storage. """
-        self.tree = None
         self.tree = tree
 
     def insert(self, Item):

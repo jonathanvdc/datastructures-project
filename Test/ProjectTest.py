@@ -185,6 +185,47 @@ def test_sorted_list(aList):
     
     assert(to_py_list(aList.to_list()) == l)
 
+def test_swap_table():
+    """ Tests class 'SwapTable' by interleaving the normal table test with random swaps. """
+
+    aTable = SwapTable(Hashtable(DefaultRecordMap(), BinaryTreeTableFactory()))
+
+    pyDict = {}
+
+    rng = random.Random()
+
+    for i in range(0, 100):
+        diff = aTable.count - len(pyDict);
+        assert(diff == 0)
+        record = IntRecord(rng.randrange(-100, 100))
+
+        swap_rand = rng.randrange(0, 20)
+
+        if swap_rand == 0: # One in twenty chance to swap to a separate chaining hashtable
+            aTable.swap(Hashtable(DefaultRecordMap(), BinaryTreeTableFactory()))
+        elif swap_rand == 1: # One in twenty chance to swap to an open addressed hashtable
+            aTable.swap(OpenHashtable(DefaultRecordMap(), PowerSequenceMap(1)))
+        elif swap_rand == 2: # One in twenty chance to swap to a binary search tree
+            aTable.swap(TreeTable(BinarySearchTree(DefaultRecordMap())))
+
+        if not aTable.contains_key(record.key):
+            assert(record.key not in pyDict)
+            assert(symmetric_table_insert(aTable, pyDict, record))
+        else:
+            assert(not symmetric_table_insert(aTable, pyDict, record))
+
+    for i in range(0, 200):
+        value = rng.randrange(-100, 100)
+        diff = aTable.count - len(pyDict);
+        assert(diff == 0)
+        if aTable.contains_key(value):
+            assert(value in pyDict)
+            assert(symmetric_table_remove(aTable, pyDict, value))
+        else:
+            assert(not symmetric_table_remove(aTable, pyDict, value))
+    
+    assert_kv_contents(sorted(to_py_list(aTable.to_list())), sorted(pyDict.items()))
+
 print("Testing linked list...")
 test_list(LinkedList())
 
@@ -223,5 +264,11 @@ test_sorted_list(SortedList(DefaultRecordMap(), LinkedList()))
 
 print("Testing array sorted list...")
 test_sorted_list(SortedList(DefaultRecordMap(), ArrayList()))
+
+print("Testing swap table...")
+test_swap_table()
+
+print("Testing 2-3-4 tree...")
+test_table(TreeTable(TwoThreeFourSearchTree(DefaultRecordMap())))
 
 print("All tests successful")

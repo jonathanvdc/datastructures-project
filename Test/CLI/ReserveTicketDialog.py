@@ -47,7 +47,7 @@ class ReserveTicketDialog(CommandLineDialog):
         freeSeatsCount = selectedShowtime.number_of_free_seats
         while numberOfSeats > freeSeatsCount:
             self.WriteError("Sorry, there are only " + str(freeSeatsCount) + " seats left. Please pick a smaller number of seats.")
-            numberOfSeats = self.ReadInteger("", lambda x: x is not None and x > 0, "The given input was not a positive integer, please input an integer greater than or equal to one.")
+            numberOfSeats = self.ReadInteger(None, lambda x: x is not None and x > 0, "The given input was not a positive integer, please input an integer greater than or equal to one.")
 
         # Queues the reservation
         result = self.theater.reservations.queue_reservation(Project.ReservationRequest(user, selectedShowtime, numberOfSeats, get_now()))

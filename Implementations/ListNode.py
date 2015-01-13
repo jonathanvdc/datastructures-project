@@ -9,7 +9,6 @@ class ListNode:
         """ Creates a new linked list node instance from the specified value. """
         # Post:
         # Value will populate the linked list's Value property.
-        self.value_value = None
         self.successor_value = None
         self.value = Value
 

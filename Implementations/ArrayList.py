@@ -9,7 +9,6 @@ class ArrayList(IList):
             self.data = [None] * 5
             self.elem_count = 0
             return
-        self.data = [None] * 5
         self.elem_count = 0
         self.data = data
         self.elem_count = len(data)

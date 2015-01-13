@@ -7,7 +7,6 @@ class SortedListSort(IListSorter):
 
     def __init__(self, SortedList):
         """ Creates a new instance of a quicksort implementation for 'IListSorter<T>' based on the given sorted list. """
-        self.sorted_list = None
         self.sorted_list = SortedList
 
     def clear_list(self):

@@ -6,7 +6,6 @@ class Quicksort(IListSorter):
 
     def __init__(self, ItemComparer):
         """ Creates a new instance of a quicksort implementation for IListSorter<T> based on the given item comparer. """
-        self.item_comparer_value = None
         self.item_comparer = ItemComparer
 
     def sort(self, Items):

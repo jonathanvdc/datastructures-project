@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f4b8f817-b814-4872-9690-ea3a8d6e748d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>CLI\CommandLineInterface.py</StartupFile>
+    <StartupFile>ProjectTest.py</StartupFile>
     <SearchPath>..\Implementations\</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -84,6 +84,9 @@
     </Compile>
     <Compile Include="..\Implementations\IndirectTable.py">
       <Link>Implementation\IndirectTable.py</Link>
+    </Compile>
+    <Compile Include="..\Implementations\InvertedComparer.py">
+      <Link>Implementation\InvertedComparer.py</Link>
     </Compile>
     <Compile Include="..\Implementations\IReadOnlyCollection.py">
       <Link>Implementation\IReadOnlyCollection.py</Link>

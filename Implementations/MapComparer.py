@@ -7,7 +7,6 @@ class MapComparer(IComparer):
     def __init__(self, ItemMap):
         """ Creates a new map comparer. """
         self.actual_comparer = DefaultComparer()
-        self.item_map_value = None
         self.item_map = ItemMap
 
     def compare(self, Item, Other):

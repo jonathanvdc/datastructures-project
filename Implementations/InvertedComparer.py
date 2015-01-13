@@ -5,7 +5,6 @@ class InvertedComparer(IComparer):
 
     def __init__(self, Comparer):
         """ Creates a new inverted comparer that uses the given comparer. """
-        self.comparer_value = None
         self.comparer = Comparer
 
     def compare(self, Item, Other):

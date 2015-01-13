@@ -7,10 +7,6 @@ class ReservationRequest:
 
     def __init__(self, Customer, Showtime, NumberOfSeats, Timestamp):
         """ Creates a new reservation request. """
-        self.number_of_seats_value = 0
-        self.customer_value = None
-        self.timestamp_value = None
-        self.showtime_value = None
         self.customer = Customer
         self.showtime = Showtime
         self.number_of_seats = NumberOfSeats

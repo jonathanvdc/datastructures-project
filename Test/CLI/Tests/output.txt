@@ -4,19 +4,19 @@ User #1: Andrew Morgan (andrew.morgan@gmail.com)
 User #2: Kate Zane (kate.zane@yahoo.com)
 ========================
 Your reservation:
-Reservation #0, made at 13/1/2015 14:09:15: 3 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30, 7 free seats, 0 people present
+Reservation #0, made at 13/1/2015 19:09:38: 3 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30 (23/2/2015), 7 free seats, 0 people present
 Your reservation:
-Reservation #1, made at 13/1/2015 14:09:15: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30, 5 free seats, 0 people present
+Reservation #1, made at 13/1/2015 19:09:38: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30 (23/2/2015), 5 free seats, 0 people present
 Your reservation:
-Reservation #2, made at 13/1/2015 14:09:15: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30, 3 free seats, 0 people present
+Reservation #2, made at 13/1/2015 19:09:38: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30 (23/2/2015), 3 free seats, 0 people present
 Sorry, there are only 3 seats left. Please pick a smaller number of seats.
 Your reservation:
-Reservation #3, made at 13/1/2015 14:09:15: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30, 1 free seats, 0 people present
+Reservation #3, made at 13/1/2015 19:09:38: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30 (23/2/2015), 1 free seats, 0 people present
 Current reservations:
-Reservation #0, made at 13/1/2015 14:09:15: 3 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30, 1 free seats, 0 people present
-Reservation #1, made at 13/1/2015 14:09:15: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30, 1 free seats, 0 people present
-Reservation #2, made at 13/1/2015 14:09:15: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30, 1 free seats, 0 people present
-Reservation #3, made at 13/1/2015 14:09:15: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30, 1 free seats, 0 people present
+Reservation #0, made at 13/1/2015 19:09:38: 3 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30 (23/2/2015), 1 free seats, 0 people present
+Reservation #1, made at 13/1/2015 19:09:38: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30 (23/2/2015), 1 free seats, 0 people present
+Reservation #2, made at 13/1/2015 19:09:38: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30 (23/2/2015), 1 free seats, 0 people present
+Reservation #3, made at 13/1/2015 19:09:38: 2 seats for Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30 (23/2/2015), 1 free seats, 0 people present
 ========================
 Sortable table backing storage switched.
 The current date is: 13/1/2015
@@ -26,7 +26,7 @@ One ticket has been redeemed
 One ticket has been redeemed
 One ticket has been redeemed
 Current showtimes:
-Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30, 1 free seats, 4 people present
+Showtime #0 of Titanic (Rated 4.0), Auditorium 0 (10 seats), at 14:30 (23/2/2015), 1 free seats, 4 people present
 ========================
 The current date is: 23/2/2015
 The date/time has been set to: 24/2/2015 14:00

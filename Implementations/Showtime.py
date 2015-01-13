@@ -10,10 +10,6 @@ class Showtime(IRecord):
         """ Creates a new instance of a showtime. """
         # Pre:
         # Id must be a valid and unique identifier, the location must be an existing at the theater, the movie must be known to the theater and the start time must correspond to one of the theater's time slots.
-        self.location_value = None
-        self.start_time_value = None
-        self.id_value = 0
-        self.movie_playing_value = None
         self.number_of_free_seats_value = 0
         self.tickets = Stack()
         self.id = Id
@@ -26,7 +22,7 @@ class Showtime(IRecord):
         """ Gets the showtime's string representation. """
         reservedSeats = self.location.number_of_seats - self.number_of_free_seats
         present = reservedSeats - self.tickets.count
-        return "Showtime #" + str(self.id) + " of " + str(self.movie_playing) + ", " + str(self.location) + ", at " + str(self.timeslot) + ", " + str(self.number_of_free_seats) + " free seats, " + str(present) + " people present"
+        return "Showtime #" + str(self.id) + " of " + str(self.movie_playing) + ", " + str(self.location) + ", at " + str(self.timeslot) + " (" + str(self.date) + "), " + str(self.number_of_free_seats) + " free seats, " + str(present) + " people present"
 
     def make_reservation(self, Id, Request):
         """ Reserves a ticket for this showtime. """

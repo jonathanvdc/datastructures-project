@@ -7,9 +7,6 @@ class Date:
         # Day must be a positive integer that represents a valid day for the provided month.
         # Month must be an integer from 1 to 12.
         # Year must be an integer.
-        self.day_value = 0
-        self.month_value = 0
-        self.year_value = 0
         self.day = Day
         self.month = Month
         self.year = Year

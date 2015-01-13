@@ -27,7 +27,6 @@ class Theater:
         self.allmovies = SortedSwapList(TreeSortedList(BinarySearchTree(MovieRatingMap())))
         self.scheduled_showtimes = SortableSwapTable(ListTable(DefaultRecordMap(), LinkedList()))
         self.registered_users = SwapList(ArrayList())
-        self.name_value = None
         self.reservations_value = None
         self.name = Name
         self.reservations = ReservationManager()

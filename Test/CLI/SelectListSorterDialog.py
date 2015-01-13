@@ -16,6 +16,7 @@ class SelectListSorterDialog(CommandLineDialog):
 
         table = Project.ListTable(Project.DefaultRecordMap(), Project.ArrayList())
         table.insert(Project.KeyValuePair("quicksort", lambda map: Project.Quicksort(Project.MapComparer(map))))
+        table.insert(Project.KeyValuePair("quicksort - descending", lambda map: Project.Quicksort(Project.InvertedComparer(Project.MapComparer(map)))))
         table.insert(Project.KeyValuePair("treesort - binary tree", lambda map: Project.SortedListSort(Project.TreeSortedList(Project.BinarySearchTree(map)))))
         table.insert(Project.KeyValuePair("treesort - 2-3-4 tree", lambda map: Project.SortedListSort(Project.TreeSortedList(Project.TwoThreeFourSearchTree(map)))))
         table.insert(Project.KeyValuePair("insertion sort - linked list", lambda map: Project.SortedListSort(Project.SortedList(map, Project.LinkedList()))))

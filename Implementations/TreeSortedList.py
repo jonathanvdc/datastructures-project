@@ -5,7 +5,6 @@ class TreeSortedList(ISortedList):
 
     def __init__(self, tree):
         """ Creates a new search tree implementation of a sorted list, using the provided tree as backing storage. """
-        self.tree = None
         self.tree = tree
 
     def add(self, Item):

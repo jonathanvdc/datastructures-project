@@ -7,8 +7,6 @@ class SortedList(ISortedList):
 
     def __init__(self, KeyMap, List):
         """ Creates a new sorted list from the given mapping function and list. """
-        self.list = None
-        self.key_map_value = None
         self.key_map = KeyMap
         self.list = List
 

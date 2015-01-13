@@ -12,7 +12,6 @@ class Stack(IReadOnlyCollection):
             self.data_container = None
             self.data_container = LinkedList()
             return
-        self.data_container = None
         self.data_container = dataContainer
 
     def push(self, Item):
