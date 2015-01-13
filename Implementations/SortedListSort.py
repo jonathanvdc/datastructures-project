@@ -11,7 +11,8 @@ class SortedListSort(IListSorter):
         self.sorted_list = SortedList
 
     def clear_list(self):
-        """ Removes all items from the sorted list. """
+        """ Removes all items from the sorted list.
+            This method is private. """
         contents = ArrayList()
         for item in self.sorted_list:
             contents.add(item)

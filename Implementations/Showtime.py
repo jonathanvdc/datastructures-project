@@ -86,7 +86,8 @@ class Showtime(IRecord):
 
     @location.setter
     def location(self, value):
-        """ Sets the auditorium where the showtime will take place. """
+        """ Sets the auditorium where the showtime will take place.
+            This accessor is private. """
         self.location_value = value
 
     @property
@@ -96,7 +97,8 @@ class Showtime(IRecord):
 
     @start_time.setter
     def start_time(self, value):
-        """ Sets the date and time for which this showtime is scheduled. """
+        """ Sets the date and time for which this showtime is scheduled.
+            This accessor is private. """
         self.start_time_value = value
 
     @property
@@ -106,7 +108,8 @@ class Showtime(IRecord):
 
     @id.setter
     def id(self, value):
-        """ Sets the showtime's unique identifier. """
+        """ Sets the showtime's unique identifier.
+            This accessor is private. """
         self.id_value = value
 
     @property
@@ -116,7 +119,8 @@ class Showtime(IRecord):
 
     @movie_playing.setter
     def movie_playing(self, value):
-        """ Sets the movie that will play at the showtime. """
+        """ Sets the movie that will play at the showtime.
+            This accessor is private. """
         self.movie_playing_value = value
 
     @property
@@ -126,7 +130,8 @@ class Showtime(IRecord):
 
     @number_of_free_seats.setter
     def number_of_free_seats(self, value):
-        """ Sets the number of remaining free seats for this showtime. """
+        """ Sets the number of remaining free seats for this showtime.
+            This accessor is private. """
         self.number_of_free_seats_value = value
 
     @property

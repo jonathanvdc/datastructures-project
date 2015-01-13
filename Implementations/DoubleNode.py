@@ -17,7 +17,8 @@ class DoubleNode:
         # If 'Node' equals 'None', sets this node's predecessor to 'None'.
         # Otherwise, this node's predecessor to the given node, and sets the given node's successor to this node.
         self.predecessor = Node
-        Node.successor = self
+        if Node is not None:
+            Node.successor = self
 
     def set_successor(self, Node):
         """ Sets this node's successor to the given node, and sets the given node's predecessor to this node, if 'Node' is not 'None'. """
@@ -25,7 +26,8 @@ class DoubleNode:
         # If 'Node' equals 'None', sets this node's successor to 'None'.
         # Otherwise, this node's successor to the given node, and sets the given node's predecessor to this node.
         self.successor = Node
-        Node.predecessor = self
+        if Node is not None:
+            Node.predecessor = self
 
     def insert_after(self, Value):
         """ Inserts a node containing the provided value after this node. """

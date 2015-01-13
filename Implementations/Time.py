@@ -20,12 +20,21 @@ class Time:
         self.total_seconds = 0
         self.total_seconds = Hour * 3600 + Minute * 60 + Second
 
+    def to_double_digit_number(self, Value):
+        """ Gets a double-digit string representation for the given integer.
+            This method is private. """
+        num = str(Value)
+        if Value < 10:
+            return "0" + num
+        else:
+            return num
+
     def __str__(self):
         """ Gets the time's string representation. """
         if self.second == 0:
-            return str(self.hour) + ":" + str(self.minute)
+            return str(self.hour) + ":" + self.to_double_digit_number(self.minute)
         else:
-            return str(self.hour) + ":" + str(self.minute) + ":" + str(self.second)
+            return str(self.hour) + ":" + self.to_double_digit_number(self.minute) + ":" + self.to_double_digit_number(self.second)
 
     def __add__(self, Other):
         """ Calculates the sum of this 'Time' instance and the given 'Time' instance. """

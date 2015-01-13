@@ -11,7 +11,8 @@ class SortableSwapTable(IndirectTable, ISortableTable):
         self.table = table
 
     def get_table(self):
-        """ Gets the indirect table's underlying table. """
+        """ Gets the indirect table's underlying table.
+            This method is protected. """
         return self.table
 
     def swap(self, Table):

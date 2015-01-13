@@ -35,5 +35,6 @@ class PowerSequenceMap(IMap):
 
     @power.setter
     def power(self, value):
-        """ Sets the power to which the offsets will be exponentiated. """
+        """ Sets the power to which the offsets will be exponentiated.
+            This accessor is private. """
         self.power_value = value

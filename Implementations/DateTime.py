@@ -52,7 +52,8 @@ class DateTime:
 
     @date.setter
     def date(self, value):
-        """ Sets this timestamp's date. """
+        """ Sets this timestamp's date.
+            This accessor is private. """
         self.date_value = value
 
     @property
@@ -62,5 +63,6 @@ class DateTime:
 
     @time_of_day.setter
     def time_of_day(self, value):
-        """ Sets this timestamp's time of day. """
+        """ Sets this timestamp's time of day.
+            This accessor is private. """
         self.time_of_day_value = value

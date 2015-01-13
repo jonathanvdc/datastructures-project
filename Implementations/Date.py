@@ -63,7 +63,7 @@ class Date:
 
     def __hash__(self):
         """ Gets a hash code for the current Date instance. """
-        return (self.day ^ self.month) + self.year * 100
+        return self.day ^ self.month | self.year << 5
 
     @property
     def day(self):
@@ -72,7 +72,8 @@ class Date:
 
     @day.setter
     def day(self, value):
-        """ Sets the day of this date. """
+        """ Sets the day of this date.
+            This accessor is private. """
         self.day_value = value
 
     @property
@@ -82,7 +83,8 @@ class Date:
 
     @month.setter
     def month(self, value):
-        """ Sets the month of this date. """
+        """ Sets the month of this date.
+            This accessor is private. """
         self.month_value = value
 
     @property
@@ -92,5 +94,6 @@ class Date:
 
     @year.setter
     def year(self, value):
-        """ Sets the year of this date. """
+        """ Sets the year of this date.
+            This accessor is private. """
         self.year_value = value

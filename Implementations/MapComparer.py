@@ -25,5 +25,6 @@ class MapComparer(IComparer):
 
     @item_map.setter
     def item_map(self, value):
-        """ Sets the mapping function that is used to produce two comparable items. """
+        """ Sets the mapping function that is used to produce two comparable items.
+            This accessor is private. """
         self.item_map_value = value

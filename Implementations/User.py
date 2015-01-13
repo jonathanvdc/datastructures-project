@@ -39,7 +39,8 @@ class User(IRecord):
 
     @id.setter
     def id(self, value):
-        """ Sets the user's unique identifier. """
+        """ Sets the user's unique identifier.
+            This accessor is private. """
         self.id_value = value
 
     @property
@@ -49,7 +50,8 @@ class User(IRecord):
 
     @first_name.setter
     def first_name(self, value):
-        """ Sets the user's first name. """
+        """ Sets the user's first name.
+            This accessor is private. """
         self.first_name_value = value
 
     @property
@@ -59,7 +61,8 @@ class User(IRecord):
 
     @last_name.setter
     def last_name(self, value):
-        """ Sets the user's last name. """
+        """ Sets the user's last name.
+            This accessor is private. """
         self.last_name_value = value
 
     @property
@@ -69,7 +72,8 @@ class User(IRecord):
 
     @email_address.setter
     def email_address(self, value):
-        """ Sets the user's email address. """
+        """ Sets the user's email address.
+            This accessor is private. """
         self.email_address_value = value
 
     @property

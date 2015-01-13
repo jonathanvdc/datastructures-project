@@ -34,7 +34,8 @@ class Auditorium(IRecord):
 
     @index.setter
     def index(self, value):
-        """ Sets the auditorium's index, or room number. """
+        """ Sets the auditorium's index, or room number.
+            This accessor is private. """
         self.index_value = value
 
     @property
@@ -44,7 +45,8 @@ class Auditorium(IRecord):
 
     @number_of_seats.setter
     def number_of_seats(self, value):
-        """ Sets the number of seats in the auditorium. """
+        """ Sets the number of seats in the auditorium.
+            This accessor is private. """
         self.number_of_seats_value = value
 
     @property

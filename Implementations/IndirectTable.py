@@ -7,7 +7,8 @@ class IndirectTable(ITable):
         pass
 
     def get_table(self):
-        """ Gets the indirect table's underlying table. """
+        """ Gets the indirect table's underlying table.
+            This abstract method is protected. """
         raise NotImplementedError("Method 'IndirectTable.get_table' was not implemented.")
 
     def insert(self, Value):
@@ -31,7 +32,9 @@ class IndirectTable(ITable):
         return self.get_table().__iter__()
 
     def to_list(self):
-        """ Gets the table's items as a read-only list. """
+        """ Gets the table's items as a read-only list.
+            The elements in this list are in the same order as those in the table's iterator, obtained through '__iter__' (the get iterator method).
+            Any statement that applies to this method therefore also applies to the '__iter__' (get iterator) method, and vice-versa. """
         # Post:
         # This method returns a read-only list that describes the items in this table.
         # Modifications to this list are not allowed - it is read-only.

@@ -25,7 +25,8 @@ class Movie(IRecord):
 
     @title.setter
     def title(self, value):
-        """ Sets the movie's title. """
+        """ Sets the movie's title.
+            This accessor is private. """
         self.title_value = value
 
     @property
@@ -35,7 +36,8 @@ class Movie(IRecord):
 
     @id.setter
     def id(self, value):
-        """ Sets the movie's identifier. """
+        """ Sets the movie's identifier.
+            This accessor is private. """
         self.id_value = value
 
     @property
@@ -45,7 +47,8 @@ class Movie(IRecord):
 
     @rating.setter
     def rating(self, value):
-        """ Sets the movie's rating. """
+        """ Sets the movie's rating.
+            This accessor is private. """
         self.rating_value = value
 
     @property

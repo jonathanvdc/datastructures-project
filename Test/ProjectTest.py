@@ -188,6 +188,9 @@ def test_sorted_list(aList):
 print("Testing linked list...")
 test_list(LinkedList())
 
+print("Testing doubly linked list...")
+test_list(DoublyLinkedList())
+
 print("Testing array list...")
 test_list(ArrayList())
 

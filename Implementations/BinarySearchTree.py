@@ -29,7 +29,8 @@ class BinarySearchTree(ITree):
             self.tree.traverse_inorder(Target)
 
     def get_leftmost(self):
-        """ Gets the binary tree's leftmost node. """
+        """ Gets the binary tree's leftmost node.
+            This method is private. """
         if self.tree is None:
             return None
         else:
@@ -100,7 +101,8 @@ class BinarySearchTree(ITree):
 
     def immutable_remove(self, Key):
         """ Returns a tree where one occurrence of an item with the provided key has been removed.
-            Search trees are treated as immutable objects in this method. """
+            Search trees are treated as immutable objects in this method.
+            This method is private. """
         if self.is_empty:
             return self
         ownKey = self.key
@@ -126,7 +128,8 @@ class BinarySearchTree(ITree):
 
     def immutable_remove_leftmost(self):
         """ Returns a tree with the leftmost child removed.
-            Search trees are treated as immutable objects in this method. """
+            Search trees are treated as immutable objects in this method.
+            This method is private. """
         if self.is_empty:
             return self
         elif self.left.is_empty:
@@ -140,7 +143,8 @@ class BinarySearchTree(ITree):
     def equals(self, Other):
         """ Compares two trees for equality.
             This method is not intended for general use, and was specifically created for the 'Remove(TKey)' method.
-            It uses reference comparison to achieve O(log(n)) performance. """
+            It uses reference comparison to achieve O(log(n)) performance.
+            This method is private. """
         if self.tree == Other.tree:
             return True
         elif self.is_empty or Other.is_empty:
@@ -160,7 +164,8 @@ class BinarySearchTree(ITree):
 
     @left.setter
     def left(self, value):
-        """ Sets the binary tree's left subtree. """
+        """ Sets the binary tree's left subtree.
+            This accessor is private. """
         self.tree.left = value.tree
 
     @property
@@ -170,7 +175,8 @@ class BinarySearchTree(ITree):
 
     @key_map.setter
     def key_map(self, value):
-        """ Sets the function that maps the binary search tree's records to their search keys. """
+        """ Sets the function that maps the binary search tree's records to their search keys.
+            This accessor is private. """
         self.key_map_value = value
 
     @property
@@ -196,7 +202,8 @@ class BinarySearchTree(ITree):
 
     @right.setter
     def right(self, value):
-        """ Sets the binary tree's right subtree. """
+        """ Sets the binary tree's right subtree.
+            This accessor is private. """
         self.tree.right = value.tree
 
     @property

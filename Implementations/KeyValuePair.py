@@ -19,7 +19,8 @@ class KeyValuePair(IRecord):
 
     @key.setter
     def key(self, value):
-        """ Sets the key-value pair's key. """
+        """ Sets the key-value pair's key.
+            This accessor is private. """
         self.key_value = value
 
     @property
@@ -29,5 +30,6 @@ class KeyValuePair(IRecord):
 
     @value.setter
     def value(self, value):
-        """ Sets the key-value pair's value. """
+        """ Sets the key-value pair's value.
+            This accessor is private. """
         self.value_value = value

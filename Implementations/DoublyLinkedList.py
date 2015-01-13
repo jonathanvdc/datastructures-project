@@ -115,7 +115,8 @@ class DoublyLinkedList(IList):
 
     @property
     def tail(self):
-        """ Gets the linked list's tail node. """
+        """ Gets the linked list's tail node.
+            This accessor is private. """
         if self.head is None:
             return None
         else:

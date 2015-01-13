@@ -17,7 +17,8 @@ class OpenHashtable(ITable):
 
     def get_next_prime(self):
         """ Gets the next prime in the prime list.
-            If this prime is not available, -1 is returned. """
+            If this prime is not available, -1 is returned.
+            This method is private. """
         i = 0
         while i < len(self.prime_list) - 1:
             if self.prime_list[i] > self.capacity:
@@ -26,7 +27,8 @@ class OpenHashtable(ITable):
         return -1
 
     def resize_table(self):
-        """ Tries to resize the table to the next prime and re-hashes every element. """
+        """ Tries to resize the table to the next prime and re-hashes every element.
+            This method is private. """
         nextPrime = self.get_next_prime()
         if nextPrime > -1:
             oldValues = self.values
@@ -53,6 +55,8 @@ class OpenHashtable(ITable):
             return True
 
     def find_open_item(self, Key):
+        """ 
+            This method is private. """
         hashCode = hash(Key)
         seq = self.probe_sequence_map.map(hashCode)
         for index in seq:
@@ -65,7 +69,8 @@ class OpenHashtable(ITable):
                 return None
 
     def is_open(self, Index):
-        """ Finds out if the position at the given index is open. """
+        """ Finds out if the position at the given index is open.
+            This method is private. """
         return self.values[Index] is None or self.values[Index].is_empty
 
     def contains_key(self, Key):
@@ -94,7 +99,9 @@ class OpenHashtable(ITable):
                 yield self.values[i].value
 
     def to_list(self):
-        """ Gets the table's items as a read-only list. """
+        """ Gets the table's items as a read-only list.
+            The elements in this list are in the same order as those in the table's iterator, obtained through '__iter__' (the get iterator method).
+            Any statement that applies to this method therefore also applies to the '__iter__' (get iterator) method, and vice-versa. """
         # Post:
         # This method returns a read-only list that describes the items in this table.
         # Modifications to this list are not allowed - it is read-only.
@@ -108,7 +115,8 @@ class OpenHashtable(ITable):
 
     @property
     def capacity(self):
-        """ Gets the table's capacity. """
+        """ Gets the table's capacity.
+            This accessor is private. """
         return len(self.values)
 
     @property
@@ -118,7 +126,8 @@ class OpenHashtable(ITable):
 
     @count.setter
     def count(self, value):
-        """ Sets the number of items in the table. """
+        """ Sets the number of items in the table.
+            This accessor is private. """
         self.count_value = value
 
     @property
@@ -128,7 +137,8 @@ class OpenHashtable(ITable):
 
     @key_map.setter
     def key_map(self, value):
-        """ Sets the record-to-key mapping function used by this hash table. """
+        """ Sets the record-to-key mapping function used by this hash table.
+            This accessor is private. """
         self.key_map_value = value
 
     @property
@@ -138,12 +148,14 @@ class OpenHashtable(ITable):
 
     @probe_sequence_map.setter
     def probe_sequence_map(self, value):
-        """ Sets the open addressed hash table's hash key to probe sequence mapping function. """
+        """ Sets the open addressed hash table's hash key to probe sequence mapping function.
+            This accessor is private. """
         self.probe_sequence_map_value = value
 
     @property
     def load_factor(self):
-        """ Gets the table's load factor. """
+        """ Gets the table's load factor.
+            This accessor is private. """
         return self.count / self.capacity
 
     def __getitem__(self, Key):

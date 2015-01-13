@@ -20,7 +20,8 @@ class Quicksort(IListSorter):
         return Items
 
     def quicksort(self, Items, Start, End):
-        """ Sorts (a portion of) the given list list in-place using the quicksort algorithm. """
+        """ Sorts (a portion of) the given list list in-place using the quicksort algorithm.
+            This method is private. """
         if Start < End:
             p = self.partition(Items, Start, End)
             self.quicksort(Items, Start, p - 1)
@@ -31,7 +32,8 @@ class Quicksort(IListSorter):
             Basically, a pivot item is selected, and all items that have a search key less than the pivot will be moved to the start of the list.
             The pivot item will be the next item in the list, followed immediately by all items that have a search key greater than or equal to the pivot.
             The returns value consists of the index of the pivot in the modified list.
-            This method is used by the quicksort sorting method. """
+            This method is used by the quicksort sorting method.
+            This method is private. """
         # Post:
         # Returns the index of the spot in the list where the pivot has been placed.
         pivotIndex = (Start + End) // 2
@@ -48,7 +50,8 @@ class Quicksort(IListSorter):
         return lowIndex
 
     def swap(self, Items, First, Second):
-        """ Swaps two items' positions in the list. """
+        """ Swaps two items' positions in the list.
+            This method is private. """
         temp = Items[First]
         Items[First] = Items[Second]
         Items[Second] = temp
@@ -60,5 +63,6 @@ class Quicksort(IListSorter):
 
     @item_comparer.setter
     def item_comparer(self, value):
-        """ Sets the item comparer that is used to order items. """
+        """ Sets the item comparer that is used to order items.
+            This accessor is private. """
         self.item_comparer_value = value

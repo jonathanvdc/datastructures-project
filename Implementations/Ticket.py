@@ -15,7 +15,8 @@ class Ticket(IRecord):
 
     @customer.setter
     def customer(self, value):
-        """ Sets the user that is associated with this ticket. """
+        """ Sets the user that is associated with this ticket.
+            This accessor is private. """
         self.customer_value = value
 
     @property

@@ -49,7 +49,8 @@ class ArrayList(IList):
             return False
 
     def shift_right(self, StartIndex):
-        """ Shifts the elements in the list to the right from the provided index onward. """
+        """ Shifts the elements in the list to the right from the provided index onward.
+            This method is private. """
         if self.count >= len(self.data):
             newData = [None] * (len(self.data) + 5)
             i = 0
@@ -82,7 +83,8 @@ class ArrayList(IList):
             return False
 
     def shift_left(self, StartIndex):
-        """ Shifts the elements in the list to the left from the provided index onward. """
+        """ Shifts the elements in the list to the left from the provided index onward.
+            This method is private. """
         i = StartIndex + 1
         while i < self.count:
             self.data[i - 1] = self.data[i]

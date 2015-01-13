@@ -29,7 +29,8 @@ class SortedSwapList(ISortedList):
 
     def binary_copy(self, Source, Target, StartIndex, Count):
         """ A recursive algorithm that copies all items from a read-only list to the given target list.
-            This is intended to maximize performance when switching to a backing sorted list implemented by a binary tree. """
+            This is intended to maximize performance when switching to a backing sorted list implemented by a binary tree.
+            This method is private. """
         if Count > 0:
             mid = StartIndex + Count // 2
             Target.add(Source[mid])

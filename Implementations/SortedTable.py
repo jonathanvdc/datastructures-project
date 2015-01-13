@@ -13,6 +13,8 @@ class SortedTable(ISortableTable):
         self.sorter = Sorter
 
     def sort_table(self):
+        """ 
+            This method is private. """
         if self.sorted_list is None:
             targetList = ArrayList()
             for item in self.table:
@@ -50,7 +52,9 @@ class SortedTable(ISortableTable):
         return self.table.contains_key(Key)
 
     def to_list(self):
-        """ Gets the table's items as a read-only list. """
+        """ Gets the table's items as a read-only list.
+            The elements in this list are in the same order as those in the table's iterator, obtained through '__iter__' (the get iterator method).
+            Any statement that applies to this method therefore also applies to the '__iter__' (get iterator) method, and vice-versa. """
         # Post:
         # This method returns a read-only list that describes the items in this table.
         # Modifications to this list are not allowed - it is read-only.
@@ -70,7 +74,8 @@ class SortedTable(ISortableTable):
 
     @sorter.setter
     def sorter(self, value):
-        """ Sets the sorted table's list sorter. """
+        """ Sets the sorted table's list sorter.
+            This accessor is private. """
         self.sorter_value = value
 
     @property

@@ -24,7 +24,8 @@ class StackedMap(IMap):
 
     @second_map.setter
     def second_map(self, value):
-        """ Sets the stacked map's second mapping function. """
+        """ Sets the stacked map's second mapping function.
+            This accessor is private. """
         self.second_map_value = value
 
     @property
@@ -34,5 +35,6 @@ class StackedMap(IMap):
 
     @first_map.setter
     def first_map(self, value):
-        """ Sets the stacked map's first mapping function. """
+        """ Sets the stacked map's first mapping function.
+            This accessor is private. """
         self.first_map_value = value

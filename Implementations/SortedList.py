@@ -65,6 +65,8 @@ class SortedList(ISortedList):
 
     @key_map.setter
     def key_map(self, value):
+        """ 
+            This accessor is private. """
         self.key_map_value = value
 
     @property

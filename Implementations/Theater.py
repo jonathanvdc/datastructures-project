@@ -128,7 +128,8 @@ class Theater:
 
     @name.setter
     def name(self, value):
-        """ Sets the movie theater's name. """
+        """ Sets the movie theater's name.
+            This accessor is private. """
         self.name_value = value
 
     @property
@@ -138,7 +139,8 @@ class Theater:
 
     @reservations.setter
     def reservations(self, value):
-        """ Sets the reservation manager instance. """
+        """ Sets the reservation manager instance.
+            This accessor is private. """
         self.reservations_value = value
 
     @property

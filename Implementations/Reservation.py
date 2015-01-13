@@ -27,7 +27,8 @@ class Reservation(IRecord):
 
     @id.setter
     def id(self, value):
-        """ Sets the reservation's unique identifier. """
+        """ Sets the reservation's unique identifier.
+            This accessor is private. """
         self.id_value = value
 
     @property
@@ -37,7 +38,8 @@ class Reservation(IRecord):
 
     @customer.setter
     def customer(self, value):
-        """ Sets the customer that has reserved a seat. """
+        """ Sets the customer that has reserved a seat.
+            This accessor is private. """
         self.customer_value = value
 
     @property
@@ -47,7 +49,8 @@ class Reservation(IRecord):
 
     @showtime.setter
     def showtime(self, value):
-        """ Sets the showtime associated with this reservation. """
+        """ Sets the showtime associated with this reservation.
+            This accessor is private. """
         self.showtime_value = value
 
     @property
@@ -57,7 +60,8 @@ class Reservation(IRecord):
 
     @timestamp.setter
     def timestamp(self, value):
-        """ Sets the date and time at which the reservation was processed. """
+        """ Sets the date and time at which the reservation was processed.
+            This accessor is private. """
         self.timestamp_value = value
 
     @property
@@ -67,7 +71,8 @@ class Reservation(IRecord):
 
     @number_of_seats.setter
     def number_of_seats(self, value):
-        """ Sets the number of seats reserved by the user. """
+        """ Sets the number of seats reserved by the user.
+            This accessor is private. """
         self.number_of_seats_value = value
 
     @property

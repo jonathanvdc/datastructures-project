@@ -25,7 +25,9 @@ class ITable(IReadOnlyCollection):
         raise NotImplementedError("Method 'ITable.contains_key' was not implemented.")
 
     def to_list(self):
-        """ Gets the table's items as a read-only list. """
+        """ Gets the table's items as a read-only list.
+            The elements in this list are in the same order as those in the table's iterator, obtained through '__iter__' (the get iterator method).
+            Any statement that applies to this method therefore also applies to the '__iter__' (get iterator) method, and vice-versa. """
         # Post:
         # This method returns a read-only list that describes the items in this table.
         # Modifications to this list are not allowed - it is read-only.

@@ -20,7 +20,8 @@ class Hashtable(ITable):
 
     def get_next_prime(self):
         """ Gets the next prime in the prime list.
-            If this prime is not available, -1 is returned. """
+            If this prime is not available, -1 is returned.
+            This method is private. """
         i = 0
         while i < len(self.prime_list) - 1:
             if self.prime_list[i] > self.bucket_capacity:
@@ -29,7 +30,8 @@ class Hashtable(ITable):
         return -1
 
     def resize_table(self):
-        """ Tries to resize the table to the next prime and re-hashes every element. """
+        """ Tries to resize the table to the next prime and re-hashes every element.
+            This method is private. """
         nextPrime = self.get_next_prime()
         if nextPrime > -1:
             oldBuckets = self.buckets
@@ -55,7 +57,8 @@ class Hashtable(ITable):
         return True
 
     def get_new_bucket(self, HashCode):
-        """ Gets the bucket for items with the given hash code or creates a new one, if necessary. """
+        """ Gets the bucket for items with the given hash code or creates a new one, if necessary.
+            This method is private. """
         index = HashCode % self.bucket_capacity
         bucket = self.buckets[index]
         if bucket is None:
@@ -65,23 +68,27 @@ class Hashtable(ITable):
         return bucket
 
     def bucket_contains_key(self, Bucket, Key):
-        """ Finds out if a bucket contains the given key. """
+        """ Finds out if a bucket contains the given key.
+            This method is private. """
         return self.find_in_bucket(Bucket, Key) is not None
 
     def find_in_bucket(self, Bucket, Key):
-        """ Finds an item in the given bucket with the given key. """
+        """ Finds an item in the given bucket with the given key.
+            This method is private. """
         if Bucket is None:
             return None
         return Bucket[Key]
 
     def get_bucket(self, HashCode):
-        """ Gets the bucket for items with the given hash code. """
+        """ Gets the bucket for items with the given hash code.
+            This method is private. """
         index = HashCode % self.bucket_capacity
         bucket = self.buckets[index]
         return bucket
 
     def delete_bucket(self, HashCode):
-        """ Deletes the bucket with the provided hash code. """
+        """ Deletes the bucket with the provided hash code.
+            This method is private. """
         index = HashCode % self.bucket_capacity
         self.buckets[index] = None
         self.bucket_count -= 1
@@ -111,7 +118,9 @@ class Hashtable(ITable):
                     yield item
 
     def to_list(self):
-        """ Gets the table's items as a read-only list. """
+        """ Gets the table's items as a read-only list.
+            The elements in this list are in the same order as those in the table's iterator, obtained through '__iter__' (the get iterator method).
+            Any statement that applies to this method therefore also applies to the '__iter__' (get iterator) method, and vice-versa. """
         # Post:
         # This method returns a read-only list that describes the items in this table.
         # Modifications to this list are not allowed - it is read-only.
@@ -126,7 +135,8 @@ class Hashtable(ITable):
 
     @property
     def bucket_capacity(self):
-        """ Gets the number of buckets in the table. """
+        """ Gets the number of buckets in the table.
+            This accessor is private. """
         return len(self.buckets)
 
     @property
@@ -136,7 +146,8 @@ class Hashtable(ITable):
 
     @key_map.setter
     def key_map(self, value):
-        """ Sets the record-to-key mapping function used by this hash table. """
+        """ Sets the record-to-key mapping function used by this hash table.
+            This accessor is private. """
         self.key_map_value = value
 
     @property
@@ -146,12 +157,14 @@ class Hashtable(ITable):
 
     @bucket_factory.setter
     def bucket_factory(self, value):
-        """ Sets the factory that is used to create new buckets for this hash table. """
+        """ Sets the factory that is used to create new buckets for this hash table.
+            This accessor is private. """
         self.bucket_factory_value = value
 
     @property
     def bucket_load_factor(self):
-        """ Gets the bucket load factor. """
+        """ Gets the bucket load factor.
+            This accessor is private. """
         return self.bucket_count / self.bucket_capacity
 
     @property

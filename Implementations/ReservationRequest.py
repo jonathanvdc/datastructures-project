@@ -23,7 +23,8 @@ class ReservationRequest:
 
     @number_of_seats.setter
     def number_of_seats(self, value):
-        """ Sets the number of seats this reservation requests. """
+        """ Sets the number of seats this reservation requests.
+            This accessor is private. """
         self.number_of_seats_value = value
 
     @property
@@ -33,7 +34,8 @@ class ReservationRequest:
 
     @customer.setter
     def customer(self, value):
-        """ Sets the user who placed this request. """
+        """ Sets the user who placed this request.
+            This accessor is private. """
         self.customer_value = value
 
     @property
@@ -43,7 +45,8 @@ class ReservationRequest:
 
     @timestamp.setter
     def timestamp(self, value):
-        """ Sets this reservation's timestamp. """
+        """ Sets this reservation's timestamp.
+            This accessor is private. """
         self.timestamp_value = value
 
     @property
@@ -53,5 +56,6 @@ class ReservationRequest:
 
     @showtime.setter
     def showtime(self, value):
-        """ Sets the showtime request this reservation was placed for. """
+        """ Sets the showtime request this reservation was placed for.
+            This accessor is private. """
         self.showtime_value = value
